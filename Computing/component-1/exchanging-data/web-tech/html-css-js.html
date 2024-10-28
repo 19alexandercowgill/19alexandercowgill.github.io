@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML, CSS, JavaScript | A-Level Computing</title>
+    <link rel="Stylesheet" href="/Computing/comp.css">
+    <link rel="Stylesheet" href="/Computing/markup.css">
+    <link rel="Stylesheet" href="/Computing/code-window.css">
+    <link rel="Stylesheet" href="/Computing/custom-tags.css">
+
+    <style>
+        #buildingblocks:hover::after {
+            content: " (basically)";
+        }
+    </style>
+</head>
+
+<body class="noto-sans">
+
+    <nav>
+        <div id="nav-top"></div>
+    </nav>
+    <header>
+        <h1 id="header">HTML, CSS, and JavaScript</h1>
+        <p id="buildingblocks">The building blocks of the web</p>
+    </header>
+    <main>
+
+
+        <div id="course-contents">
+            <div id="contents-container">
+                <h2>Contents</h2>
+                <div class="link overview-content contents-items">
+                    <a class="overview-item" href="#comp-1">Introduction</a>
+                    <a class="overview-item" href="#comp-2">HTML</a>
+                    <a class="overview-item" href="#comp-3">CSS</a>
+                    <a class="overview-item" href="#comp-4">JavaScript</a>
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <div id="course-overview">
+            <div id="comp-1">
+                <h3>Introduction</h3>
+                <div class="overview-content education">
+                    <p>HTML, CSS and JavaScript are the three main building blocks that make the web run.</p>
+                    <p>Using an analogy of a person, HTML could be described as the "bones" of the web, it provides the
+                        structure of every single
+                        webpage, CSS would be the clothes, as it makes the website look different, and JavaScript is like the
+                        muscles, as it allows the content to "move" and be interactive</p>
+                </div>
+            </div>
+            <div id="comp-2">
+                <h3>HTML</h3>
+                <div class="overview-content education">
+                    <p>HTML is an acronym for <b>H</b>yper<b>T</b>ext <b>M</b>arkup <b>L</b>anguage</p>
+                    <p>There are around 140 HTML elements.</p>
+
+                    <p>To make a HTML page, you need the following tags: </p>
+                    <ul style="list-style: none;">
+                        <li><code class="html-tag tag">html</code> - This tag is required to allow the
+                            browser to know that it is a HTML document.</li>
+                        <li><code class="html-tag tag">head</code> - This tag is needed to allow the browser
+                            to process the metadata about the webpage - it allows other tags, such as <code
+                                class="html-tag tag">meta</code> and <code class="html-tag tag">title</code> to give the
+                            page and web crawlers
+                            information</li>
+                        <li><code class="html-tag">body</code> - This tag is where all the visible
+                            content of the website can be found.</li>
+
+                    </ul>
+                    <p>HTML tags are not case-sensitive, so <code class="html-tag">&lt;html&gt;</code>, <code
+                            class="html-tag">&lt;HTML&gt;</code> or even <code class="html-tag">&lt;hTmL&gt;</code> will
+                        work perfectly fine. However, it is
+                        convention to create them in lowercase only </p>
+                    <p>Here is an example HTML page:</p>
+                    <div class="computer-container">
+                        <div class="computer-status-bar">
+                            <p class="code-language-declare">html</p>
+                        </div>
+                        <div class="code-content">
+                            <codeblock>
+                                <code class="html-tag tag code-bland">!DOCTYPE html</code>
+                                <code class="html-tag tag">html</code>
+                                <code class="html-tag tab tag">&lt;head</code>
+                                <code
+                                    class="html-tag double-tab tag">&lt;title&gt;<code class="code-bland">Page Title</code>&lt;/title</code>
+                                <code class="html-tag tab tag">&lt;/head</code>
+                                <code class="html-tag tab tag">&lt;body</code>
+                                <code
+                                    class="html-tag double-tab tag">&lt;h1&gt;<code class="code-bland">Hello, World!</code>&lt;/h1</code>
+                                <code class="html-tag tab tag">&lt;/body</code>
+                                <code class="html-tag tag">/html</code>
+
+
+                            </codeblock>
+                        </div>
+
+                    </div>
+                    <p>A tag can have attributes. These are pieces of information that the browser will use to change
+                        the behaviour of the tag</p>
+                    <p>Here is an example of an attribute, from the <code
+                            class="inline-code html-tag">&lt;html&gt;</code> tag:
+                        <code class="inline-code html-tag tag">html <code class="code-bland">lang=</code><code
+                            class="html-attribute">"en"</code></code>
+                    </p>
+                    <p>In this instance, the <code class=" inline-code attribute">lang</code> attribute tells the
+                        browser that the
+                        html page is in english or any other country code that could be there, for example <code
+                            class=" inline-code attribute">fr</code> for France</p>
+                    <p>There are other attributes that are useful:
+                        <code class="inline-code html-tag tag">p <code class="code-bland">id=</code><code
+                            class="attribute">id-1</code></code> and
+                        <code class="inline-code html-tag tag">p <code class="code-bland">class=</code><code
+                            class="html-attribute attribute">class-1</code></code>
+                    </p>
+
+                    <h4>Tags you <b>must</b> know for the exam:</h4>
+                    <ul class="clean-ul list-spacer">
+                        <li data-tooltip="HTML is the base of the website. Without it, the page won't render properly">
+                            <code class="inline-code html-tag tag">html</code>
+                        </li>
+                        <li
+                            data-tooltip="HEAD is the metadata sections of a webpage - it allows the browser to see things like the title, or other meta data">
+                            <code class="inline-code html-tag tag">head</code>
+                        </li>
+                        <li data-tooltip="LINK allows other documents, such as stylesheets to be added to the document">
+                            <code class="inline-code html-tag tag">link</code>
+                        </li>
+                        <li
+                            data-tooltip="TITLE is what appears in the tab at the top of the browser, and also the search history">
+                            <code class="inline-code html-tag tag">title</code>
+                        </li>
+                        <li data-tooltip="This is where all the visible elements can be found"><code
+                                class="inline-code html-tag tag">body</code></li>
+                        <li data-tooltip="H1 to H6 are headings, used to denote the page hierarchial structure"><code
+                                class="inline-code html-tag tag">h1</code></li>
+                        <li data-tooltip="An embedded image"><code class="inline-code html-tag tag">img</code></li>
+                        <li data-tooltip="A 'division' of a page"><code class="inline-code html-tag tag">div</code></li>
+                        <li data-tooltip="Anchor - a HyperLink. requires the href attribute to function"><code
+                                class="inline-code html-tag tag">a</code></li>
+                        <li
+                            data-tooltip="A JS form container the action paramater allows it to send you somewhere on submission, normally a php server">
+                            <code class="inline-code html-tag tag">form</code>
+                        </li>
+                        <li data-tooltip="An input - a text/number/date/button"><code
+                                class="inline-code html-tag tag">input</code></li>
+                        <li data-tooltip="A paragraph"><code class="inline-code html-tag tag">p</code></li>
+                        <li data-tooltip="An unordered (bullet point) list"><code
+                                class="inline-code html-tag tag">ul</code></li>
+                        <li data-tooltip="An ordered (1./a./i.) list"><code class="inline-code html-tag tag">ol</code>
+                        </li>
+                        <li data-tooltip="A list item, needs to be within a UL or OL list"><code
+                                class="inline-code html-tag tag">li</code></li>
+                        <li data-tooltip="Embedded JavaScript"><code class="inline-code html-tag tag">script</code></li>
+                    </ul>
+                    <h4>The <code class="html-tag tag">a</code> tag</h4>
+                    <p>This is an Anchor tag, it allows hyperlinks to other documents</p>
+                    <p>Here is the syntax:</p>
+                    <div class="code-example inline-code">
+                        <code class="html-tag">&lt;a <code class="html-attribute code-bland">href=</code><code
+                            class="html-attribute attribute">https://www.example.com/link/to/page</code>&gt;<code
+                            class="html-tag code-bland">Text To Display</code><code
+                            class="html-tag tag">/a</code></code>
+
+                    </div>
+                    <p>This would display as:</p>
+                    <a class="overview-item" href="https://www.example.com/link/to/page">Text to Display</a>
+                    <p>It, as all the other elements, would take in to account any CSS stylings</p>
+
+                    <h4>The <code class="html-tag tag">img</code> tag</h4>
+                    <p>This tag embeds an image onto the webpage</p>
+                    <p>It does not require a closing tag</p>
+                    <p>Here is an example of the syntax</p>
+                    <div class="code-example inline-code">
+                        <code class="html-tag">&lt;img <code class="html-attribute code-bland">src=</code><code
+                            class="html-attribute attribute">https://via.placeholder.com/100x100.png</code><code
+                            class="html-attribute code-bland"> alt=</code><code
+                            class="html-attribute attribute">A Placeholder Image</code><code
+                            class="html-attribute code-bland"> width=</code><code
+                            class="html-attribute attribute">100</code><code
+                            class="html-attribute code-bland"> height=</code><code
+                            class="html-attribute attribute">200</code>&gt;</code>
+
+                    </div>
+                    <p>This would render as:</p>
+                    <img src="https://via.placeholder.com/100x100.png" alt="Placeholder Image" width="100" height="100">
+                    <p>The <code class="inline-code html-attribute attribute">alt</code> attribute is needed for
+                        accessibility purposes, or in the event the image fails to load for any reason.</p>
+                </div>
+
+            </div>
+            <div id="comp-3">
+                <h3>CSS</h3>
+                <div class="overview-content education">
+                    <p>CSS is an acronym for <b>C</b>ascading <b>S</b>tyle <b>S</b>heets. Each style "cascades" down to
+                        each sub element, unless it is overriden. </p>
+                    <p>CSS is used to style webpages, and overall influence the look and feel</p>
+                    <p>It can be applied in three ways: Inline, Embedded, and External</p>
+                    <p>There are three ways that a style can be applied too: the HTML tag, a class, or an identifier
+                        (id)</p>
+                    <p>Styles are written with a semicolon (<code class="inline-code">;</code>) at the end of every
+                        statement. This allows the file to be minified to make it small enough to be used in production,
+                        where timing is crucial.</p>
+
+                    <h4>Inline Styles</h4>
+                    <p>A style can be used directly in a html tag using the <code
+                            class="inline-code">style=<code class="attribute ">key:value;</code></code> attribute</p>
+                    <p>For example: <code
+                            class="html-tag">&lt;p <code class="inline-code code-bland">style=<code class="attribute ">color:#f0f;</code></code>&gt;<code
+                            class="code-bland">Hello, World</code><code class="html-tag tag">/p</code></code>
+
+                        would render as:</p>
+                    <p style="color: #f0f;">Hello, World</p>
+
+                    <h4>Embedded Styles</h4>
+                    <p>Embedded Styles are within <code class="html-tag tag">style</code> tags</p>
+                    <p>These are written in the same way as inline, except they can be found without the attribute
+                        syntax so it would look like:</p>
+                    <div class="computer-container">
+                        <div class="computer-status-bar">
+                            <p class="code-language-declare">css</p>
+                        </div>
+                        <div class="code-content">
+                            <codeblock>
+                                <code class="css-selector">p<code class="code-bland"> {</code></code>
+                                <code class="css-key tab">color<code class="code-bland">: </code><code
+                                    class="css-value">#fof</code><code class="code-bland">;</code></code>
+
+                                <code class="code-bland"> }</code>
+
+
+                            </codeblock>
+                        </div>
+
+                    </div>
+                    <p>Convention says that there should be a space between the selector and <code
+                            class="inline-code">{</code> however, this is not stricly needed</p>
+                    <p>Embedded styles for a tag will apply to every one on the page</p>
+                    <p>An inline style takes precedence over the embedded styles</p>
+
+                    <h4>External Stylesheets</h4>
+                    <p>A drawback to using embedded and inline stylesheets, is for a large website, it will be hard to
+                        maintain, and time wasting to use the same code again and again. So Stylesheets can be linked
+                        externally to allow for one change "cascading" throughout the entire site. This means that the
+                        dev can have an easier job, and the entire site can be changed in a few clicks.</p>
+                    <p>An external stylesheet is linked using the <code class="inline-code html-tag tag">link</code> tag
+                        within the <code class="inline-code html-tag tag">head</code> of the page using the following
+                        syntax:</p>
+                    <div class="code-example">
+                        <code class="inline-code">
+                            <code class="html-tag">&lt;link <code class="code-bland">rel=</code><code
+                            class="attribute">stylesheet</code> <code class="code-bland">href=</code><code
+                            class="attribute">path/to/stylesheet.css</code>/&gt;</code>
+
+
+
+                        </code>
+                    </div>
+                    <p>External stylesheets can call others using the <code
+                            class="inline-code css-selector">@import</code> syntax</p>
+
+                    <h4>CSS keys you must know</h4>
+                    <ul class="clean-ul list-spacer">
+                        <li data-tooltip="The background color of an element"><code
+                                class="inline-code css-key ">background-color</code></li>
+                        <li data-tooltip="Sets the border color of an element"><code
+                                class="inline-code css-key ">border-color</code></li>
+                        <li data-tooltip="Sets the style of the border, for example, dotted, dashed or solid"><code
+                                class="inline-code css-key ">border-style</code></li>
+                        <li data-tooltip="Sets the thickness of the border"><code
+                                class="inline-code css-key ">border-width</code></li>
+                        <li data-tooltip="Can be a pre-determined (web safe) colour, or a hex code (#abcdef)"><code
+                                class="inline-code css-key ">color</code></li>
+                        <li data-tooltip="Sets the font. use a comma for a fallback"><code
+                                class="inline-code css-key ">font-family</code></li>
+                        <li data-tooltip="Sets the font size"><code class="inline-code css-key ">font-size</code></li>
+                        <li data-tooltip="Sets the height of an element"><code
+                                class="inline-code css-key ">height</code></li>
+                        <li data-tooltip="Sets the width of an element"><code class="inline-code css-key ">width</code>
+                        </li>
+                    </ul>
+                    <p>Notice that it uses the American spelling "color", not the British "Colour"</p>
+                </div>
+
+            </div>
+            <div id="comp-4">
+                <h3>JavaScript</h3>
+                <div class="overview-content education">
+                    <p>The Scripting Language of the web</p>
+                    <p>An alternative to WASM (Web Assembly)</p>
+                    <p>JavaScript can be found in two places: between <code
+                            class="inline-code html-tag tag">script</code> tags, or linked externally through a <code
+                            class="inline-code">script.js</code> file. </p>
+                    <h4>JavaScript Syntax</h4>
+                    <p>JavaScript is a dynamically typed language, which means that it will automatically cast any
+                        variables to the correct type for the operation. For example:</p>
+                    <div class="computer-container">
+                        <div class="computer-status-bar">
+                            <p class="code-language-declare">js</p>
+                        </div>
+                        <div class="code-content">
+                            <codeblock>
+                                <code><code class="javascript-keyword">let</code> i <code
+                                    class="javascript-operator">=</code> <code class="javascript-value">1</code>;</code>
+                                <code>i<code class="javascript-operator">--</code>;</code>
+                                <code>console.log(i <code class="javascript-operator">==</code> <code
+                                    class="javascript-keyword">false</code>);</code>
+                                <code><code class="javascript-comment">//outputs true</code></code>
+
+
+                            </codeblock>
+                        </div>
+                    </div>
+                    <p>This is unlike the <i>static</i> type languages such as Java or C#</p>
+                    <p>To declare a variable in JavaScript, you can use <code
+                            class="javascript-keyword inline-code">let</code>, <code
+                            class="javascript-keyword inline-code">var</code>, or <code
+                            class="javascript-keyword inline-code">const</code></p>
+                    <p><code class="javascript-keyword inline-code">const</code> defines a constant, a variable which
+                        can never change.</p>
+                    <p><code class="javascript-keyword inline-code">let</code> and <code
+                            class="javascript-keyword inline-code">var</code> are slightly different from eachother, but
+                        that is out of scope for the exam. (they are to do with the scope of the variable) </p>
+                    <p>JavaScript can be used to interact with the DOM (the webpage)</p>
+                    <p>You can use the following to select then modify a html element: </p>
+                    <div class="computer-container">
+                        <div class="computer-status-bar">
+                            <p class="code-language-declare">js</p>
+                        </div>
+                        <div class="code-content">
+                            <codeblock>
+                                <code><code class="javascript-keyword">const</code> element <code
+                                    class="javascript-operator">=</code> <code
+                                    class="javascript-operator ">document</code>.getElementByID("id");</code>
+                                <code><code class="javascript-comment">//This assumes you have a html tag with the id of "id"</code></code>
+                                <code>element.innerHTML<code class="javascript-operator"> = </code><code
+                                    class="javascript-value">"Hello World!"</code>;</code>
+                                <code><code class="javascript-comment">//This now changes the display from the element to "Hello World", or any text you put there. </code></code>
+
+
+                            </codeblock>
+                        </div>
+                    </div>
+                    <p>JS is used for more than simple modifications, it can be used for buttons, such as </p>
+                    <button onclick="alert('hello');">Click Me!</button>
+                    <p>where the <code class="inline-code html-attribute attribute">onclick</code> attribute can execute
+                        simple JavaScript </p>
+                    <p>For the exam, you will need to know how to make a HTML form, such as this:</p>
+                    <div id="form" class="code-example" style="padding: 10px;">
+                        <form action="/404.html" style="display: grid;">
+                            <label for="name">Enter your name: </label>
+                            <input type="text" name="name" id="name" required />
+                            <label for="age">Enter your age: </label>
+                            <input type="text" name="age" id="age" required />
+                            <hr>
+                            <input type="submit" value="Submit" />
+                        </form>
+
+                    </div>
+                    <blockquote class="code-example"
+                        style="border-left: 10px; border-color: white; border-style: solid; padding: 10px;">
+                        All input is evil, until proven otherwise
+                        <cite> - Michael Howard (Microsoft's former Chief Software Architect) </cite>
+                    </blockquote>
+                    <p>You must always ensure that you validate your user input, as it is dangerous to send unvalidated
+                        code to any server. Without it, you could be at risk of XSS and SQL injections, which could have
+                        bad consequences.</p>
+
+                    <p>To get the value of the form item, you can use:</p>
+                    <div class="computer-container">
+                        <div class="computer-status-bar">
+                            <p class="code-language-declare">js</p>
+                        </div>
+                        <div class="code-content">
+                            <codeblock>
+                                <code><code class="javascript-keyword">const</code> element <code
+                                    class="javascript-operator">=</code> <code
+                                    class="javascript-operator ">document</code>.getElementByID("id");</code>
+                                <code><code class="javascript-comment">//This assumes you have a html tag with the id of "id"</code></code>
+                                <code><code class="javascript-keyword">const</code> value <code
+                                    class="javascript-operator">=</code> <code
+                                    class="javascript-operator ">element</code>.value;</code>
+                                <code><code class="javascript-comment">//or element.innerHTML is it's not in a form </code></code>
+
+
+                            </codeblock>
+                        </div>
+                    </div>
+                    <h4>JavaScript Runtimes</h4>
+                    <p>In JavaScript, semi-colons are optional, but conventional, as it is based on the Java programming language. </p>
+                    <p>JavaScript is interpreted, not compiled for the same reason Java only compiles half way, "Write once, run anywhere"
+                    This is not entirely true, as not all js features are supported by all platforms</p>
+                    <p>JavaScript is NOT an interpreted version of Java, the deprecated <code class="html-tag tag">applet</code> tag is used for that. They are no longer related in any way!!</p>
+                    <p>Read more about JavaScript <a style="text-decoration-line: underline;" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide">here</a></p>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <br>
+    </main>
+    <footer id="footer">
+
+    </footer>
+
+    <script src="/Computing/components.js"></script>
+</body>
+
+</html>
