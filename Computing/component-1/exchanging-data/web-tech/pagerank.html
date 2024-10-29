@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PageRank Algorithm | A-Level Computing</title>
+    <link rel="Stylesheet" href="/Computing/comp.css">
+    <link rel="Stylesheet" href="/Computing/markup.css">
+    <link rel="Stylesheet" href="/Computing/code-window.css">
+    <link rel="Stylesheet" href="/Computing/custom-tags.css">
+
+    <style>
+        #add:hover::before {
+            content: "Fancy ";
+        }
+    </style>
+</head>
+
+<body class="noto-sans">
+
+    <nav>
+        <div id="nav-top"></div>
+    </nav>
+    <header>
+        <h1 id="header">The PageRank Algorithm</h1>
+        <p id="add">Algorithm to rank how high a site appears on search</p>
+    </header>
+    <main>
+
+
+        <div id="course-contents">
+            <div id="contents-container">
+                <h2>Contents</h2>
+                <div class="link overview-content contents-items">
+                    <a class="overview-item" href="#comp-1">Introduction</a>
+                    <a class="overview-item" href="#comp-2">PageRank</a>
+                    <a class="overview-item" href="#comp-3">Robots</a>
+                    <a class="overview-item" href="#comp-4">Guesswork</a>
+                 
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <div id="comp-1">
+            <h3>Introduction</h3>
+            <div class="overview-content education">
+                <p>The PageRank algorithm was developed by Google's founder, Larry Page</p>
+            </div>
+        </div>
+        <div id="comp-2">
+            <h3>PageRank Algorithm</h3>
+            <div class="overview-content education">
+                <p>It works by taking a webpage, and using the number, and quality of the links</p>
+                <p>Makes the assumption that more important pages are more likely to be linked to</p>
+                <p>It takes into account the inbound (from other sites) and outbound (to other sites)</p>
+                <p>A vote of 1 is shared between all the pages a page links to</p>
+
+
+                
+            </div>
+
+        </div>
+
+
+        <div id="comp-3">
+            <h3>Dampening</h3>
+            <div class="overview-content education">
+                
+                <p>One page shouldn't have dominance over the entire site.</p>
+                <p>A dampening factor, usually <math>0.85</math> is used to stop that from happening</p>
+                <p><math>0.85</math> is normally used because the average browsing session is 6 clicks</p>
+            </div>
+
+        </div>
+        <div id="comp-4">
+            <h3>Guesswork</h3>
+            <div class="overview-content education">
+                <p>The PageRank algorithm uses some guesswork to make an informed guess of the rank of the page, it is not a definitive solution to the problem of webpage relevance</p>
+                <p>It can iterate 100s to 1,000,000s of times depending on the scenario</p>
+                <p>However, the average rank of all the pages should end up at 1</p>
+                <p>This algorithm is smart enough to know the rank, even without knowing all the backlinks</p>
+            </div>
+
+        </div>
+
+
+
+        <br>
+    </main>
+    <footer id="footer">
+
+    </footer>
+
+    <script src="/Computing/components.js"></script>
+</body>
+
+</html>

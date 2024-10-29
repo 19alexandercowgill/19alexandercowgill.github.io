@@ -183,7 +183,7 @@ header {
     left: 0;
     top: 237px;
     width: 10vw;
-    height: 80vh;
+    min-height: 80vh;
     background-color: #38383d;
     padding: 10px;
     border-bottom-right-radius: 15px;

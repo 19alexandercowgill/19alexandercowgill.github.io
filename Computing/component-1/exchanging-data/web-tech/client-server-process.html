@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client and Server Processing | A-Level Computing</title>
+    <link rel="Stylesheet" href="/Computing/comp.css">
+    <link rel="Stylesheet" href="/Computing/markup.css">
+    <link rel="Stylesheet" href="/Computing/code-window.css">
+    <link rel="Stylesheet" href="/Computing/custom-tags.css">
+
+    <style>
+        #add:hover::after {
+            content: "(not me!) ";
+        }
+    </style>
+</head>
+
+<body class="noto-sans">
+
+    <nav>
+        <div id="nav-top"></div>
+    </nav>
+    <header>
+        <h1 id="header">Client and Server Processing</h1>
+        <p id="add">Who's doing the heavy lifting? </p>
+    </header>
+    <main>
+
+
+        <div id="course-contents">
+            <div id="contents-container">
+                <h2>Contents</h2>
+                <div class="link overview-content contents-items">
+                    <a class="overview-item" href="#comp-1">Introduction</a>
+                    <a class="overview-item" href="#comp-2">Static vs Dynamic Websites</a>
+                    <a class="overview-item" href="#comp-3">Choosing between Client and Server</a>
+                    <a class="overview-item" href="#comp-4">Why use Client Side</a>
+                    <a class="overview-item" href="#comp-5">Why use Server Side</a>
+                 
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <div id="comp-1">
+            <h3>Introduction</h3>
+            <div class="overview-content education">
+                <p>Things can be processed in two places: the Client, or the Server</p>
+                <p>Each method has its benefits and drawbacks</p>
+            </div>
+        </div>
+        <div id="comp-2">
+            <h3>Static vs Dynamic Websites</h3>
+            <div class="overview-content education">
+                <p>Some websites, such as this one, do not have a proper server behind them. The client can only make <code class="inline-code">GET</code> requests, meaning the server can only serve html and other content. </p>
+                <p>This is known as a "Static" site, as nothing can change on it</p>
+                <p>However, if I were to add a login form, the site would need to have a proper server, to be able to look up your account against a database</p>
+                <p>The client would need to be able to send a <code class="inline-code">POST</code> request to the server, allowing it to process the login details.</p>
+                <p>This is a "Dynamic" site, it changes based on the server's output</p>
+
+
+                
+            </div>
+
+        </div>
+
+
+        <div id="comp-3">
+            <h3>Choosing between Client and Server</h3>
+            <div class="overview-content education">
+                
+                <p>Many things need to be taken into account when deciding where data is processed.</p>
+                <p>Security, Performance and Usability are the three main deciding factors</p>
+            </div>
+
+        </div>
+        <div id="comp-4">
+            <h3>Why use Client Side</h3>
+            <div class="overview-content education">
+                <p>Client side processing is usually done with JavaScript, which allows for things such as the initial data validation to take place. This would be much better for the server, as it wouldn't need to process every single request.</p>
+                <p>Other client side processings are the stylings, and manipulation of the UI, which are done on the local browser. However, this could be seen as an issue, where not all browsers support every web feature. </p>
+            </div>
+
+        </div>
+
+        <div id="comp-5">
+            <h3>Why use Server Side</h3>
+            <div class="overview-content education">
+                <p>Server side would be seen as better in regards to security. Client side processing is prone to XSS and other malicious activities, especially if the inputs aren't validated properly because of that.</p>
+                <p>A server can do the final step in validation, keeping it's database safe</p>
+                <p>However, if the security is not good enough, they could be prone to SQL injections, possibly damaging the database</p>
+                <br>
+                <p>Server side rendering can be useful, as the client can recieve a page without needing to process any other aspects of it, rather than waiting for things like css and js files to load in. </p>
+                <p>Using the server too much will slow it down, especially when web traffic increases, meaning that client side is equally important</p>
+            </div>
+
+        </div>
+
+        <br>
+    </main>
+    <footer id="footer">
+
+    </footer>
+
+    <script src="/Computing/components.js"></script>
+</body>
+
+</html>
