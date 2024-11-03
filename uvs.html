@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UV Coordinate Calculator</title>
+</head>
+<body>
+    <h2>UV Coordinate Calculator</h2>
+
+    <label>Texture Atlas Width (pixels):</label>
+    <input type="number" id="atlasWidth" value="256"><br>
+
+    <label>Texture Atlas Height (pixels):</label>
+    <input type="number" id="atlasHeight" value="256"><br><br>
+
+    <label>Tile Start X (pixels):</label>
+    <input type="number" id="tileX" placeholder="e.g., 16"><br>
+
+    <label>Tile Start Y (pixels):</label>
+    <input type="number" id="tileY" placeholder="e.g., 16"><br><br>
+
+    <label>Tile Width (pixels):</label>
+    <input type="number" id="tileWidth" value="16"><br>
+
+    <label>Tile Height (pixels):</label>
+    <input type="number" id="tileHeight" value="16"><br><br>
+
+    <button onclick="calculateUV()">Calculate UV Coordinates</button>
+
+    <h3>UV Coordinates:</h3>
+    <p id="uvOutput"></p>
+
+    <script>
+        function calculateUV() {
+            const atlasWidth = parseFloat(document.getElementById('atlasWidth').value);
+            const atlasHeight = parseFloat(document.getElementById('atlasHeight').value);
+            const tileX = parseFloat(document.getElementById('tileX').value);
+            const tileY = parseFloat(document.getElementById('tileY').value);
+            const tileWidth = parseFloat(document.getElementById('tileWidth').value);
+            const tileHeight = parseFloat(document.getElementById('tileHeight').value);
+
+            // Calculate UV coordinates
+            const uvBottomLeft = { u: tileX / atlasWidth, v: tileY / atlasHeight };
+            const uvTopLeft = { u: tileX / atlasWidth, v: (tileY + tileHeight) / atlasHeight };
+            const uvTopRight = { u: (tileX + tileWidth) / atlasWidth, v: (tileY + tileHeight) / atlasHeight };
+            const uvBottomRight = { u: (tileX + tileWidth) / atlasWidth, v: tileY / atlasHeight };
+
+            // Display the results
+            document.getElementById('uvOutput').innerHTML = `
+                Bottom-Left: (${uvBottomLeft.u.toFixed(4)}, ${uvBottomLeft.v.toFixed(4)})<br>
+                Top-Left: (${uvTopLeft.u.toFixed(4)}, ${uvTopLeft.v.toFixed(4)})<br>
+                Top-Right: (${uvTopRight.u.toFixed(4)}, ${uvTopRight.v.toFixed(4)})<br>
+                Bottom-Right: (${uvBottomRight.u.toFixed(4)}, ${uvBottomRight.v.toFixed(4)})
+            `;
+        }
+    </script>
+</body>
+</html>
