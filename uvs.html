@@ -26,10 +26,13 @@
     <label>Tile Height (pixels):</label>
     <input type="number" id="tileHeight" value="16"><br><br>
 
+    <label>Comment (e.g., GRASS):</label>
+    <input type="text" id="comment" placeholder="e.g., GRASS"><br><br>
+
     <button onclick="calculateUV()">Calculate UV Coordinates</button>
 
-    <h3>UV Coordinates:</h3>
-    <p id="uvOutput"></p>
+    <h3>Formatted UV Output:</h3>
+    <pre id="uvOutput"></pre>
 
     <script>
         function calculateUV() {
@@ -39,6 +42,7 @@
             const tileY = parseFloat(document.getElementById('tileY').value);
             const tileWidth = parseFloat(document.getElementById('tileWidth').value);
             const tileHeight = parseFloat(document.getElementById('tileHeight').value);
+            const comment = document.getElementById('comment').value;
 
             // Calculate UV coordinates
             const uvBottomLeft = { u: tileX / atlasWidth, v: tileY / atlasHeight };
@@ -46,13 +50,17 @@
             const uvTopRight = { u: (tileX + tileWidth) / atlasWidth, v: (tileY + tileHeight) / atlasHeight };
             const uvBottomRight = { u: (tileX + tileWidth) / atlasWidth, v: tileY / atlasHeight };
 
-            // Display the results
-            document.getElementById('uvOutput').innerHTML = `
-                Bottom-Left: (${uvBottomLeft.u.toFixed(4)}, ${uvBottomLeft.v.toFixed(4)})<br>
-                Top-Left: (${uvTopLeft.u.toFixed(4)}, ${uvTopLeft.v.toFixed(4)})<br>
-                Top-Right: (${uvTopRight.u.toFixed(4)}, ${uvTopRight.v.toFixed(4)})<br>
-                Bottom-Right: (${uvBottomRight.u.toFixed(4)}, ${uvBottomRight.v.toFixed(4)})
-            `;
+            // Format the output to match the requested format
+            const output = `// ${comment.toUpperCase()}
+            new Vector2f(${uvBottomLeft.u.toFixed(4)}f, ${uvBottomLeft.v.toFixed(4)}f),
+            new Vector2f(${uvTopLeft.u.toFixed(4)}f, ${uvTopLeft.v.toFixed(4)}f),
+            new Vector2f(${uvTopRight.u.toFixed(4)}f, ${uvTopRight.v.toFixed(4)}f),
+            new Vector2f(${uvTopRight.u.toFixed(4)}f, ${uvTopRight.v.toFixed(4)}f),
+            new Vector2f(${uvBottomRight.u.toFixed(4)}f, ${uvBottomRight.v.toFixed(4)}f),
+            new Vector2f(${uvBottomLeft.u.toFixed(4)}f, ${uvBottomLeft.v.toFixed(4)}f),`;
+
+            // Display the formatted output
+            document.getElementById('uvOutput').textContent = output;
         }
     </script>
 </body>
