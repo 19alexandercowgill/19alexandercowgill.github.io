@@ -70,10 +70,17 @@ header {
     padding: 10px 20px;
 }
 
+h1 #title-link {
+    margin-left: 0px;
+    padding-left: 0%;
+}
+
+
 #links {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+
 }
 
 .link {
@@ -178,11 +185,15 @@ header {
 }
 
 #contents-container {
-
+    display: flex;
+    flex-wrap: wrap;
+    text-wrap: wrap;
+    word-wrap: break-word;
     position: absolute;
     left: 0;
     top: 237px;
-    width: 10vw;
+
+    max-width: 15vw;
     min-height: 80vh;
     background-color: #38383d;
     padding: 10px;
@@ -192,6 +203,38 @@ header {
     scrollbar-width: none;
 }
 
+@media (max-width: 600px) {
+    #contents-container {
+        display: block;
+
+
+        position: static;
+        min-width: 100%;
+        max-width: unset;
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: center;
+    }
+
+    #contents-container h2 {
+        display: grid;
+
+        text-align: center;
+    }
+
+    #contents-container .overview-item {
+        min-width: 70px
+    }
+
+    #contents-container .contents-items {
+        display: inline flex;
+       
+
+        flex-wrap: wrap;
+
+    }
+
+}
 
 .contents-items {
     display: grid;
@@ -217,7 +260,7 @@ header {
 
 .list-spacer li {
     position: relative;
-  
+
 }
 
 .list-spacer li:hover::after {
@@ -244,5 +287,5 @@ header {
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    
+
 }
