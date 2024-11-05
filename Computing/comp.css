@@ -193,7 +193,7 @@ h1 #title-link {
     left: 0;
     top: 237px;
 
-    max-width: 15vw;
+    max-width: 18vw;
     min-height: 80vh;
     background-color: #38383d;
     padding: 10px;
@@ -204,6 +204,7 @@ h1 #title-link {
 }
 
 @media (max-width: 600px) {
+    
     #contents-container {
         display: block;
 
@@ -211,6 +212,8 @@ h1 #title-link {
         position: static;
         min-width: 100%;
         max-width: unset;
+        
+
         margin-left: auto;
         margin-right: auto;
         justify-content: center;
