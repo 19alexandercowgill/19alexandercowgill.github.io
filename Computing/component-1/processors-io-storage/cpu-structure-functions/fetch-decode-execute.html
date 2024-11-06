@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch, Decode, Execute Cycle | A-Level Computing</title>
+    <link rel="Stylesheet" href="/Computing/comp.css">
+
+    <link rel="Stylesheet" href="/Computing/markup.css">
+    <style>
+        #add:hover::after {
+            content: " (very fast) ";
+        }
+    </style>
+</head>
+
+<body class="noto-sans">
+
+    <nav>
+        <div id="nav-top"></div>
+    </nav>
+    <header>
+        <h1 id="header">Fetch, Decode, Execute Cycle</h1>
+        <p><span id="add">the</span> "tick tock" of the cpu clock</p>
+    </header>
+    <main>
+
+
+        <div id="course-contents">
+            <div id="contents-container">
+                <h2>Contents</h2>
+                <div class="link overview-content contents-items">
+                    <a class="overview-item" href="#comp-1">Introduction</a>
+                    <a class="overview-item" href="#comp-2">Fetch</a>
+                    <a class="overview-item" href="#comp-3">Decode</a>
+                    <a class="overview-item" href="#comp-4">Execute</a>
+                    <a class="overview-item" href="#comp-5">Branching</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="comp-1">
+            <h3>Introduction</h3>
+            <div class="overview-content education">
+                <p>A computer is a machine which takes an input, processes the data, and produces an output. To process the data, the computers follow a set of instructions, known as a program.</p>
+                <p>The program is stored in the memory, the CPU executes it. </p>
+            </div>
+        </div>
+        <div id="comp-2">
+            <h3>Fetch</h3>
+            <div class="overview-content education">
+                <p>The Program Counter (PC) is checked - it holds the memory address of the next instruction that will be executed</p>
+                <p>The Memory Address Register (MAR) copies the PC's output</p>
+                <p>The address is sent along the address bus to the memory where it awaits a read signal by the Control Unit (CU)</p>
+                <p>The CU will send along the control bus a read signal</p>
+                <p>The contents of the main memory at the specified memory address can be sent along the data bus to the MDR</p>
+                <p> If the CPU is fetching an instruction, the data in the MDR gets copied to the Current Instruction Register (CIR)</p>
+                <p>Now it's been fetched, the PC increments to the next instruction address to be executed</p>
+            </div>
+
+        </div>
+
+
+        <div id="comp-3">
+            <h3>Decode</h3>
+            <div class="overview-content education">
+
+                <p>CPU instructions are made up of two parts: the op-code and the operand</p>
+                <p>The op-code is the actual instruction, such as <code class="inline-code">LDA</code> (load from memory address) or <code class="inline-code">ADD</code></p>
+                <p>The operand is the actual data, such as <code class="inline-code">0xf0</code></p>
+                <p>If it is an instruction that is loaded, it gets sent to the ALU's accumulator</p>
+
+            </div>
+
+        </div>
+        <div id="comp-4">
+            <h3>Execute</h3>
+            <div class="overview-content education">
+
+                <p>Now that we have our instruction, we can actually do something with it</p>
+                <p>The memory address is sent to the MAR</p>
+                <p>If there is an instruction, it awaits a read signal from the control bus</p>
+                <p>The data is sent along the data bus back to the CPU MDR</p>
+                <p>The contents is copied to the accumulator</p>
+                <p>The cycle is now complete</p>
+            </div>
+
+        </div>
+        <div id="comp-5">
+            <h3>Branching</h3>
+            <div class="overview-content education">
+
+                <p>The PC normally increments by 1 every time an instruction is executed</p>
+                <p>However, this is not always the case - <code class="inline-code">if () {} else {}</code> statements would cause some lines to be skipped</p>
+                <p>The CIR has some instructions for branching:</p>
+                <ul class="clean-ul list-spacer">
+                    <li data-tooltip="Branch always"><code class="inline-code">BRA</code></li>
+                    <li data-tooltip="Branch if 0"><code class="inline-code">BRZ</code></li>
+                    <li data-tooltip="Branch if positive"><code class="inline-code">BRP</code></li>
+                </ul>
+                <p>These replace the values in the PC with the contents of the operand in the CIR</p>
+                <p>When each fetch-execute cycle begins, these are checked</p>
+                <p>The program would "jump" to the memory address specified</p>
+            </div>
+
+        </div>
+       
+        
+        <br>
+    </main>
+    <footer id="footer">
+
+    </footer>
+
+    <script src="/Computing/components.js"></script>
+</body>
+
+</html>
