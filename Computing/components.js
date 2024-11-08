@@ -61,6 +61,8 @@ function addGoogleAnalytics() {
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-L5GVQ7QBYJ');
+    gtag('config', 'GA_TRACKING_ID', { 'anonymize_ip': true });
+
   `;
 
   // Append both scripts to the head
