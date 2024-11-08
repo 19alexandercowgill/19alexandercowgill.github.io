@@ -48,27 +48,3 @@ function getFooter() {
 
 getNav()
 getFooter()
-function addGoogleAnalytics() {
-  // Create the first script element for gtag.js
-  const gtagScript = document.createElement('script');
-  gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-L5GVQ7QBYJ';
-  gtagScript.async = true;
-
-  // Create the second script element for initializing Google Analytics
-  const initScript = document.createElement('script');
-  initScript.textContent = `
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-L5GVQ7QBYJ');
-    gtag('config', 'GA_TRACKING_ID', { 'anonymize_ip': true });
-
-  `;
-
-  // Append both scripts to the head
-  document.head.appendChild(gtagScript);
-  document.head.appendChild(initScript);
-}
-
-// Call the function to add the Google Analytics tag
-addGoogleAnalytics();
