@@ -1,0 +1,80 @@
+@import url(https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0);
+.material-symbols-outlined {
+    color: white;
+    font-size: inherit;
+}
+
+
+:root {
+    background-color: black;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+#status-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px; 
+    background-color: #010101; 
+    color: white; 
+}
+#status-bar-left,
+#status-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+}
+
+#status-bar-middle {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold; 
+}
+#navigation-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 8px 16px;
+    background-color: #010101;
+    color: white;
+    position: fixed; /* Fixes the bar to the viewport */
+    bottom: 0; /* Positions it at the bottom */
+    left: 0;
+    width: 100%; /* Ensures it spans the full width */
+    font-size: 34px;
+    z-index: 10; /* Ensures it stays above other content */
+    pointer-events: all;
+}
+
+.nav-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    cursor: pointer; /* Ensures it looks clickable */
+    transition: background-color 0.3s ease-in-out, transform 0.2s; /* Smooth transition for background and scaling */
+}
+
+/* Hover effect for the button container */
+.nav-button-container:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Light background on hover */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+.pointer-yes{
+    pointer-events: all;
+}
+#main{
+    width: 100vw;
+    height: 84vh;
+}
+#main iframe {
+    width: inherit;
+    height: inherit;
+}

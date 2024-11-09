@@ -2,88 +2,53 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>Home | Alexander Cowgill</title>
-    <link rel="stylesheet" href="/Computing/comp.css">
-    <link rel="stylesheet" href="./styles.css">
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/global.css" />
+    <script src="time.js"></script>
+    <title>Android Experience</title>
 </head>
 
 <body>
-    
-    <h1>Alexander Cowgill</h1>
-<!--
-    
-    <h2>Qualifications</h2>
-    <p>Below, you can find my Qualifications so far</p>
-    <ul>
-        <li>Bronze DofE Award</li>
-    </ul>
-    <h3>GCSE Results</h3>
-    <table class="border-green">
-        <thead>
-            <tr>
-                <th>Subject</th>
-                <th>Exam Board</th>
-                <th>Grade</th>
+    <div id="status-bar">
+        <div id="status-bar-left">
+            <div id="time"></div>
+        </div>
+        <div id="status-bar-middle">
 
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Computer Science</td>
-                    <td>OCR</td>
-                    <td>7</td>
-                </tr>
-                <tr>
-                    <td>English Language</td>
-                    <td>AQA</td>
-                    <td>9</td>
-                </tr>
-                <tr>
-                    <td>English Literature</td>
-                    <td>AQA</td>
-                    <td>7</td>
-                </tr>
-                <tr>
-                    <td>French</td>
-                    <td>AQA</td>
-                    <td>7</td>
-                </tr>
+            <span class="material-symbols-outlined">circle</span>
+        </div>
+        <div id="status-bar-right">
+            <span class="material-symbols-outlined">alarm</span>
+            <span class="material-symbols-outlined">no_sound</span>
+            <span id="wifi-status" class="material-symbols-outlined">wifi</span>
+            <span id="quality-status" class="material-symbols-outlined">signal_cellular_alt</span>
+            <span id="battery-icon" class="material-symbols-outlined">battery_unknown</span>
+            <span id="battery-percent"></span>
+        </div>
 
-            <tr>
-                <td>Geography</td>
-                <td>Exexcel</td>
-                <td>6</td>
-            </tr>
-            <tr>
-                <td>RE</td>
-                <td>WJEC</td>
-                <td>6</td>
-            </tr>
-            <tr>
-                <td>Combined Science</td>
-                <td>AQA</td>
-                <td>7-7</td>
-            </tr>
-            <tr>
-                <td>Math</td>
-                <td>Edexcel</td>
-                <td>7</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-<br>
--->
-<nav>
-    <div id="nav-top"></div>
-</nav>
-<br>
-<footer id="footer">
-           
-</footer>
-<script src="/Computing/components.js"></script>
+    </div>
+    <div id="main" class="pointer-yes">
+        <iframe style="background-color: white;" id="main-content" src="https://19alexandercowgill.github.io/Computing"></iframe>
+    </div>
+
+    <div id="navigation-bar">
+        <div id="back-button" class="nav-button-container"><span class="material-symbols-outlined">arrow_back_2</span></div>
+        <div id="home-button" class="nav-button-container"><span class="material-symbols-outlined">home</span></div>
+        <div id="recents-button" class="nav-button-container"><span class="material-symbols-outlined">menu</span></div>
+    </div>
+
+
+    <script src="time.js"></script>
+    <script src="battery.js"></script>
+    <script src="network.js"></script>
+    <script>
+        const home = document.getElementById("home-button");
+        home.addEventListener("click", function(){
+            document.getElementById("main-content").setAttribute("src", "https://19alexandercowgill.github.io/Computing/")
+        }
+    )
+    </script>
 </body>
 
 </html>
