@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta Tag Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        label { display: block; margin-top: 10px; }
+        input, textarea { width: 100%; padding: 8px; margin-top: 5px; }
+        button { margin-top: 20px; padding: 10px 20px; }
+        #output { margin-top: 20px; background: #f4f4f4; padding: 15px; border: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+
+<h1>Meta Tag Generator</h1>
+
+<form id="metaForm">
+    <label for="title">Title</label>
+    <input type="text" id="title" placeholder="Page title...">
+
+    <label for="description">Description</label>
+    <input type="text" id="description" placeholder="Brief page description...">
+
+    <label for="keywords">Keywords (comma-separated)</label>
+    <input type="text" id="keywords" placeholder="keyword1, keyword2, keyword3">
+
+    <label for="author">Author</label>
+    <input type="text" id="author" placeholder="Your name...">
+
+    <label for="url">Page URL</label>
+    <input type="text" id="url" placeholder="https://example.com/page">
+
+   
+
+    <button type="button" onclick="generateMetaTags()">Generate Meta Tags</button>
+</form>
+
+<div id="output">
+    <h2>Generated Meta Tags:</h2>
+    <pre id="metaOutput"></pre>
+</div>
+
+<script>
+    function generateMetaTags() {
+        const title = document.getElementById('title').value;
+        const description = document.getElementById('description').value;
+        const keywords = document.getElementById('keywords').value;
+        const author = document.getElementById('author').value;
+        const url = document.getElementById('url').value;
+        //const image = document.getElementById('image').value;
+
+        // Escape HTML characters to prevent XSS
+        function escapeHtml(str) {
+            return str.replace(/&/g, "&amp;")
+                      .replace(/</g, "&lt;")
+                      .replace(/>/g, "&gt;")
+                      .replace(/"/g, "&quot;")
+                      .replace(/'/g, "&#039;");
+        }
+
+        // Construct the meta tag HTML safely
+        const metaTags = `
+
+<meta name="description" content="${escapeHtml(description)}">
+<meta name="keywords" content="${escapeHtml(keywords)}">
+<meta property="og:title" content="${escapeHtml(title)}">
+<meta property="og:description" content="${escapeHtml(description)}">
+<meta property="og:url" content="${escapeHtml(url)}">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${escapeHtml(title)}">
+<meta name="twitter:description" content="${escapeHtml(description)}">
+
+`;
+
+        // Display the generated meta tags in the output area safely
+        document.getElementById('metaOutput').textContent = metaTags;
+    }
+</script>
+
+</body>
+</html>
