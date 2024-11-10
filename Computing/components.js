@@ -2,6 +2,7 @@ function getNav() {
     const navBar = document.getElementById("nav-top")
     navBar.innerHTML = `<h1 id="title"><a id="title-link" href="/Computing/">Computing</a></h1>
             <div id="links">
+            <menu>
                 <li tabindex="0" class="nav-item has-dropdown link">
                     <a tabindex="0" href="#">Component 1</a>
                     <ul class="dropdown">
@@ -37,6 +38,7 @@ function getNav() {
                         <li class="dropdown-item"><a tabindex="0" href="/Computing/component-3/">Component 3</a></li>
                     </ul>
                 </li>
+                </menu>
             </div>`
 }
 
