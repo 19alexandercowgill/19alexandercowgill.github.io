@@ -42,7 +42,7 @@ function getNav() {
 
 function getFooter() {
     const footer = document.getElementById("footer")
-    footer.innerHTML = ` <p>2024 Alexander Cowgill</p><p style="background-color:gray;border-radius:15px;padding:10px">This site is under construction. Not all pages will exist yet. <a href="/404.html">404</a></p><p>Found an issue? Report it at <a style="text-decoration:solid; text-decoration-line: underline;" href="https://github.com/19alexandercowgill/19alexandercowgill.github.io/issues/new">GitHub Issues<a>`
+    footer.innerHTML = ` <p>2024 Alexander Cowgill</p><p style="background-color:gray;border-radius:15px;padding:10px">This site is under construction. Not all pages will exist yet. <a href="/404.html">404</a></p><p>Found an issue? Report it at <a style="text-decoration:solid; text-decoration-line: underline;" href="https://github.com/19alexandercowgill/19alexandercowgill.github.io/issues/new">GitHub Issues</a>`
 }
 
 
