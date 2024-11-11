@@ -1,0 +1,238 @@
+:root {
+    /* Background Colors */
+    --background-color-main: #121212; /* Primary dark background */
+    --background-color-surface: #1e1e1e; /* Surface background for raised elements */
+    --background-color-hover: #333333; /* Hover effect for backgrounds */
+
+    /* Primary Colors */
+    --primary-color: #bb86fc; /* Primary accent (purple) */
+    --primary-color-light: #d4a8ff; /* Lighter shade of primary */
+    --primary-color-dark: #9b55e3; /* Darker shade of primary */
+    --primary-text-color-on-primary: #ffffff; /* Text on primary accent */
+
+    /* Secondary Colors */
+    --secondary-color: #03dac6; /* Secondary accent (teal) */
+    --secondary-color-light: #6effe8; /* Lighter shade of secondary */
+    --secondary-color-dark: #00a896; /* Darker shade of secondary */
+    --secondary-text-color-on-secondary: #000000; /* Text on secondary accent */
+
+    /* Text Colors */
+    --primary-text-color: #ffffff; /* Main text color */
+    --secondary-text-color: #a1a1a1; /* Secondary, muted text color */
+    --disabled-text-color: #666666; /* Disabled text color */
+
+    /* Additional Colors */
+    --error-color: #cf6679; /* Error state */
+    --warning-color: #ffa726; /* Warning state */
+    --success-color: #4caf50; /* Success state */
+    --info-color: #2196f3; /* Information state */
+
+    /* Border and Divider Colors */
+    --divider-color: #303030; /* Dividers */
+    --border-color: #424242; /* Border color for inputs/buttons */
+
+    /* Hover Effects */
+    --hover-color: rgba(255, 255, 255, 0.08); /* Overlay for hover on dark backgrounds */
+    --focus-color: rgba(255, 255, 255, 0.12); /* Overlay for focus on dark backgrounds */
+    --transition-duration-fast: 200ms;
+    --transition-duration-default: 300ms;
+    --transition-duration-entering: 225ms;
+    --transition-duration-leaving: 195ms;
+    --transition-timing-sharp: cubic-bezier(0.4, 0, 0.6, 1);
+    --transition-timing-smooth: cubic-bezier(0.0, 0, 0.2, 1);
+
+    --spacing-unit: 8px;
+    --border-radius: 4px;
+    background-color: var(--background-color-main);
+    color: var(--primary-text-color);
+    font-family: system-ui, 'Segoe UI', Arial;
+    width: 100vw;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    color: inherit;
+    font-size: 16px;
+    vertical-align: baseline;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+#navigation-container {
+    display: flex;
+    background-color: var(--primary-color-dark);
+    color: var(--primary-text-color);
+    align-items: center;
+    justify-content: space-between;
+    padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 3);
+    box-shadow: 0 0px 9px var(--primary-color-dark);
+}
+
+#links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--spacing-unit) * 2);
+}
+
+#contents {
+   
+    max-width: 100%; /* Ensures the container can grow but not exceed its parent width */
+    width: auto; /* Automatically adjusts to content width */
+    background-color: var(--primary-color-dark);
+    color: var(--primary-text-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-unit);
+    text-align: center;
+    font-size: 24px;
+}
+
+
+.center-both {
+    position: absolute; /* Can also be `fixed` */
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    max-height: 80%;
+    width: 80%;
+    max-width: 600px; /* Added max-width for better control */
+}
+
+#main-header {
+    font-size: 64px;
+    text-align: center;
+    margin-bottom: var(--spacing-unit);
+}
+
+.contents-divider {
+    border-color: var(--divider-color);
+}
+
+#contents menu li:hover {
+    background-color: var(--primary-color);
+    transition: 250ms var(--transition-timing-sharp);
+}
+
+#contents menu li {
+    background-color: unset;
+    border-radius: var(--border-radius);
+    padding: var(--spacing-unit);
+    transition: 200ms var(--transition-timing-sharp);
+}
+
+#contents li {
+    cursor: pointer;
+}
+
+.keyword {
+    background-color: var(--background-color-surface);
+    padding: var(--spacing-unit);
+    margin-bottom: var(--spacing-unit);
+    border-radius: var(--border-radius);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.keyword p {
+    margin: 0;
+}
+
+#edu-main h3 {
+    font-size: 32px;
+    margin-bottom: var(--spacing-unit);
+}
+
+#edu-main p {
+    font-size: 18px;
+    line-height: 1.5;
+}

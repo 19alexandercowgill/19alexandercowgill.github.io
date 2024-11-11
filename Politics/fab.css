@@ -1,0 +1,67 @@
+.fab-container {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+  }
+  
+  .fab {
+    background-color: var(--secondary-color);
+    color: var(--secondary-text-color-on-secondary);
+    width: 56px;  /* Initial circle size */
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center; /* Vertically center */
+    justify-content: center; /* Initially center the icon */
+    font-size: 24px;
+    cursor: pointer;
+    transition: width 0.3s ease, background-color 0.3s ease, border-radius 0.3s ease; /* Transition width, background-color, and border-radius */
+    position: relative;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* Hide the label text initially */
+  
+  }
+  
+  .fab:hover {
+    background-color: var(--secondary-color-light);
+    width: 180px;  /* Morph to rectangle */
+    border-radius: 16px;  /* Slightly rounded corners for rectangle */
+    justify-content: flex-start;  /* Align icon to the left */
+    color: var(--secondary-text-color-on-secondary);
+  }
+  
+  icon {
+    display: block;  /* Make the icon a block-level element for smoother transition */
+    /* Adds space between the icon and left edge */
+    transition: opacity 0.3s ease, margin-left 0.3s ease;  /* Smooth transition of opacity and margin */
+    transform: translateX(40px);
+    color: var(--secondary-text-color-on-secondary);
+  }
+  
+  .fab-label {
+    opacity: 0;  /* Hide label by default */
+    visibility: hidden;
+    font-size: 12px;
+    margin-left: 8px;
+    transition: opacity 0.3s ease;
+    display: inline-block; /* Ensure label is aligned properly */
+
+  }
+  
+  .fab:hover .fab-label {
+    opacity: 1;  /* Show label when hovered */
+    visibility: unset;
+  }
+  
+  .fab:hover icon {
+    opacity: 1;  /* Hide the icon on hover */
+    transform: translateX(3px);
+    color: var(--secondary-text-color-on-secondary);
+   
+  }
+  
+  .fab:not(:hover) .fab-icon {
+    opacity: 1;  /* Make sure the icon shows when not hovered */
+    color: var(--secondary-text-color-on-secondary);
+  }
+  
