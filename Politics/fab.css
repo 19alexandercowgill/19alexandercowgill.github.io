@@ -2,6 +2,7 @@
     position: fixed;
     bottom: 24px;
     right: 24px;
+    pointer-events: all;
   }
   
   .fab {
@@ -19,6 +20,7 @@
     position: relative;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden; /* Hide the label text initially */
+    
   
   }
   

@@ -3,8 +3,8 @@ function injHeader(){
             <a href="/Politics/"><h1>Politics</h1></a>
             <div id="components">
                 <a href="/Politics/component-1/">Component 1</a>
-                <a href="/Politics/component-2/">Component 2</a>
-                <a href="/Politics/component-3/">Component 3</a>
+                <a href="#">Component 2</a>
+                <a href="#">Component 3</a>
             </div>
         </nav>`
 }
@@ -20,3 +20,7 @@ function injFooter(){
           </div>`
 }
 injFooter()
+function injPreFooter(){
+    document.getElementById("pre-footer").innerHTML = `<span style="display:flex;margin-right:-40px"><icon style="margin-right:45px">info</icon><span>2024 Alexander Cowgill</span><span>`
+}
+injPreFooter()

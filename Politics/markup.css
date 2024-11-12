@@ -1,0 +1,53 @@
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* 3+ cards per row */
+    gap: var(--spacing-unit); /* Spacing between cards */
+    justify-content: center; /* Center cards horizontally */
+    padding: var(--spacing-unit); /* Add some padding around the grid */
+    pointer-events: all;
+}
+
+.example-card {
+    background-color: var(--background-color-surface);
+    color: var(--primary-text-color);
+    padding: calc(var(--spacing-unit) * 2);
+    border-radius: var(--border-radius);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2), 0px 1px 3px rgba(0, 0, 0, 0.15);
+    transition: box-shadow var(--transition-duration-default) var(--transition-timing-smooth), max-height var(--transition-duration-default) var(--transition-timing-smooth);
+    max-width: 320px;
+    max-height: 25vh;
+    overflow-y: hidden;
+    outline: none; /* Removes the outline when focused, if desired */
+    user-select: none;
+    
+}
+
+.example-card:focus-within { /* Apply on click/focus */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3), 0px 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: var(--background-color-hover);
+    max-height: 1000px;
+    transition: max-height var(--transition-duration-default) var(--transition-timing-smooth);
+    pointer-events: none;
+    user-select: none;
+}
+
+.example-card h4 {
+    color: var(--primary-color-light);
+    font-size: 1.25rem;
+    margin-bottom: calc(var(--spacing-unit) * 0.5);
+}
+
+.example-card p {
+    color: var(--secondary-text-color);
+    font-size: 1rem;
+    margin-bottom: calc(var(--spacing-unit) * 1);
+    line-height: 1.5;
+   
+}
+
+h4 {
+    font-size: 1.5rem;
+    text-decoration-line: underline;
+    padding-top: calc(var(--spacing-unit) * 2);
+    padding-bottom: calc(var(--spacing-unit) * 2);
+}
