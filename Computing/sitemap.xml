@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://19alexandercowgill.github.io/Computing/</loc>
@@ -41,21 +42,27 @@
   </url>
   <url>
     <loc>https://19alexandercowgill.github.io/Computing/component-2/algorithms/</loc>
+    <lastmod>2024-11-09</lastmod>
   </url>
   <url>
     <loc>https://19alexandercowgill.github.io/Computing/component-3/solution-design/</loc>
+    <lastmod>2024-11-09</lastmod>
   </url>
   <url>
     <loc>https://19alexandercowgill.github.io/Computing/component-2/problems-programming/</loc>
+    <lastmod>2024-11-09</lastmod>
   </url>
   <url>
     <loc>https://19alexandercowgill.github.io/Computing/component-3/evaluation/</loc>
+    <lastmod>2024-11-09</lastmod>
   </url>
   <url>
     <loc>https://19alexandercowgill.github.io/Computing/component-3/problem-analysis/</loc>
+    <lastmod>2024-11-09</lastmod>
   </url>
   <url>
     <loc>https://19alexandercowgill.github.io/Computing/component-3/solution-dev/</loc>
+    <lastmod>2024-11-09</lastmod>
   </url>
   <url>
     <loc>https://19alexandercowgill.github.io/Computing/component-1/exchanging-data/web-tech/html-css-js</loc>
@@ -82,4 +89,3 @@
     <lastmod>2024-11-09</lastmod>
   </url>
 </urlset>
-
