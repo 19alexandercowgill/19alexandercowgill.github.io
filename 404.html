@@ -41,6 +41,8 @@
     <script src="/Computing/components.js"></script>
 
 <script>
+      const poemTextElement = document.getElementById("poem-text");
+      poemTextElement.style.height = `${3 * 1.5}em`;
 // Array of poem options
 window.onload = function() {
   fetch('https://19alexandercowgill.github.io/404poems.json')
@@ -51,20 +53,24 @@ window.onload = function() {
 
       let i = 0;
       const speed = 50;
-      const poemTextElement = document.getElementById("poem-text");
+   
 
-      function typePoem() {
-        if (i < randomPoem.length) {
-          const char = randomPoem.charAt(i);
-          if (char === '\n') {
-            poemTextElement.innerHTML += '<br>';
-          } else {
-            poemTextElement.innerHTML += char;
-          }
-          i++;
-          setTimeout(typePoem, speed);
-        }
-      }
+let lines = randomPoem.split('\n').length;
+poemTextElement.style.height = `${lines * 1.5}em`;
+poemTextElement.style.overflow = 'hidden';
+poemTextElement.style.transition = 'height 0.5s ease-in-out';
+function typePoem() {
+  if (i < randomPoem.length) {
+    const char = randomPoem.charAt(i);
+    if (char === '\n') {
+      poemTextElement.innerHTML += '<br>';
+    } else {
+      poemTextElement.innerHTML += char;
+    }
+    i++;
+    setTimeout(typePoem, speed);
+  }
+}
 
       typePoem();
     });
