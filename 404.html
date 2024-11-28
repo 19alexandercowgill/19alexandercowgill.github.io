@@ -40,38 +40,36 @@
 
     <script src="/Computing/components.js"></script>
 
-    <script>
-        // Array of poem options
-        fetch('https://19alexandercowgill.github.io/404poems.json')
-  .then(response => response.json())
-  .then(data => {
-    const poems = data;
-    // Select a random poem from the array
-    const randomPoem = poems[Math.floor(Math.random() * poems.length)];
+<script>
+// Array of poem options
+window.onload = function() {
+  fetch('https://19alexandercowgill.github.io/404poems.json')
+    .then(response => response.json())
+    .then(data => {
+      const poems = Object.values(data);
+      const randomPoem = poems[Math.floor(Math.random() * poems.length)];
 
-    let i = 0;
-    const speed = 50; // Typing speed in milliseconds
-    const poemTextElement = document.getElementById("poem-text");
+      let i = 0;
+      const speed = 50;
+      const poemTextElement = document.getElementById("poem-text");
 
-    function typePoem() {
-      if (i < randomPoem.length) {
-        const char = randomPoem.charAt(i);
-        if (char === '\n') {
-          poemTextElement.innerHTML += '<br>';
-        } else {
-          poemTextElement.innerHTML += char;
+      function typePoem() {
+        if (i < randomPoem.length) {
+          const char = randomPoem.charAt(i);
+          if (char === '\n') {
+            poemTextElement.innerHTML += '<br>';
+          } else {
+            poemTextElement.innerHTML += char;
+          }
+          i++;
+          setTimeout(typePoem, speed);
         }
-        i++;
-        setTimeout(typePoem, speed);
       }
-    }
 
-    // Start typing after the page has loaded
-    window.onload = typePoem;
-  });
-
-       
-    </script>
+      typePoem();
+    });
+}
+</script>
 </body>
 
 </html>
