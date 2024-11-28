@@ -1,44 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>404 Not Found</title>
-        <link rel="Stylesheet" href="/Computing/comp.css">
-    </head>
-    <body class="noto-sans">
-        <nav>
-            <div id="nav-top"></div>
-        </nav>
-        <header>
-            <h1 id="header">404 Not Found</h1>
-            
 
-                <p>"<i>Real men test in production</i>"</p>
-                
-           
-        </header>
-        <main style="height: 50vh; justify-content: center; justify-items: center; margin-top: auto; margin-bottom: auto;">
-       
-           
-                <div id="course-overview">
-                    <div id="contents">
-                        <h2 id="header">This page does <u>not</u> exist</h2>
-                        <p>You have either mistyped your url, or I haven't made this page yet</p>
-                        <p>Please add this as an GitHub Issue if you believe it's my mistake</p>
-                       <p> Click <a style="text-decoration-line: underline;" href="https://github.com/19alexandercowgill/19alexandercowgill.github.io/issues/new">here</a> to report the lack of page</p>
-                    </div>
-                    
-                </div>
-            
-    
-            <br>
-        </main>
-        <footer id="footer">
-           
-        </footer>
-    
-        <script src="/Computing/components.js"></script>
-    </body>
-      
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not Found</title>
+    <link rel="Stylesheet" href="/Computing/comp.css">
+</head>
+
+<body class="noto-sans">
+    <nav>
+        <div id="nav-top"></div>
+    </nav>
+    <header>
+        <h1 id="header">404 Not Found</h1>
+
+        <div id="quote-poem">
+            <i>
+                <p id="poem-text"></p>
+            </i>
+        </div>
+
+    </header>
+    <main style="height: 50vh; justify-content: center; justify-items: center; margin-top: auto; margin-bottom: auto;">
+        <div id="course-overview">
+            <div id="contents">
+                <h2 id="header">This page does <u>not</u> exist</h2>
+                <p>You have either mistyped your url, or I haven't made this page yet</p>
+                <p>Please add this as a GitHub Issue if you believe it's my mistake</p>
+                <p>Click <a style="text-decoration-line: underline;"
+                        href="https://github.com/19alexandercowgill/19alexandercowgill.github.io/issues/new">here</a> to
+                    report the lack of page</p>
+            </div>
+        </div>
+        <br>
+    </main>
+    <footer id="footer">
+    </footer>
+
+    <script src="/Computing/components.js"></script>
+
+    <script>
+        // Array of poem options
+        const poems = [
+            `Welcome, traveler, to a place unknown,
+A page lost, its presence overthrown.
+In this empty space, time hangs still,
+Questions echo, but silence fills.
+
+Take a breath, but don't expect ease,
+In this void, the answers tease.
+Exhale slow, let the fog unwind,
+For in this darkness, truth is blind.
+
+Rest here for a fleeting while,
+In the absence, find your trial.
+Not all journeys end in light,
+Some lead deeper into the night.
+
+When you're ready, make your move,
+But tread carefully, for paths can soothe,
+Or spiral into the unknown ahead—
+Where even answers may be dead.
+
+Take your breath and trust the way,
+The next turn waits, though it may stray.
+The web, like shadows, twists and turns—
+A place where nothing stays or burns.`,
+
+            `Where we are, there's only air,
+A page misplaced, it isn't there.
+In the void where data fades,
+Questions linger, answers evade.
+Not all paths lead where we care.`,
+
+            `A place forgotten, lost in time,
+Where silence speaks, and echoes climb.
+A missing page, a ghostly trace,
+A corner turned, an empty space.
+
+We wander here, with hopes unknown,
+Chasing answers, but none are shown.
+The void consumes, the data slips,
+And in the dark, the error grips.`,
+
+            `You've arrived at a place unclear,
+Where nothing waits, yet all is near.
+The page you seek has slipped away,
+Into the ether, lost today.
+
+No path to follow, no guide to find,
+Just emptiness, but peace of mind.
+So breathe and let your search now cease,
+For in this void, there is release.`,
+            `Real men test in production`
+        ];
+
+        // Select a random poem from the array
+        const randomPoem = poems[Math.floor(Math.random() * poems.length)];
+
+        let i = 0;
+        const speed = 50; // Typing speed in milliseconds
+        const poemTextElement = document.getElementById("poem-text");
+
+        function typePoem() {
+            if (i < randomPoem.length) {
+                const char = randomPoem.charAt(i);
+                if (char === '\n') {
+                    poemTextElement.innerHTML += '<br>';
+                } else {
+                    poemTextElement.innerHTML += char;
+                }
+                i++;
+                setTimeout(typePoem, speed);
+            }
+        }
+
+        // Start typing after the page has loaded
+        window.onload = typePoem;
+    </script>
+</body>
+
 </html>
