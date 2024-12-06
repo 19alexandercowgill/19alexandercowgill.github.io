@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OCR A Level Computer Science Revision Notes for Pipelining">
+    <meta name="keywords"
+        content="component 1, OCR, A-Level, A Level, a level, revision, notes, computing, computer science, Fetch, Decode, Execute, Cycle">
+    <meta property="og:title" content="Pipelining | A Level Computing">
+    <meta property="og:description" content="OCR A Level Computer Science Revision Notes for Pipelining">
+    <meta property="og:url"
+        content="https://19alexandercowgill.github.io/Computing/component-1/processors-io-storage/cpu-structure-functions/pipelining">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pipelining | A Level Computing">
+    <meta name="twitter:description" content="OCR A Level Computer Science Revision Notes for Pipelining">
+    <title>Pipelining | A-Level Computing</title>
+    <link rel="Stylesheet" href="/Computing/comp.css">
+
+    <link rel="Stylesheet" href="/Computing/markup.css">
+    <style>
+        #add:hover::before {
+            content: " (more) ";
+        }
+    </style>
+</head>
+
+<body class="noto-sans">
+
+    <nav>
+        <div id="nav-top"></div>
+    </nav>
+    <header>
+        <h1 id="header">Pipelining</h1>
+        <p>The <span id="add">efficient</span> "tick tock" of the cpu clock</p>
+    </header>
+    <main>
+
+
+        <div id="course-contents">
+            <div id="contents-container">
+                <h2>Contents</h2>
+                <div class="link overview-content contents-items">
+                    <a class="overview-item" href="#comp-1">Introduction</a>
+                    <a class="overview-item" href="#comp-2">FDE</a>
+                    <a class="overview-item" href="#comp-3">Achievement</a>
+                    <a class="overview-item" href="#comp-4">Flushing</a>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div id="comp-1">
+            <h3>Introduction</h3>
+            <div class="overview-content education">
+                <p>This is used in Harvard processors to improve efficiency, and stop idle time in components. </p>
+            </div>
+        </div>
+        <div id="comp-2">
+            <h3>FDE</h3>
+            <div class="overview-content education">
+                <p>Can make the FDE cycle much faster</p>
+                <p>Processor starts by fetching the first instruction</p>
+                <p>We can then fetch instruction 2, while instruction 1 is being decoded</p>
+                <p>We can then fetch 3, while 2 is being decoded, and 1 is being executed</p>
+                <p>This continues as part of the FDE cycle</p>
+            </div>
+
+        </div>
+
+
+        <div id="comp-3">
+            <h3>Achievement</h3>
+            <div class="overview-content education">
+
+                <p>Without pipelining, the FDE would have to take in steps, 1 after the other</p>
+                <p>This means the processor isn't being used to its full potential</p>
+                <p>By using pipelining, the next instruction can be fetched, while the processor is executing previous
+                    instructions</p>
+                <p>This means we can make more efficient use of the registers and CPU cache and multiple parts of
+                    instructions can be used by different registers at the same time</p>
+                <p> Pipelining is often divided into instruction, and arithmetic pipelines</p>
+
+            </div>
+
+        </div>
+        <div id="comp-4">
+            <h3>Flushing</h3>
+            <div class="overview-content education">
+                <p>A branch in code, i.e. an if-else statement, requires a jump to another memory address. This means
+                    the pipe needs to be flushed (cleared) of the previous data, in order to not execute the wrong code
+                </p>
+                <p>Pipelining can improve efficiency, but with too much if else conditions, won't be able to be
+                    effective, because flushing must happen.</p>
+
+            </div>
+
+        </div>
+      
+
+
+        <br>
+    </main>
+    <footer id="footer">
+
+    </footer>
+
+    <script src="/Computing/components.js"></script>
+</body>
+
+</html>

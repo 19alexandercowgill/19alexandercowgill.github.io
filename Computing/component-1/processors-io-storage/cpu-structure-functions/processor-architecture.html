@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OCR A Level Computer Science Revision Notes for Pipelining">
+    <meta name="keywords"
+        content="component 1, OCR, A-Level, A Level, a level, revision, notes, computing, computer science, Fetch, Decode, Execute, Cycle">
+    <meta property="og:title" content="Pipelining | A Level Computing">
+    <meta property="og:description" content="OCR A Level Computer Science Revision Notes for Pipelining">
+    <meta property="og:url"
+        content="https://19alexandercowgill.github.io/Computing/component-1/processors-io-storage/cpu-structure-functions/pipelining">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pipelining | A Level Computing">
+    <meta name="twitter:description" content="OCR A Level Computer Science Revision Notes for Pipelining">
+    <title>Pipelining | A-Level Computing</title>
+    <link rel="Stylesheet" href="/Computing/comp.css">
+
+    <link rel="Stylesheet" href="/Computing/markup.css">
+    <style>
+        #add:hover::before {
+            content: " cool ";
+        }
+    </style>
+</head>
+
+<body class="noto-sans">
+
+    <nav>
+        <div id="nav-top"></div>
+    </nav>
+    <header>
+        <h1 id="header">Pipelining</h1>
+        <p>The <span id="add">way</span> the CPU runs</p>
+    </header>
+    <main>
+
+
+        <div id="course-contents">
+            <div id="contents-container">
+                <h2>Contents</h2>
+                <div class="link overview-content contents-items">
+                    <a class="overview-item" href="#comp-1">Introduction</a>
+                    <a class="overview-item" href="#comp-2">Harvard</a>
+                    <a class="overview-item" href="#comp-3">Von Neumann</a>
+                    <a class="overview-item" href="#comp-4">Contemporary</a>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div id="comp-1">
+            <h3>Introduction</h3>
+            <div class="overview-content education">
+                <p>This is used in Harvard processors to improve efficiency, and stop idle time in components. </p>
+            </div>
+        </div>
+        <div id="comp-2">
+            <h3>Harvard</h3>
+            <div class="overview-content education">
+                <p>The instructions and data are kept seperately</p>
+                <p>They each have their own bus</p>
+                <p>This allows for reading and executing to happen simultaneously</p>
+                <p>Used by RISC processors</p>
+                
+            </div>
+
+        </div>
+
+
+        <div id="comp-3">
+            <h3>Von Neumann</h3>
+            <div class="overview-content education">
+
+                <p>RAM space shared for both instructions and data</p>
+                <p>Instructions and data are fetched from the same location and format</p>
+                <p>Used by CISC processors</p>
+                <p>Single core follows own FDE cycle, linearly without pipelining</p>
+                <p>Registers for fast data access</p>
+
+
+            </div>
+
+        </div>
+        <div id="comp-4">
+            <h3>Contemporary</h3>
+            <div class="overview-content education">
+                <p>Von Neumann and Harvard are seen as legacy Architectures, from the 1940s. Modern day processors are known as Contemporary</p>
+                <h4>MIMD</h4>
+                <p>Multiple Instruction, Multiple Data</p>
+                <h4>SIMD</h4>
+                <p>Single Instruction, Multiple Data</p>
+                <p>Used by GPUs and other parallel processors.</p>
+                <h4>Distributed computing</h4>
+         
+                <p>Distributed computing is a type of computing where multiple separate computers over a network, can deal with a problem. This can be over a Local Area Network (LAN) or the internet.</p>
+
+            </div>
+
+        </div>
+      
+
+
+        <br>
+    </main>
+    <footer id="footer">
+
+    </footer>
+
+    <script src="/Computing/components.js"></script>
+</body>
+
+</html>
