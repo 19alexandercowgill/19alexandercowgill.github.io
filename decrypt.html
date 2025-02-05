@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alexander Cowgill | Decrypt</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-3xl">
+        <h1 class="text-2xl font-bold mb-4">Decrypt</h1>
+        <p>Click <a target="_blank" href="./text.txt"><u>here</u></a> to find the ciphertext</p>
+        
+        <input type="text" id="cipherText" class="border border-gray-300 rounded-lg p-2 w-full mb-4" placeholder="Enter text then scroll to bottom">
+
+        <h2 class="text-xl font-bold mb-4">Table of replacements
+        </h2>
+        <div class="overflow-x-auto">
+            <table class="table-auto w-full mb-4">
+                <thead>
+                    <tr>
+                        <th class="px-4 py-2">Original</th>
+                        <th class="px-4 py-2">Substitute</th>
+                    </tr>
+                </thead>
+                <tbody id="substitutionTable">
+                    <!-- JavaScript will populate this table -->
+                </tbody>
+            </table>
+        </div>
+
+        <h2 class="text-xl font-bold mt-4">Decrypted Text: Fill in the above table for decryption</h2>
+        <p id="decryptedText" class="bg-gray-200 p-2 rounded-lg mt-2">Fill in the table</p>
+    </div>
+
+    <script>
+  //You wont find the answers here
+        document.addEventListener('DOMContentLoaded', function() {
+            const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+            const substitutionTable = document.getElementById('substitutionTable');
+
+            // Populate the substitution table
+            for (let char of alphabet) {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="border px-4 py-2">${char}</td>
+                    <td class="border px-4 py-2">
+                        <input type="text" maxlength="1" class="substitute-input border rounded p-1 w-full" data-char="${char}">
+                    </td>
+                `;
+                substitutionTable.appendChild(row);
+            }
+
+            // Add event listener for substitution rule changes
+            document.querySelectorAll('.substitute-input').forEach(input => {
+                input.addEventListener('input', updateDecryptedText);
+            });
+
+            // Add event listener for cipher text input
+            document.getElementById('cipherText').addEventListener('input', updateDecryptedText);
+
+            function updateDecryptedText() {
+                const cipherText = document.getElementById('cipherText').value;
+                const substitutionMap = new Map();
+                
+                document.querySelectorAll('.substitute-input').forEach(input => {
+                    const originalChar = input.getAttribute('data-char');
+                    const substituteChar = input.value;
+                    if (substituteChar) {
+                        substitutionMap.set(originalChar, substituteChar);
+                    }
+                });
+
+                let decryptedText = '';
+                for (let char of cipherText) {
+                    if (substitutionMap.has(char)) {
+                        decryptedText += substitutionMap.get(char);
+                    } else {
+                        decryptedText += char;
+                    }
+                }
+
+                document.getElementById('decryptedText').innerText = decryptedText;
+            }
+        });
+    </script>
+
+</body>
+</html>
