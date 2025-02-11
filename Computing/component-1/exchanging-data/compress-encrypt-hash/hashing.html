@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OCR A Level Computer Science Revision Notes for Hashing">
+    <meta name="keywords" content="component 1, OCR, A-Level, A Level, a level, revision, notes, computing, computer science, Hashing, Cryptographic Hashing, Collision, Hash Tables, Hash Functions">
+    <meta property="og:title" content="Hashing | A Level Computing">
+    <meta property="og:description" content="OCR A Level Computer Science Revision Notes for Hashing">
+    <meta property="og:url" content="https://19alexandercowgill.github.io/Computing/component-1/exchanging-data/hashing">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hashing | A Level Computing">
+    <meta name="twitter:description" content="OCR A Level Computer Science Revision Notes for Hashing">
+    <title>Hashing | A-Level Computing</title>
+    <link rel="Stylesheet" href="/Computing/comp.css">
+    <link rel="Stylesheet" href="/Computing/markup.css">
+    <style>
+        #add:hover::before {
+            content: " secure ";
+        }
+    </style>
+</head>
+
+<body class="noto-sans">
+
+    <nav>
+        <div id="nav-top"></div>
+    </nav>
+    <header>
+        <h1 id="header">Hashing</h1>
+        <p>The <span id="add">process</span> of converting data into a fixed-length value</p>
+    </header>
+    <main>
+
+        <div id="course-contents">
+            <div id="contents-container">
+                <h2>Contents</h2>
+                <div class="link overview-content contents-items">
+                    <a class="overview-item" href="#hash-1">Introduction</a>
+                    <a class="overview-item" href="#hash-2">Cryptographic Hashing</a>
+                    <a class="overview-item" href="#hash-3">Collision Handling</a>
+                    <a class="overview-item" href="#hash-4">Hash Tables</a>
+                    <a class="overview-item" href="#hash-5">Applications of Hashing</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="hash-1">
+            <h3>Introduction</h3>
+            <div class="overview-content education">
+                <p>Hashing is the process of transforming an input (or "message") into a fixed-size string of bytes, typically a digest that represents the original data. It is commonly used in data structures, security, and authentication.</p>
+            </div>
+        </div>
+
+        <div id="hash-2">
+            <h3>Cryptographic Hashing</h3>
+            <div class="overview-content education">
+                <p>Cryptographic hash functions are designed to be irreversible, meaning the original data cannot be retrieved from the hash. They should be resistant to collisions and pre-image attacks.</p>
+                <p><strong>Examples:</strong> SHA-256, MD5 (now considered weak), SHA-3</p>
+            </div>
+        </div>
+
+        <div id="hash-3">
+            <h3>Collision Handling</h3>
+            <div class="overview-content education">
+                <p>A hash collision occurs when two different inputs produce the same hash value. Good hash functions minimize the likelihood of collisions.</p>
+                <p><strong>Methods for Handling Collisions:</strong></p>
+                <ul>
+                    <li>Chaining - storing multiple values in a linked list at the same hash index</li>
+                    <li>Open Addressing - finding the next available slot</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="hash-4">
+            <h3>Hash Tables</h3>
+            <div class="overview-content education">
+                <p>Hash tables use hashing to store key-value pairs efficiently, allowing for quick lookups, insertions, and deletions.</p>
+                <p>They are widely used in databases, caching, and indexing.</p>
+            </div>
+        </div>
+
+        <div id="hash-5">
+            <h3>Applications of Hashing</h3>
+            <div class="overview-content education">
+                <p>Hashing is used in a variety of fields, including:</p>
+                <ul>
+                    <li>Password storage (storing hashed passwords rather than plaintext)</li>
+                    <li>Digital signatures and integrity checks</li>
+                    <li>Data indexing in databases</li>
+                    <li>Cryptographic security measures</li>
+                </ul>
+            </div>
+        </div>
+
+        <br>
+    </main>
+    <footer id="footer">
+    </footer>
+
+    <script src="/Computing/components.js"></script>
+</body>
+
+</html>
