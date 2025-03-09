@@ -4,57 +4,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/global.css" />
-    <script src="time.js"></script>
     <title>Home | Alexander Cowgill</title>
-    
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+    </style>
 </head>
 
 <body>
-    <div id="status-bar">
-        <div id="status-bar-left">
-            <div id="time"></div>
-        </div>
-        <div id="status-bar-middle">
+    <header >
+        <h1>Home</h1>
+        <nav id="nav-head">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Computer Science</a></li>
+                <li><a href="#">Politics</a></li>
+                <li><a href="#">English Language</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Misc</a></li>
+            </ul>
+        </nav>
+    </header>
 
-            <span class="material-symbols-outlined">circle</span>
-        </div>
-        <div id="status-bar-right">
-            <span class="material-symbols-outlined">alarm</span>
-            <span class="material-symbols-outlined">no_sound</span>
-            <span id="wifi-status" class="material-symbols-outlined">wifi</span>
-            <span id="quality-status" class="material-symbols-outlined">signal_cellular_alt</span>
-            <span id="battery-icon" class="material-symbols-outlined">battery_unknown</span>
-            <span id="battery-percent"></span>
-        </div>
+    <div class="container">
+        <aside>
+            <h2>Navigation</h2>
+            <ul>
+                <li><a href="#overview">Introduction</a></li>
+                <li><a href="#purpose">Context</a></li>
+                <li><a href="#adverts">Adverts?</a></li>
+                <li><a href="#misc">Misc</a></li>
+            </ul>
+        </aside>
 
+        <main>
+            <article>
+                <h2 id="overview">This is a website. On the Internet</h2>
+                <p>Hopefully, if nothing is too broken, it should look nice too :)</p>
+                <p>Yes. It's in light mode. (for now). I'll make the website look pretty at some point soon.</p>
+                <h3 id="purpose">What is on this website then?</h3>
+                <p>This website is a huge WIP, and I will only update it if I remember.</p>
+                <p>It contains revision and notes in general for the following subjects: </p>
+                <ul>
+                    <li>Computer Science - The main focus for this website</li>
+                    <li>Politics - Less of a priority, especially when you don't understand it :skull:</li>
+                    <li>English Language - The power of words</li>
+                </ul>
+                <h3 id="adverts">Where are all the adverts and distractions?</h3>
+                <p>I'm not hosting this website, so it's essentially free to run. And I have an adblocker so I can't really test Google Adsense</p>
+                <h3 id="misc">What's this "misc" section at the top?</h3>
+                <p>I put random things there that I might find useful, and you might too. Theyre <i>technically</i> not part of the site, but an unlinked webpage may as well not exist </p>
+            </article>
+        </main>
     </div>
-    <div id="main" class="pointer-yes">
-        <iframe style="background-color: white;" id="main-content" src="https://19alexandercowgill.github.io/Computing"></iframe>
-    </div>
 
-    <div id="navigation-bar">
-        <div id="back-button" class="nav-button-container"><span class="material-symbols-outlined">arrow_back_2</span></div>
-        <div id="home-button" class="nav-button-container"><span class="material-symbols-outlined">home</span></div>
-        <div id="recents-button" class="nav-button-container"><span class="material-symbols-outlined">menu</span></div>
-    </div>
-
-
-    <script src="time.js"></script>
-    <script src="battery.js"></script>
-    <script src="network.js"></script>
-    <script>
-        const home = document.getElementById("home-button");
-        home.addEventListener("click", function(){
-            document.getElementById("main-content").setAttribute("src", "https://19alexandercowgill.github.io/Computing/")
-        })
-
-        const back = document.getElementById("back-button");
-        back.addEventListener("click", function(){
-            window.location.href = "https://19alexandercowgill.github.io/Computing/";
-        }
-    )
-    </script>
+    <footer id="footer-foot">
+        &copy; 2025 Alexander Cowgill
+    </footer>
+    <script src="/navigation.js"></script>
 </body>
 
 </html>

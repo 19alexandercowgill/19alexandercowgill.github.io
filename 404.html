@@ -2,80 +2,54 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 Not Found</title>
-    <link rel="Stylesheet" href="/Computing/comp.css">
+    <title>404 Not Found | Alexander Cowgill</title>
+    <link rel="stylesheet" href="/styles.css">
+   
 </head>
 
-<body class="noto-sans">
-    <nav>
-        <div id="nav-top"></div>
-    </nav>
-    <header>
-        <h1 id="header">404 Not Found</h1>
-
-        <div id="quote-poem">
-            <i>
-                <p id="poem-text"></p>
-            </i>
-        </div>
-
+<body>
+    <header >
+        <h1>404 Not Found?</h1>
+        <nav id="nav-head">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Computer Science</a></li>
+                <li><a href="#">Politics</a></li>
+                <li><a href="#">English Language</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Misc</a></li>
+            </ul>
+        </nav>
     </header>
-    <main style="height: 50vh; justify-content: center; justify-items: center; margin-top: auto; margin-bottom: auto;">
-        <div id="course-overview">
-            <div id="contents">
-                <h2 id="header">This page does <u>not</u> exist</h2>
-                <p>You have either mistyped your url, or I haven't made this page yet</p>
-                <p>Please add this as a GitHub Issue if you believe it's my mistake</p>
-                <p>Click <a style="text-decoration-line: underline;"
-                        href="https://github.com/19alexandercowgill/19alexandercowgill.github.io/issues/new">here</a> to
-                    report the lack of page</p>
-            </div>
-        </div>
-        <br>
-    </main>
-    <footer id="footer">
+    
+    <div class="container">
+        <aside>
+            <h2>Navigation</h2>
+            <ul>
+                <li><a href="#overview">Introduction</a></li>
+                <li><a href="#solution">What do I do?</a></li>
+               
+            </ul>
+        </aside>
+        
+        <main>
+            <article>
+                <h2 id="overview">This page does NOT exist.</h2>
+                <p> Maybe it should? I don't know. I don't use cookies. I have no way of knowing which page took you here. If you think it should exist, let me know at <a href="https://github.com/19alexandercowgill/19alexandercowgill.github.io/issues">GH Issues</a>. Thanks!</p>
+                <br><br><br><br><br>
+                <h2 id="solution">What can you do now?</h2>
+                <p>It is probably best you click the back button, or go to the homepage at <a href="/">home</a></p>
+                <br><br><br><br>
+            </article>
+        </main>
+    </div>
+    
+    <footer id="footer-foot">
+        &copy; 2025 Alexander Cowgill
     </footer>
-
-    <script src="/Computing/components.js"></script>
-
-<script>
-      const poemTextElement = document.getElementById("poem-text");
-      poemTextElement.style.height = `${3 * 1.5}em`;
-// Array of poem options
-window.onload = function() {
-  fetch('https://19alexandercowgill.github.io/404poems.json')
-    .then(response => response.json())
-    .then(data => {
-      const poems = Object.values(data);
-      const randomPoem = poems[Math.floor(Math.random() * poems.length)];
-
-      let i = 0;
-      const speed = 50;
-   
-
-let lines = randomPoem.split('\n').length;
-poemTextElement.style.height = `${lines * 1.5}em`;
-poemTextElement.style.overflow = 'hidden';
-poemTextElement.style.transition = 'height 0.5s ease-in-out';
-function typePoem() {
-  if (i < randomPoem.length) {
-    const char = randomPoem.charAt(i);
-    if (char === '\n') {
-      poemTextElement.innerHTML += '<br>';
-    } else {
-      poemTextElement.innerHTML += char;
-    }
-    i++;
-    setTimeout(typePoem, speed);
-  }
-}
-
-      typePoem();
-    });
-}
-</script>
+    <script src="/navigation.js"></script>
 </body>
 
 </html>
