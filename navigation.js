@@ -3,7 +3,7 @@ function injectLinks(){
    
     nav.innerHTML = `
      <ul>
-                <li><a href="/index.html">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="/Computing/">Computer Science</a></li>
                 <li><a href="#">Politics</a></li>
                 <li><a href="#">English Language</a></li>
