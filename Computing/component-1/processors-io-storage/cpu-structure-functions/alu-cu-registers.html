@@ -4,234 +4,237 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALU, CU, Registers | A-Level Computing</title>
-    <meta name="description" content="OCR A Level Computer Science Revision Notes for ALU, CU, Registers and Buses">
-    <meta name="keywords" content="component 1, OCR, A-Level, A Level, a level, revision, notes, computing, computer science, ALU, CU, Registers, Buses">
-    <meta property="og:title" content="ALU, CU, Registers and Buses | A Level Computing">
-    <meta property="og:description" content="OCR A Level Computer Science Revision Notes for ALU, CU, Registers and Buses">
-    <meta property="og:url" content="https://19alexandercowgill.github.io/Computing/component-1/processors-io-storage/cpu-structure-functions/alu-cu-registers">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ALU, CU, Registers and Buses | A Level Computing">
-    <meta name="twitter:description" content="OCR A Level Computer Science Revision Notes for ALU, CU, Registers and Buses">
-    <link rel="Stylesheet" href="/Computing/comp.css">
-
-    <link rel="Stylesheet" href="/Computing/markup.css">
-    <style>
-        #add:hover::before {
-            content: " (complicated) ";
-        }
-    </style>
+    <title>ALU, CU and Registers | Computing | Alexander Cowgill</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 
-<body class="noto-sans">
+<body>
 
-    <nav>
-        <div id="nav-top"></div>
-    </nav>
+    
     <header>
-        <h1 id="header">ALU, CU, Registers and Buses</h1>
-        <p>The <span id="add">stuff</span> in the brains of the computer</p>
+        <h1>C:/Computing/Processors-IO-Storage/ALU-CU-Registers/</h1>
+        <nav id="nav-head">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Computer Science</a></li>
+                <li><a href="#">Politics</a></li>
+                <li><a href="#">English Language</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Misc</a></li>
+            </ul>
+        </nav>
     </header>
+
+
+    <div class="container">
+        <aside>
+            <h2>Navigation</h2>
+
+            <ul>
+                <li><a href="#comp-1">Introduction</a></li>
+                <li><a href="#comp-2">Control Unit</a></li>
+                <li><a href="#comp-3">Program Counter</a></li>
+                <li><a href="#comp-4">Memory Address Register</a></li>
+                <li><a href="#comp-5">Memory Data Register</a></li>
+                <li><a href="#comp-6">Current Instruction Register</a></li>
+                <li><a href="#comp-7">Arithmetic and Logic Unit</a></li>
+                <li><a href="#comp-8">Accumulator</a></li>
+                <li><a href="#comp-9">Bus</a></li>
+                <li><a href="#comp-10">Assembly Language</a></li>
+                <li><a href="#comp-11">Beyond the Specification</a></li>
+            </ul>
+
+
+
+        </aside>
+    
+
     <main>
+        <article>
+
+            <div id="comp-1">
+                <h2>Introduction</h2>
+                <div class="overview-content education">
+                    <p>The CPU (Central Processing Unit) gets input, and has to decide what to do with it</p>
+                    <p>It interacts with its components, and produces an output based on that</p>
+                </div>
+            </div>
+            <div id="comp-2">
+                <h3>Control Unit</h3>
+                <div class="overview-content education">
+                    <p>The CU controls and coordinates all of the activities that the processor does</p>
+                    <p>It directs data flow between the components</p>
+                    <p>Coordinates the Fetch-Decode-Execute cycle</p>
+                    <p>It sends memory Read-Write requests and various other signals</p>
+                    <p>Uses status registers, and the system clock quite heavily</p>
+
+                </div>
+
+            </div>
 
 
-        <div id="course-contents">
-            <div id="contents-container">
-                <h2>Contents</h2>
-                <div class="link overview-content contents-items">
-                    <a class="overview-item" href="#comp-1">Introduction</a>
-                    <a class="overview-item" href="#comp-2">Control Unit</a>
-                    <a class="overview-item" href="#comp-3">Program Counter</a>
-                    <a class="overview-item" href="#comp-4">Memory Address Register</a>
-                    <a class="overview-item" href="#comp-5">Memory Data Register</a>
-                    <a class="overview-item" href="#comp-6">Current Instruction Register</a>
-                    <a class="overview-item" href="#comp-7">Arithmetic and Logic Unit</a>
-                    <a class="overview-item" href="#comp-8">Accumulator</a>
-                    <a class="overview-item" href="#comp-9">Bus</a>
-                    <a class="overview-item" href="#comp-10">Assembly Language</a>
-                    <a class="overview-item" href="#comp-11">Beyond the Specification</a>
+            <div id="comp-3">
+                <h3>Program Counter</h3>
+                <div class="overview-content education">
 
+                    <p>The PC holds the memory address of the next instruction</p>
+                    <p>This could be the next address, such as <code class="inline-code">0x0001</code> coming after
+                        <code class="inline-code">0x0000</code> or it
+                        could be a jump, such as <code class="inline-code">0x1010</code> coming after <code
+                            class="inline-code">0x0001</code></p>
+                    <p>A jump could be seen as a branch, like in an <code
+                            class="inline-code">if (true) {} else {}</code> statement</p>
+                    <p>At the start of the Fetch-Decode-Execute cycle, the address held in the PC is copied to the MAR
+                    </p>
+                </div>
 
+            </div>
+            <div id="comp-4">
+                <h3>Memory Address Register</h3>
+                <div class="overview-content education">
+
+                    <p>The MAR holds the address of the memory location of the data or instruction to read or write from
+                    </p>
+                    <p>It sends the addressed along the address bus</p>
+                </div>
+
+            </div>
+            <div id="comp-5">
+                <h3>Memory Data Register</h3>
+                <div class="overview-content education">
+
+                    <p>The MDR is used to hold the data to that has been read, or will be written to memory</p>
+                    <p>Sometimes, it is known as the <abbr title="Memory Buffer Register">MBR</abbr> and also often
+                        called
+                        the "gateway to the processor"</p>
+                    <p>This is because all data must pass through the MDR while it is being read or written to</p>
+                </div>
+
+            </div>
+            <div id="comp-6">
+                <h3>Current Instruction Register</h3>
+                <div class="overview-content education">
+
+                    <p>The CIR holds the current instruction being executed</p>
+                    <p>Data from the MDR is copied into the CIR only if it is an instruction</p>
+                    <p>Holds an op code, and an operand, such as <code>LDA 1000</code> would load the data from memory
+                        address 8</p>
+                </div>
+
+            </div>
+            <div id="comp-7">
+                <h3>Arithmetic and Logic Unit</h3>
+                <div class="overview-content education">
+
+                    <p>The ALU does maths, and logic</p>
+                    <p>It can do the following things:</p>
+                    <ul>
+                        <li>Add</li>
+                        <li>Subtract</li>
+                        <li>Multiply</li>
+                        <li>Divide</li>
+                        <li>Bitwise Shifts (left and right)</li>
+                        <li>Comparison: AND, OR, NOT, XOR</li>
+
+                    </ul>
+                    <p>It often contains general purpose registers such as the Accumulator that holds results</p>
 
                 </div>
             </div>
-        </div>
+            <div id="comp-8">
+                <h3>Accumulator</h3>
+                <div class="overview-content education">
 
-
-        <div id="comp-1">
-            <h3>Introduction</h3>
-            <div class="overview-content education">
-                <p>The CPU (Central Processing Unit) gets input, and has to decide what to do with it</p>
-                <p>It interacts with its components, and produces an output based on that</p>
-            </div>
-        </div>
-        <div id="comp-2">
-            <h3>Control Unit</h3>
-            <div class="overview-content education">
-                <p>The CU controls and coordinates all of the activities that the processor does</p>
-                <p>It directs data flow between the components</p>
-                <p>Coordinates the Fetch-Decode-Execute cycle</p>
-                <p>It sends memory Read-Write requests and various other signals</p>
-                <p>Uses status registers, and the system clock quite heavily</p>
+                    <p>The Accumulator is a general purpose register</p>
+                    <p>The CPU uses this to hold the results of the calculations it performs</p>
+                    <p>The results from the ALU are in this register</p>
+                </div>
 
             </div>
+            <div id="comp-9">
+                <h3>Bus</h3>
+                <div class="overview-content education">
 
-        </div>
+                    <p>Busses come in two types: unidirectional, and bidirectional</p>
+                    <p>There are three types:</p>
+                    <h4>Address Bus</h4>
+                    <p>Contains the address in memory</p>
+                    <p>This is unidirectional, it goes only one way, from the processor to the Main Memory</p>
+                    <h4>Data Bus</h4>
+                    <p>This contains the actual data being transferred</p>
+                    <p>This is bidirectional, it goes both ways, from the processor to the Main Memory</p>
+                    <h4>Control Bus</h4>
+                    <p>This contains the command and control signals from the components</p>
+                    <p>This is bidirectional, it goes both ways, from processor and Memory</p>
 
-
-        <div id="comp-3">
-            <h3>Program Counter</h3>
-            <div class="overview-content education">
-
-                <p>The PC holds the memory address of the next instruction</p>
-                <p>This could be the next address, such as <code class="inline-code">0x0001</code> coming after <code class="inline-code">0x0000</code> or it
-                    could be a jump, such as <code class="inline-code">0x1010</code> coming after <code class="inline-code">0x0001</code></p>
-                <p>A jump could be seen as a branch, like in an <code class="inline-code">if (true) {} else {}</code> statement</p>
-                <p>At the start of the Fetch-Decode-Execute cycle, the address held in the PC is copied to the MAR</p>
-            </div>
-
-        </div>
-        <div id="comp-4">
-            <h3>Memory Address Register</h3>
-            <div class="overview-content education">
-
-                <p>The MAR holds the address of the memory location of the data or instruction to read or write from</p>
-                <p>It sends the addressed along the address bus</p>
-            </div>
-
-        </div>
-        <div id="comp-5">
-            <h3>Memory Data Register</h3>
-            <div class="overview-content education">
-
-                <p>The MDR is used to hold the data to that has been read, or will be written to memory</p>
-                <p>Sometimes, it is known as the <abbr title="Memory Buffer Register">MBR</abbr> and also often called
-                    the "gateway to the processor"</p>
-                <p>This is because all data must pass through the MDR while it is being read or written to</p>
-            </div>
-
-        </div>
-        <div id="comp-6">
-            <h3>Current Instruction Register</h3>
-            <div class="overview-content education">
-
-                <p>The CIR holds the current instruction being executed</p>
-                <p>Data from the MDR is copied into the CIR only if it is an instruction</p>
-                <p>Holds an op code, and an operand, such as <code>LDA 1000</code> would load the data from memory
-                    address 8</p>
-            </div>
-
-        </div>
-        <div id="comp-7">
-            <h3>Arithmetic and Logic Unit</h3>
-            <div class="overview-content education">
-
-                <p>The ALU does maths, and logic</p>
-                <p>It can do the following things:</p>
-                <ul>
-                    <li>Add</li>
-                    <li>Subtract</li>
-                    <li>Multiply</li>
-                    <li>Divide</li>
-                    <li>Bitwise Shifts (left and right)</li>
-                    <li>Comparison: AND, OR, NOT, XOR</li>
-
-                </ul>
-                <p>It often contains general purpose registers such as the Accumulator that holds results</p>
+                </div>
 
             </div>
-        </div>
-        <div id="comp-8">
-            <h3>Accumulator</h3>
-            <div class="overview-content education">
+            <div id="comp-10">
+                <h3>Assembly Language</h3>
+                <div class="overview-content education">
 
-                <p>The Accumulator is a general purpose register</p>
-                <p>The CPU uses this to hold the results of the calculations it performs</p>
-                <p>The results from the ALU are in this register</p>
-            </div>
+                    <p>The op-code, such as LDA is an mnemonic for what needs to happen</p>
+                    <p>It is a symbolic representation of the binary code</p>
+                    <p>It has a 1-1 relationship with the actual processor</p>
+                    <p>For the exam, the following commands must be known:</p>
+                    <ul class="clean-ul list-spacer">
+                        <li data-tooltip="Add both operands"><code class="inline-code">ADD</code></li>
+                        <li data-tooltip="Subtract both operands"><code class="inline-code">SUB</code></li>
+                        <li data-tooltip="Store into operand memory address"><code class="inline-code">STO</code></li>
+                        <li data-tooltip="Load from memory address"><code class="inline-code">LDA</code></li>
+                        <li data-tooltip="Branch always"><code class="inline-code">BRA</code></li>
+                        <li data-tooltip="Branch if 0"><code class="inline-code">BRZ</code></li>
+                        <li data-tooltip="Branch if positive"><code class="inline-code">BRP</code></li>
+                        <li data-tooltip="Input"><code class="inline-code">INP</code></li>
+                        <li data-tooltip="Output"><code class="inline-code">OUT</code></li>
+                        <li data-tooltip="End the program"><code class="inline-code">HLT</code></li>
+                        <li data-tooltip="Data Location"><code class="inline-code">DAT</code></li>
+                    </ul>
 
-        </div>
-        <div id="comp-9">
-            <h3>Bus</h3>
-            <div class="overview-content education">
-
-                <p>Busses come in two types: unidirectional, and bidirectional</p>
-                <p>There are three types:</p>
-                <h4>Address Bus</h4>
-                <p>Contains the address in memory</p>
-                <p>This is unidirectional, it goes only one way, from the processor to the Main Memory</p>
-                <h4>Data Bus</h4>
-                <p>This contains the actual data being transferred</p>
-                <p>This is bidirectional, it goes both ways, from the processor to the Main Memory</p>
-                <h4>Control Bus</h4>
-                <p>This contains the command and control signals from the components</p>
-                <p>This is bidirectional, it goes both ways, from processor and Memory</p>
+                </div>
 
             </div>
+            <div id="comp-11">
+                <h3>Beyond the Specification</h3>
+                <div class="overview-content education">
+                    <h4>Decoder</h4>
+                    <p>Logic that "decodes" the op codes from memory</p>
+                    <p>This could be seen similar to a lookup table</p>
 
-        </div>
-        <div id="comp-10">
-            <h3>Assembly Language</h3>
-            <div class="overview-content education">
-
-                <p>The op-code, such as LDA is an mnemonic for what needs to happen</p>
-                <p>It is a symbolic representation of the binary code</p>
-                <p>It has a 1-1 relationship with the actual processor</p>
-                <p>For the exam, the following commands must be known:</p>
-                <ul class="clean-ul list-spacer">
-                    <li data-tooltip="Add both operands"><code class="inline-code">ADD</code></li>
-                    <li data-tooltip="Subtract both operands"><code class="inline-code">SUB</code></li>
-                    <li data-tooltip="Store into operand memory address"><code class="inline-code">STO</code></li>
-                    <li data-tooltip="Load from memory address"><code class="inline-code">LDA</code></li>
-                    <li data-tooltip="Branch always"><code class="inline-code">BRA</code></li>
-                    <li data-tooltip="Branch if 0"><code class="inline-code">BRZ</code></li>
-                    <li data-tooltip="Branch if positive"><code class="inline-code">BRP</code></li>
-                    <li data-tooltip="Input"><code class="inline-code">INP</code></li>
-                    <li data-tooltip="Output"><code class="inline-code">OUT</code></li>
-                    <li data-tooltip="End the program"><code class="inline-code">HLT</code></li>
-                    <li data-tooltip="Data Location"><code class="inline-code">DAT</code></li>
-                </ul>
+                    <h4>Status Register</h4>
+                    <p>Contains the status of the processor</p>
+                    <p>Contains the flags</p>
+                    <p>Can be checked by the processor at any point</p>
+                    <h4>Clock</h4>
+                    <p>Generates pulses at a constant rate</p>
+                    <p>Measured in hz, Hertz</p>
+                    <p>Usually, the faster the clock, the faster things get done</p>
+                    <h4>Interrupt Register</h4>
+                    <p>Contains the interrupt signals from the components</p>
+                    <p>Checked by the CPU to see if an interrupt has been requested</p>
+                    <h4>Cache</h4>
+                    <p>Small, fast memory that stores frequently used data</p>
+                    <p>Comes in three levels:</p>
+                    <ul class="clean-ul list-spacer">
+                        <li>L1: fastest, but most expensive cache</li>
+                        <li>L2: slower than l1, but more, and less expensive</li>
+                        <li>L3: slowest but still fast, cheapest cache</li>
+                    </ul>
+                </div>
 
             </div>
-
-        </div>
-        <div id="comp-11">
-            <h3>Beyond the Specification</h3>
-            <div class="overview-content education">
-                <h4>Decoder</h4>
-                <p>Logic that "decodes" the op codes from memory</p>
-                <p>This could be seen similar to a lookup table</p>
-
-                <h4>Status Register</h4>
-                <p>Contains the status of the processor</p>
-                <p>Contains the flags</p>
-                <p>Can be checked by the processor at any point</p>
-                <h4>Clock</h4>
-                <p>Generates pulses at a constant rate</p>
-                <p>Measured in hz, Hertz</p>
-                <p>Usually, the faster the clock, the faster things get done</p>
-                <h4>Interrupt Register</h4>
-                <p>Contains the interrupt signals from the components</p>
-                <p>Checked by the CPU to see if an interrupt has been requested</p>
-                <h4>Cache</h4>
-                <p>Small, fast memory that stores frequently used data</p>
-                <p>Comes in three levels:</p>
-                <ul class="clean-ul list-spacer">
-                    <li>L1: fastest, but most expensive cache</li>
-                    <li>L2: slower than l1, but more, and less expensive</li>
-                    <li>L3: slowest but still fast, cheapest cache</li>
-                </ul>   
-            </div>
-
-        </div>
-        <br>
+            
+            <br>
+            
+        </article>
     </main>
-    <footer id="footer">
+    </div>
+    <footer id="footer-foot">
 
     </footer>
+    <script src="/navigation.js"></script>
 
-    <script src="/Computing/components.js"></script>
 </body>
 
 </html>

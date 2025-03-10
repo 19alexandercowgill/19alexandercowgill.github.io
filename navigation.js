@@ -5,10 +5,10 @@ function injectLinks(){
      <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/Computing/">Computer Science</a></li>
-                <li><a href="#">Politics</a></li>
-                <li><a href="#">English Language</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Misc</a></li>
+                <li><a href="/Politics/">Politics</a></li>
+                <li><a href="/English/">English Language</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/misc/">Misc</a></li>
             </ul>
     `
 }
