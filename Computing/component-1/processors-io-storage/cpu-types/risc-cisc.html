@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RISC vs CISC Processors | Computing | Alexander Cowgill</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+
+    <header>
+        <h1>C:/Computing/Processors-IO-Storage/RISC vs CISC/</h1>
+        <nav id="nav-head">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Computer Science</a></li>
+                <li><a href="#">Politics</a></li>
+                <li><a href="#">English Language</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Misc</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div class="container">
+        <aside>
+            <h2>Navigation</h2>
+
+            <ul>
+                <li><a href="#comp-1">Introduction</a></li>
+                <li><a href="#comp-2">RISC</a></li>
+                <li><a href="#comp-3">CISC</a></li>
+
+            </ul>
+
+
+
+        </aside>
+
+
+        <main>
+            <article>
+
+                <div id="comp-1">
+                    <h2>Introduction</h2>
+                    <div class="overview-content education">
+                        <p>There are two main types of processor used. They are CISC, and RISC.</p>
+                    </div>
+                </div>
+                <div id="comp-2">
+                    <h3>RISC</h3>
+
+                    <p>RISC stands for Reduced Instruction Set Computer</p>
+                    <p>It has only a few essential built in instuctions</p>
+                    <p>Each instruction can be completed in a single clock cycle</p>
+                    <p>More lightweight power efficient devices might use these, such as mobile phones</p>
+                    <h4>Benefits</h4>
+                    <ul>
+                        <li>Lower power consumption</li>
+                        <li>Pipelining is possible, as one instruction is exactly one clock tick</li>
+                        <li>Simple set of commands</li>
+                        <li>Faster output due to the simplicity of instructions</li>
+                    </ul>
+                    <h4>Drawbacks</h4>
+                    <ul>
+                        <li>More RAM usage due to more instuctions overall</li>
+                        <li>Harder and more work to compile to, as less instructions make it harder for complex tasks</li>
+                    </ul>
+                    <p>An example of a RISC instruction to multiply 2 number together would be:</p>
+                    <code>
+                        LDA R1, X  <br>
+                        LDA R2, Y  <br>
+                        MUL R1, R2 <br>
+                        STO R1, X  <br> 
+                    </code>
+                </div>
+
+
+                <div id="comp-3">
+                    <h3>CISC</h3>
+                    <p>CISC stands for Complex Instruction Set Computer. These have a huge amount of instructions in
+                        comparison to RISC, which brings some benefits, though also a few drawbacks. </p>
+                    <h4>Benefits</h4>
+                    <ul>
+                        <li>Fewer Assembly Language instructions needed as built in instructions can do more</li>
+                        <li>Most built in instructions are simple</li>
+                        <li>Less RAM is required, as code is shorter</li>
+                        <li>Compiler has to do less work</li>
+                    </ul>
+                    <h4>Drawbacks</h4>
+                    <ul>
+                        <li>More expensive to produce</li>
+                        <li>Many specialised instructions exist, though unused by many programs</li>
+                        <li>Uses much more power than RISC to run</li>
+                    </ul>
+                    <p>An example of a CISC instruction to multiply 2 numbers together is:</p>
+                    <p><code>MUL A, B</code></p>
+                    
+
+
+
+                </div>
+
+                <br>
+
+            </article>
+        </main>
+    </div>
+    <footer id="footer-foot">
+
+    </footer>
+    <script src="/navigation.js"></script>
+
+</body>
+
+</html>
