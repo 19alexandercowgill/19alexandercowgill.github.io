@@ -20,3 +20,27 @@ function injectFooter(){
 }
 injectLinks();
 injectFooter();
+function highlightText(targetText) {
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+    const nodes = [];
+
+    while (walker.nextNode()) {
+        if (walker.currentNode.nodeValue.includes(targetText)) {
+            nodes.push(walker.currentNode);
+        }
+    }
+
+    nodes.forEach(node => {
+        const parent = node.parentNode;
+        const html = node.nodeValue.replace(
+            new RegExp(`\\[${targetText}\\]`, 'g'),
+            `<span style="font-weight: bold; color: red;">[${targetText}]</span>`
+        );
+
+        const span = document.createElement("span");
+        span.innerHTML = html;
+        parent.replaceChild(span, node);
+    });
+}
+
+highlightText("Coming Soon");
