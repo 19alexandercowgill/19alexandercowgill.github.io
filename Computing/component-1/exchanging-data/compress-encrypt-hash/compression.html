@@ -2,103 +2,126 @@
 <html lang="en">
 
 <head>
-    
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-V8M189ZSBQ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-V8M189ZSBQ');
-</script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V8M189ZSBQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="OCR A Level Computer Science Revision Notes for Compression">
-    <meta name="keywords" content="component 1, OCR, A-Level, A Level, a level, revision, notes, computing, computer science, Compression, Lossy, Lossless, Run Length Encoding, Dictionary Coding">
-    <meta property="og:title" content="Compression | A Level Computing">
-    <meta property="og:description" content="OCR A Level Computer Science Revision Notes for Compression">
-    <meta property="og:url" content="https://19alexandercowgill.github.io/Computing/component-1/exchanging-data/compression">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Compression | A Level Computing">
-    <meta name="twitter:description" content="OCR A Level Computer Science Revision Notes for Compression">
+        gtag('config', 'G-V8M189ZSBQ');
+    </script>
+
+
     <title>Compression | A-Level Computing</title>
-    <link rel="Stylesheet" href="/Computing/comp.css">
-    <link rel="Stylesheet" href="/Computing/markup.css">
-    <style>
-        #add:hover::before {
-            content: " efficient ";
-        }
-    </style>
+    <link rel="Stylesheet" href="/styles.css">
+
 </head>
 
 <body class="noto-sans">
 
-    <nav>
-        <div id="nav-top"></div>
-    </nav>
     <header>
-        <h1 id="header">Compression</h1>
-        <p>The <span id="add">method</span> of reducing file sizes</p>
+        <h1>Compression</h1>
+        <nav id="nav-head">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Computer Science</a></li>
+                <li><a href="#">Politics</a></li>
+                <li><a href="#">English Language</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Misc</a></li>
+            </ul>
+        </nav>
     </header>
-    <main>
+    <div class="container">
 
-        <div id="course-contents">
-            <div id="contents-container">
-                <h2>Contents</h2>
-                <div class="link overview-content contents-items">
-                    <a class="overview-item" href="#comp-1">Introduction</a>
-                    <a class="overview-item" href="#comp-2">Lossy Compression</a>
-                    <a class="overview-item" href="#comp-3">Lossless Compression</a>
-                    <a class="overview-item" href="#comp-4">Run Length Encoding</a>
-                    <a class="overview-item" href="#comp-5">Dictionary Coding</a>
-                </div>
-            </div>
-        </div>
+        <aside>
+            <h2>Navigation</h2>
+            <ul>
+                <li><a href="#intro">Introduction</a></li>
+                <li><a href="#lossy">Lossy</a></li>
+                <li><a href="#less">Lossless</a></li>
+              
 
-        <div id="comp-1">
-            <h3>Introduction</h3>
-            <div class="overview-content education">
-                <p>Compression is the process of reducing the storage space required by a file, allowing for more efficient storage and transmission. It is particularly important for sharing files over networks or the Internet, as smaller files transfer faster and consume less bandwidth.</p>
-            </div>
-        </div>
+            </ul>
+        </aside>
+        <main>
+            <article>
+                <h3 id="intro">Introduction</h3>
+                <p>Compression is needed to allow files to become small enough to store in secondary storage, transfer
+                    without taking too much bandwidth, therefore decreasing load times significantly. </p>
+                <p>There are two types of compression:</p>
+                <ul>
+                    <li>Lossy</li>
+                    <li>Lossless</li>
+                </ul>
+                <h3 id="lossy">Lossy</h3>
+                <p>Imagine you have a HD picture, 1920x1080 pixels, with 32 bit colour.
+                    This would take <code>1920*1080*4</code> bytes, roughly 8MB.
+                    There are many ways that we can compress this down, with lossy we remove information permanently.
+                </p>
+                <p>One way could be to remove the alpha channel (Transparency), rather than 4 bytes per pixel, we have
+                    three. So now, we have <code>1920x1080x3=6.2MB</code>. This is a slight improvement. </p>
+                <p>Our next option could be to decrease the colour depth, though this will increase banding, making the
+                    image noticeably less nice. If we have 5 bits per pixel instead of 8, we get 3.8MB, which is an even
+                    better improvement. </p>
+                <p>One final option would be to downscale the resolution, from FHD to maybe 720p. So
+                    <code>1280x720</code>, which brings us down to 1.7MB, which is an ideal size. However, there is lots
+                    of quality lost, so it depends how far you want to go. </p>
+                <p>Finally, modern image formats like <strong>JPEG</strong> use algorithms. Instead of just removing
+                    pixels, they:</p>
+                <ul>
+                    <li>Divide the image into blocks (usually 8x8 pixels).</li>
+                    <li>Approximate similar colours and patterns using an algorithm.</li>
+                    <li>Let you adjust the compression level - higher compression makes the file smaller but adds
+                        artifacts.</li>
+                </ul>
+                <h3 id="less">Lossless</h3>
+                <p>Lossless compression is a whole different story. The data is still compressed, albeit less compactly.
+                    The original file can be completely restored. </p>
+                <p>There are two main types of lossless: RLE and Dictionary. </p>
+                <h4>RLE (Run Length Encoding)</h4>
+                <p>Imagine you have a grid of pixels:
+                    <br>⬛🟨🟨🟨⬛
+                    <br>⬛🟨⬛🟨⬛
+                    <br>⬛🟨🟨🟨⬛
+                    <br>⬛🟨⬛🟨⬛
+                    <br>⬛🟨⬛🟨⬛
+                </p>
+                <p>You might notice, there are a few repeating patterns
+                    We can encode this as nB where n is the number, and B/Y as the colour
+                    so this would become</p>
+                <pre><code>1b3y2b1y1b1y2b3y2b1y1b1y2b1y1b1y1b
+                </code></pre>
+                <p>Now of course, if we only use the number once, this can be reduced to </p>
+                <pre><code>b3y2byby2b3y2by2bybyb
+                </code></pre>
+                <p>which is much shorter. </p>
+                <p>We do run into the risk that our data will show up as a delimiter, such as what if &quot;2&quot; is a
+                    potential value</p>
+                <h4>Dictionary Encoding</h4>
+                <p>If we take our same grid of pixels:<br>
+                    ⬛🟨🟨🟨⬛<br>
+                    ⬛🟨⬛🟨⬛<br>
+                    ⬛🟨🟨🟨⬛<br>
+                    ⬛🟨⬛🟨⬛<br>
+                    ⬛🟨⬛🟨⬛</p>
+                <p>we can notice there is another pattern.
+                    Lets define <code>#</code> as ⬛🟨🟨🟨⬛
+                    and <code>*</code> as ⬛🟨⬛🟨⬛</p>
+                <p>We can encode this into </p>
+                <pre><code>#*#**
+                </code></pre>
+                <p>which is substantially shorter than RLE, though it may take longer to construct a dictionary</p>
+            </article>
 
-        <div id="comp-2">
-            <h3>Lossy Compression</h3>
-            <div class="overview-content education">
-                <p>Lossy compression reduces file size by removing some information, resulting in a loss of quality. This method is commonly used for images, audio, and video files where a perfect reproduction is not necessary. Examples include JPEG for images and MP3 for audio.</p>
-            </div>
-        </div>
-
-        <div id="comp-3">
-            <h3>Lossless Compression</h3>
-            <div class="overview-content education">
-                <p>Lossless compression reduces file size without losing any information, allowing the original file to be perfectly reconstructed from the compressed version. This is essential for text and executable files where every bit of data is important. Examples include PNG for images and ZIP files for data compression.</p>
-            </div>
-        </div>
-
-        <div id="comp-4">
-            <h3>Run Length Encoding</h3>
-            <div class="overview-content education">
-                <p>Run Length Encoding (RLE) is a form of lossless compression that replaces consecutive repeating characters with a single character and a count. For example, the string "AAAAABBBCCDAA" can be compressed to "5A3B2C1D2A". This method is effective for data with lots of repetition.</p>
-            </div>
-        </div>
-
-        <div id="comp-5">
-            <h3>Dictionary Coding</h3>
-            <div class="overview-content education">
-                <p>Dictionary coding replaces frequently occurring sequences with shorter codes, using a dictionary to map these sequences to the codes. This method is effective for both text and binary data. For example, the phrase "for example" could be replaced with "FE" if "FE" doesn't appear elsewhere in the text.</p>
-            </div>
-        </div>
-
-        <br>
-    </main>
-    <footer id="footer">
+        </main>
+    </div>
+    <footer id="footer-foot">
     </footer>
 
-    <script src="/Computing/components.js"></script>
+    <script src="/navigation.js"></script>
 </body>
 
 </html>

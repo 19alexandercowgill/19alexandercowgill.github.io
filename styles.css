@@ -47,7 +47,8 @@ nav ul li a:hover {
     max-width: 1200px;
     margin: auto;
     padding: 20px;
-    flex-wrap: wrap; /* Ensure wrapping for smaller screens */
+    flex-wrap: wrap;
+    /* Ensure wrapping for smaller screens */
     min-height: 75vh;
 }
 
@@ -56,7 +57,8 @@ aside {
     background-color: #c5d9f1;
     padding: 15px;
     border-right: 2px solid #a5c0e0;
-    flex-shrink: 0; /* Prevent shrinking on small screens */
+    flex-shrink: 0;
+    /* Prevent shrinking on small screens */
 }
 
 aside h2 {
@@ -112,6 +114,7 @@ footer {
 
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
+
     /* Make the container stack vertically */
     .container {
         flex-direction: column;
@@ -125,7 +128,7 @@ footer {
     aside {
         width: 100%;
         border-right: none;
-       
+
     }
 
     main {
@@ -143,6 +146,7 @@ footer {
 }
 
 @media (max-width: 480px) {
+
     /* Adjust text and padding for very small screens */
     header h1 {
         font-size: 18px;
@@ -164,6 +168,7 @@ footer {
         font-size: 14px;
     }
 }
+
 /* Search box container */
 .search-container {
     margin-bottom: 20px;
@@ -182,7 +187,7 @@ footer {
     color: #333;
     background-color: #f9f9f9;
     transition: all 0.3s ease;
-    box-sizing: border-box; 
+    box-sizing: border-box;
     outline: none;
     margin-top: 10px;
     box-shadow: none;
