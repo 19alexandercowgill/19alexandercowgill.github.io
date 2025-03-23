@@ -9,6 +9,7 @@ function injectLinks(){
                 <li><a href="/English/">English Language</a></li>
                 <li><a href="/about/">About</a></li>
                 <li><a href="/misc/">Misc</a></li>
+                <li><a href="/search">Search</a></li>
             </ul>
     `
 }

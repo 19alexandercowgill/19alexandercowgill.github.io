@@ -164,3 +164,136 @@ footer {
         font-size: 14px;
     }
 }
+/* Search box container */
+.search-container {
+    margin-bottom: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+/* Search input field */
+#search-box {
+    width: 100%;
+    max-width: 500px;
+    padding: 12px 20px;
+    border: 1px solid #dcdcdc;
+    border-radius: 24px;
+    font-size: 16px;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+    box-sizing: border-box; 
+    outline: none;
+    margin-top: 10px;
+    box-shadow: none;
+}
+
+/* Focused state for box */
+#search-box:focus {
+    border-color: #4285f4;
+    box-shadow: 0 0 8px rgba(66, 133, 244, 0.5);
+    background-color: #fff;
+}
+
+/* Placeholder styling */
+#search-box::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+/* Hover state for box */
+#search-box:hover {
+    border-color: #4285f4;
+    background-color: #fff;
+}
+
+/* Search button */
+#search-button {
+    padding: 12px 20px;
+    border: 1px solid #4285f4;
+    border-radius: 24px;
+    background-color: #4285f4;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+    margin-top: 12px;
+}
+
+/* Focused state for button */
+#search-button:focus {
+    border-color: #36a1f1;
+    background-color: #36a1f1;
+    box-shadow: 0 0 8px rgba(54, 161, 241, 0.5);
+}
+
+/* Hover state for button */
+#search-button:hover {
+    border-color: #2c6dac;
+    background-color: #2c6dac;
+}
+
+/* Active state for button (when clicked) */
+#search-button:active {
+    background-color: #2c6dac;
+    border-color: #1a4978;
+}
+
+/* Disabled state for button */
+#search-button:disabled {
+    background-color: #f2f2f2;
+    border-color: #ccc;
+    color: #999;
+    cursor: not-allowed;
+}
+
+/* Search results container */
+.results-container {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Results item */
+.results-container div {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Hover effect on results */
+.results-container div:hover {
+    background-color: #f1f1f1;
+}
+
+/* Title of each result */
+.results-container h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #4285f4;
+}
+
+/* Description of each result */
+.results-container p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Link styling */
+.results-container a {
+    color: #4285f4;
+    text-decoration: none;
+}
+
+.results-container a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,219 @@
+[
+    {
+      "id": 1,
+      "title": "Home",
+      "description": "Homepage",
+      "date": "2025-03-23",
+      "content": "Homepage for edu.alexco.dev, all pages link here, the home of this site.",
+      "url": "/"
+    },
+    {
+      "id": 2,
+      "title": "Search",
+      "description": "Search the site",
+      "date": "2025-03-22",
+      "content": "You can search through this site to find content quicker than using the homepage and navigating like that. Uses a JSON file to hold info on each page",
+      "url": "/search"
+    },
+    {
+      "id": 3,
+      "title": "Sitemap",
+      "description": "A list of all the pages to help Google PageRank do a better job",
+      "date": "2025-03-22",
+      "content": "Sitemap.html has links to all pages on this site, (at least those that I have added)",
+      "url": "/sitemap"
+    },
+    {
+        "id": 4,
+        "title": "404 Not Found",
+        "description": "A page for when the page isn't there",
+        "date": "2025-03-22",
+        "content": "404 Not Found will take you back to the homepage",
+        "url": "/404"
+      },
+    {
+        "id": 5,
+        "title": "pages.json",
+        "description": "A map of all the pages on this site for search",
+        "date": "2025-03-22",
+        "content": "used by search to allow the pages to be searched, you may have to host this site on a webserver to allow fetch to work though.",
+        "url": "/pages.json"
+      },
+      {
+        "id": 6,
+        "title": "Decrypt",
+        "description": "Enter text and input the substitution",
+        "date": "2025-03-22",
+        "content": "substitution cipher, cryptography, letter conversion, text, utility, misc",
+        "url": "/misc/decrypt"
+      },
+      {
+        "id": 7,
+        "title": "DuckDuckGo",
+        "description": "Use DDGs API to get the infobox text",
+        "date": "2025-03-22",
+        "content": "duckduckgo, api, private, search, knowledge",
+        "url": "/misc/duck"
+      },
+      {
+        "id": 8,
+        "title": "Misc",
+        "description": "This section has tools that Alex finds useful, and might be useful to you.",
+        "date": "2025-03-22",
+        "content": "misc, random, tools, utils, helpful",
+        "url": "/misc/"
+      },
+      {
+        "id": 9,
+        "title": "Markov",
+        "description": "A rather primitive AI can do some somewhat simple text generation. It helps to have more text, but it doesn't matter as such, just decrease the context window.",
+        "date": "2025-03-22",
+        "content": "Markov Chain, This is a tool in which you can input text and a rather primitive AI can do some somewhat simple text generation. It helps to have more text, but it doesn't matter as such, just decrease the context window.",
+        "url": "/misc/markov"
+      },
+      {
+        "id": 10,
+        "title": "Meta",
+        "description": "A tool in which you can make Meta tags for your html pages.",
+        "date": "2025-03-22",
+        "content": "A tool in which you can make Meta HTML tags for your html pages which will improve SEO in the PageRank algorithm apparently",
+        "url": "/misc/meta"
+      },
+      {
+        "id": 10,
+        "title": "UV Coordinate Generator",
+        "description": "A tool in which you can generate UV Coordinates for your game, using Vector2f format",
+        "date": "2025-03-22",
+        "content": "Use Vector2f to generate some UV coordinates for your game, this is specialised to my NEA",
+        "url": "/misc/uvs"
+      },
+      {
+        "id": 11,
+        "title": "About Me",
+        "description": "Who is Alex? Why has he made this site",
+        "date": "2025-03-22",
+        "content": "contact, Hello I'm Alex and welcome to another website on this internet!! This website is a project of mine. I work on it when I remember, and when I don't, it just sits here. ",
+        "url": "/about/"
+      },
+      {
+        "id": 12,
+        "title": "Data Types, Data Structures and Algorithms",
+        "description": "Data Types, Data Structures and Algorithms",
+        "date": "2025-03-22",
+        "content": "Data Types, Data Structures and Algorithms, int, float, bool, programming,  Data Types Primitive data types, integer, real/floating point, character, string and Boolean. Represent positive integers in binary. Use of sign and magnitude and two’s complement to represent negative numbers in binary Addition and subtraction of binary integers. Represent positive integers in hexadecimal Convert positive integers between binary hexadecimal and denary Representation and normalisation of floating point numbers in binary. Floating point arithmetic, positive and negative numbers, addition and subtraction Bitwise manipulation and masks: shifts, combining with AND, OR, and XOR. How character sets (ASCII and UNICODE) are used to represent text. Data Structures Arrays (of up to 3 dimensions), records, lists, tuples. The following structures to store data: linked-list, graph (directed and undirected), stack, queue, tree, binary search tree, hash table. How to create, traverse, add data to and remove data from the data structures mentioned above. Boolean Algebra Define problems using Boolean logic Manipulate Boolean expressions, including the use of Karnaugh maps to simplify Boolean expressions Use the following rules to derive or simplify statements in Boolean algebra: De Morgan’s Laws, distribution, association, commutation, double negation. Using logic gate diagrams and truth tables. The logic associated with D type flip flops, half and full adders. ",
+        "url": "/computing/component-1/data-algorithms"
+      },
+      {
+        "id": 13,
+        "title": "Compression",
+        "description": "Reducing file sizes",
+        "date": "2025-03-22",
+        "content": " Compression The method of reducing file sizes Contents Introduction Lossy Compression Lossless Compression Run Length Encoding Dictionary Coding Introduction Compression is the process of reducing the storage space required by a file, allowing for more efficient storage and transmission. It is particularly important for sharing files over networks or the Internet, as smaller files transfer faster and consume less bandwidth. Lossy Compression Lossy compression reduces file size by removing some information, resulting in a loss of quality. This method is commonly used for images, audio, and video files where a perfect reproduction is not necessary. Examples include JPEG for images and MP3 for audio. Lossless Compression Lossless compression reduces file size without losing any information, allowing the original file to be perfectly reconstructed from the compressed version. This is essential for text and executable files where every bit of data is important. Examples include PNG for images and ZIP files for data compression. Run Length Encoding Run Length Encoding (RLE) is a form of lossless compression that replaces consecutive repeating characters with a single character and a count. For example, the string \"AAAAABBBCCDAA\" can be compressed to \"5A3B2C1D2A\". This method is effective for data with lots of repetition. Dictionary Coding Dictionary coding replaces frequently occurring sequences with shorter codes, using a dictionary to map these sequences to the codes. This method is effective for both text and binary data. For example, the phrase \"for example\" could be replaced with \"FE\" if \"FE\" doesn't appear elsewhere in the text.  ",
+        "url": "/computing/component-1/exchanging-data/compress-encrypt-hash/compression"
+      },
+      {
+        "id": 14,
+        "title": "Encryption",
+        "description": "Keeping Data safe",
+        "date": "2025-03-22",
+        "content": "Compression The method of reducing file sizes Contents Introduction Lossy Compression Lossless Compression Run Length Encoding Dictionary Coding Introduction Compression is the process of reducing the storage space required by a file, allowing for more efficient storage and transmission. It is particularly important for sharing files over networks or the Internet, as smaller files transfer faster and consume less bandwidth. Lossy Compression Lossy compression reduces file size by removing some information, resulting in a loss of quality. This method is commonly used for images, audio, and video files where a perfect reproduction is not necessary. Examples include JPEG for images and MP3 for audio. Lossless Compression Lossless compression reduces file size without losing any information, allowing the original file to be perfectly reconstructed from the compressed version. This is essential for text and executable files where every bit of data is important. Examples include PNG for images and ZIP files for data compression. Run Length Encoding Run Length Encoding (RLE) is a form of lossless compression that replaces consecutive repeating characters with a single character and a count. For example, the string \"AAAAABBBCCDAA\" can be compressed to \"5A3B2C1D2A\". This method is effective for data with lots of repetition. Dictionary Coding Dictionary coding replaces frequently occurring sequences with shorter codes, using a dictionary to map these sequences to the codes. This method is effective for both text and binary data. For example, the phrase \"for example\" could be replaced with \"FE\" if \"FE\" doesn't appear elsewhere in the text.  ",
+        "url": "/computing/component-1/exchanging-data/compress-encrypt-hash/encryption"
+      },
+      {
+        "id": 15,
+        "title": "Hashing",
+        "description": "Fixed-Length Algoeithm for files/text validation",
+        "date": "2025-03-22",
+        "content": "Hashing The process of converting data into a fixed-length value Contents Introduction Cryptographic Hashing Collision Handling Hash Tables Applications of Hashing Introduction Hashing is the process of transforming an input (or \"message\") into a fixed-size string of bytes, typically a digest that represents the original data. It is commonly used in data structures, security, and authentication. Cryptographic Hashing Cryptographic hash functions are designed to be irreversible, meaning the original data cannot be retrieved from the hash. They should be resistant to collisions and pre-image attacks. Examples: SHA-256, MD5 (now considered weak), SHA-3 Collision Handling A hash collision occurs when two different inputs produce the same hash value. Good hash functions minimize the likelihood of collisions. Methods for Handling Collisions: Chaining - storing multiple values in a linked list at the same hash index Open Addressing - finding the next available slot Hash Tables Hash tables use hashing to store key-value pairs efficiently, allowing for quick lookups, insertions, and deletions. They are widely used in databases, caching, and indexing. Applications of Hashing Hashing is used in a variety of fields, including: Password storage (storing hashed passwords rather than plaintext) Digital signatures and integrity checks Data indexing in databases Cryptographic security measures ",
+        "url": "/computing/component-1/exchanging-data/compress-encrypt-hash/hashing"
+      },
+      {
+        "id": 16,
+        "title": "HTML, CSS, JS",
+        "description": "HyperText Markup Language, Cascading Stylesheets, Javascript: The Building blocks of the web",
+        "date": "2025-03-22",
+        "content": " HTML, CSS, and JavaScript The building blocks of the web Contents Introduction HTML CSS JavaScript Introduction HTML, CSS and JavaScript are the three main building blocks that make the web run. Using an analogy of a person, HTML could be described as the \"bones\" of the web, it provides the structure of every single webpage, CSS would be the clothes, as it makes the website look different, and JavaScript is like the muscles, as it allows the content to \"move\" and be interactive HTML HTML is an acronym for HyperText Markup Language There are around 140 HTML elements. To make a HTML page, you need the following tags: html - This tag is required to allow the browser to know that it is a HTML document. head - This tag is needed to allow the browser to process the metadata about the webpage - it allows other tags, such as meta and title to give the page and web crawlers information body - This tag is where all the visible content of the website can be found. HTML tags are not case-sensitive, so <html>, <HTML> or even <hTmL> will work perfectly fine. However, it is convention to create them in lowercase only Here is an example HTML page: html !DOCTYPE html html <head <title>Page Title</title </head <body <h1>Hello, World!</h1 </body /html A tag can have attributes. These are pieces of information that the browser will use to change the behaviour of the tag Here is an example of an attribute, from the <html> tag: html lang=\"en\" In this instance, the lang attribute tells the browser that the html page is in english or any other country code that could be there, for example fr for France There are other attributes that are useful: p id=id-1 and p class=class-1 Tags you must know for the exam: html head link title body h1 img div a form input p ul ol li script The a tag This is an Anchor tag, it allows hyperlinks to other documents Here is the syntax: <a href=https://www.example.com/link/to/page>Text To Display/a This would display as: Text to Display It, as all the other elements, would take in to account any CSS stylings The img tag This tag embeds an image onto the webpage It does not require a closing tag Here is an example of the syntax <img src=https://via.placeholder.com/100x100.png alt=A Placeholder Image width=100 height=200> This would render as: Placeholder Image The alt attribute is needed for accessibility purposes, or in the event the image fails to load for any reason. CSS CSS is an acronym for Cascading Style Sheets. Each style \"cascades\" down to each sub element, unless it is overriden. CSS is used to style webpages, and overall influence the look and feel It can be applied in three ways: Inline, Embedded, and External There are three ways that a style can be applied too: the HTML tag, a class, or an identifier (id) Styles are written with a semicolon (;) at the end of every statement. This allows the file to be minified to make it small enough to be used in production, where timing is crucial. Inline Styles A style can be used directly in a html tag using the style=key:value; attribute For example: <p style=color:#f0f;>Hello, World/p would render as: Hello, World Embedded Styles Embedded Styles are within style tags These are written in the same way as inline, except they can be found without the attribute syntax so it would look like: css p { color: #fof; } Convention says that there should be a space between the selector and { however, this is not stricly needed Embedded styles for a tag will apply to every one on the page An inline style takes precedence over the embedded styles External Stylesheets A drawback to using embedded and inline stylesheets, is for a large website, it will be hard to maintain, and time wasting to use the same code again and again. So Stylesheets can be linked externally to allow for one change \"cascading\" throughout the entire site. This means that the dev can have an easier job, and the entire site can be changed in a few clicks. An external stylesheet is linked using the link tag within the head of the page using the following syntax: <link rel=stylesheet href=path/to/stylesheet.css/> External stylesheets can call others using the @import syntax CSS keys you must know background-color border-color border-style border-width color font-family font-size height width Notice that it uses the American spelling \"color\", not the British \"Colour\" JavaScript The Scripting Language of the web An alternative to WASM (Web Assembly) JavaScript can be found in two places: between script tags, or linked externally through a script.js file. JavaScript Syntax JavaScript is a dynamically typed language, which means that it will automatically cast any variables to the correct type for the operation. For example: js let i = 1; i--; console.log(i == false); //outputs true This is unlike the static type languages such as Java or C# To declare a variable in JavaScript, you can use let, var, or const const defines a constant, a variable which can never change. let and var are slightly different from eachother, but that is out of scope for the exam. (they are to do with the scope of the variable) JavaScript can be used to interact with the DOM (the webpage) You can use the following to select then modify a html element: js const element = document.getElementByID(\"id\"); //This assumes you have a html tag with the id of \"id\" element.innerHTML = \"Hello World!\"; //This now changes the display from the element to \"Hello World\", or any text you put there. JS is used for more than simple modifications, it can be used for buttons, such as where the onclick attribute can execute simple JavaScript For the exam, you will need to know how to make a HTML form, such as this: Enter your name: Enter your age: All input is evil, until proven otherwise - Michael Howard (Microsoft's former Chief Software Architect) You must always ensure that you validate your user input, as it is dangerous to send unvalidated code to any server. Without it, you could be at risk of XSS and SQL injections, which could have bad consequences. To get the value of the form item, you can use: js const element = document.getElementByID(\"id\"); //This assumes you have a html tag with the id of \"id\" const value = element.value; //or element.innerHTML is it's not in a form JavaScript Runtimes In JavaScript, semi-colons are optional, but conventional, as it is based on the Java programming language. JavaScript is interpreted, not compiled for the same reason Java only compiles half way, \"Write once, run anywhere\" This is not entirely true, as not all js features are supported by all platforms JavaScript is NOT an interpreted version of Java, the deprecated applet tag is used for that. They are no longer related in any way!! Read more about JavaScript here ",
+        "url": "/computing/component-1/exchanging-data/web-tech/html-css-js"
+      },
+      {
+        "id": 17,
+        "title": "Client vs Server Side Processing",
+        "description": "Where should the data be processed? A Server, or via JavaScript (JS)",
+        "date": "2025-03-22",
+        "content": " Things can be processed in two places: the Client, or the Server Each method has its benefits and drawbacks Static vs Dynamic Websites Some websites, such as this one, do not have a proper server behind them. The client can only make GET requests, meaning the server can only serve html and other content. This is known as a \"Static\" site, as nothing can change on it However, if I were to add a login form, the site would need to have a proper server, to be able to look up your account against a database The client would need to be able to send a POST request to the server, allowing it to process the login details. This is a \"Dynamic\" site, it changes based on the server's output A popular example of a server side language is PHP Choosing between Client and Server Many things need to be taken into account when deciding where data is processed. Security, Performance and Usability are the three main deciding factors Why use Client Side Client side processing is usually done with JavaScript, which allows for things such as the initial data validation to take place. This would be much better for the server, as it wouldn't need to process every single request. Other client side processings are the stylings, and manipulation of the UI, which are done on the local browser. However, this could be seen as an issue, where not all browsers support every web feature. Why use Server Side Server side would be seen as better in regards to security. Client side processing is prone to XSS and other malicious activities, especially if the inputs aren't validated properly because of that. A server can do the final step in validation, keeping it's database safe However, if the security is not good enough, they could be prone to SQL injections, possibly damaging the database Server side rendering can be useful, as the client can recieve a page without needing to process any other aspects of it, rather than waiting for things like css and js files to load in. Using the server too much will slow it down, especially when web traffic increases, meaning that client side is equally important ",
+        "url": "/computing/component-1/exchanging-data/web-tech/client-server-process"
+      },
+      {
+        "id": 18,
+        "title": "PageRank",
+        "description": "How should a page be ranked in a search engine? Better than this method...",
+        "date": "2025-03-22",
+        "content": " The PageRank algorithm was developed by Google's founder, Larry Page PageRank Algorithm It works by taking a webpage, and using the number, and quality of the links Makes the assumption that more important pages are more likely to be linked to It takes into account the inbound (from other sites) and outbound (to other sites) A vote of 1 is shared between all the pages a page links to Dampening One page shouldn't have dominance over the entire site. A dampening factor, usually 0.85 is used to stop that from happening 0.85 is normally used because the average browsing session is 6 clicks Guesswork The PageRank algorithm uses some guesswork to make an informed guess of the rank of the page, it is not a definitive solution to the problem of webpage relevance It can iterate 100s to 1,000,000s of times depending on the scenario However, the average rank of all the pages should end up at 1 This algorithm is smart enough to know the rank, even without knowing all the backlinks ",
+        "url": "/computing/component-1/exchanging-data/web-tech/pagerank"
+      },
+      {
+        "id": 19,
+        "title": "Search Engine Indexing",
+        "description": "An extension to PageRank",
+        "date": "2025-03-22",
+        "content": "Introduction The Internet used to be 4 computers in size. Now, there are around 50 Billion connected devices In 2020, there was around 1.8 Billion websites on the internet. Finding a website without knowing it's address is much more difficult now. Search Engine Indexing A web crawler, often called a \"spider\", crawls the web, and creates an index of the sites it finds, using the PageRank algorithm to give each page a weight. Websites are constantly being made, and some removed from the web This means that the index must be kept up to date, to ensure that up to date sites are available Googles crawler is known as \"GoogleBot\" When a person searches into a search engine, they are not searching the whole web, this would be too slow, and impractial. They search the index of the pages. Robots Not all parts of a site are available to index, a file known as robots.txt exists to prevent the spiders from going where they shouldn't, for example, in locations where a login is necessary For example, ChatGPT keeps their robots.txt here: https://chatgpt.com/robots.txt ",
+        "url": "/computing/component-1/exchanging-data/web-tech/search-engine-index"
+      
+      }
+      ,
+      {
+        "id": 20,
+        "title": "ALU, CU and Registers",
+        "description": "What's inside a CPU?",
+        "date": "2025-03-22",
+        "content": " Introduction The CPU (Central Processing Unit) gets input, and has to decide what to do with it It interacts with its components, and produces an output based on that Control Unit The CU controls and coordinates all of the activities that the processor does It directs data flow between the components Coordinates the Fetch-Decode-Execute cycle It sends memory Read-Write requests and various other signals Uses status registers, and the system clock quite heavily Program Counter The PC holds the memory address of the next instruction This could be the next address, such as 0x0001 coming after 0x0000 or it could be a jump, such as 0x1010 coming after 0x0001 A jump could be seen as a branch, like in an if (true) {} else {} statement At the start of the Fetch-Decode-Execute cycle, the address held in the PC is copied to the MAR Memory Address Register The MAR holds the address of the memory location of the data or instruction to read or write from It sends the addressed along the address bus Memory Data Register The MDR is used to hold the data to that has been read, or will be written to memory Sometimes, it is known as the MBR and also often called the \"gateway to the processor\" This is because all data must pass through the MDR while it is being read or written to Current Instruction Register The CIR holds the current instruction being executed Data from the MDR is copied into the CIR only if it is an instruction Holds an op code, and an operand, such as LDA 1000 would load the data from memory address 8 Arithmetic and Logic Unit The ALU does maths, and logic It can do the following things: Add Subtract Multiply Divide Bitwise Shifts (left and right) Comparison: AND, OR, NOT, XOR It often contains general purpose registers such as the Accumulator that holds results Accumulator The Accumulator is a general purpose register The CPU uses this to hold the results of the calculations it performs The results from the ALU are in this register Bus Busses come in two types: unidirectional, and bidirectional There are three types: Address Bus Contains the address in memory This is unidirectional, it goes only one way, from the processor to the Main Memory Data Bus This contains the actual data being transferred This is bidirectional, it goes both ways, from the processor to the Main Memory Control Bus This contains the command and control signals from the components This is bidirectional, it goes both ways, from processor and Memory Assembly Language The op-code, such as LDA is an mnemonic for what needs to happen It is a symbolic representation of the binary code It has a 1-1 relationship with the actual processor For the exam, the following commands must be known: ADD SUB STO LDA BRA BRZ BRP INP OUT HLT DAT Beyond the Specification Decoder Logic that \"decodes\" the op codes from memory This could be seen similar to a lookup table Status Register Contains the status of the processor Contains the flags Can be checked by the processor at any point Clock Generates pulses at a constant rate Measured in hz, Hertz Usually, the faster the clock, the faster things get done Interrupt Register Contains the interrupt signals from the components Checked by the CPU to see if an interrupt has been requested Cache Small, fast memory that stores frequently used data Comes in three levels: L1: fastest, but most expensive cache L2: slower than l1, but more, and less expensive L3: slowest but still fast, cheapest cache ",
+        "url": "/Computing/component-1/processors-io-storage/cpu-structure-functions/alu-cu-registers"
+      }
+      ,
+      {
+        "id": 21,
+        "title": "CPU Performance Factors",
+        "description": "What makes a CPU slow?",
+        "date": "2025-03-22",
+        "content": " Introduction The CPU, using the Von Neumann Architecture can only execute one instruction at a time. This is slow, especially when many programs need millions of instructions Clock Speed Modern processors can run at 3GHz+, meaning 3 billion clock cycles per second But older processors did not have this luxury, and many still have speeds of 1.2GHz Increasing the clock speed allows for more instructions to be done in the same amount of time. However, there isnt a 1:1 relationship between clock speed and instructions executed Number of Cores A core is, in the most simple sense, an entire copy of a CPU. A Quad (4) core processor would have 4 CUs, 4 ALUs, but may have a shared cache. Just like Clock Speed, doubling the cores does not double the speed - the cores have to \"talk\" with each other, which takes some time, moreover, most programs are not designed with multi core in mind RAM Size RAM (Random Access Memory) is temporary storage for programs and data being used by the CPU. More RAM allows for more programs and larger datasets to run simultaneously without relying on slower storage like SSDs or hard drives. Insufficient RAM leads to frequent swapping between RAM and storage, significantly reducing performance. Register Size Registers are small, fast storage locations inside the CPU that hold data for immediate use in calculations. The size of a register (e.g., 32-bit, 64-bit) determines how much data the CPU can process at once. A larger register size enables the CPU to handle larger numbers and addresses, which improves performance in modern applications. Data Bus Width The data bus connects the CPU to memory and other components, allowing data to travel between them. The width of the data bus (e.g., 32-bit, 64-bit) determines how many bits can be transferred at once. A wider data bus increases data throughput, reducing the time needed to fetch or store data. Data Bus Speed Data bus speed refers to how quickly the bus can transfer data between components. It is measured in Hertz (e.g., MHz, GHz) and works alongside the data bus width to determine overall bandwidth. A faster data bus minimizes delays in data transfer, ensuring the CPU spends less time waiting for data. Offloading Offloading refers to delegating tasks to specialized hardware to reduce the CPU's workload. For example, a GPU (Graphics Processing Unit) handles graphical computations, freeing the CPU for other tasks. Other examples include network cards for communication and co-processors for intensive calculations like AI or physics simulations. ",
+          "url": "/Computing/component-1/processors-io-storage/cpu-structure-functions/cpu-performance-factors"
+      }
+      ,
+      {
+        "id": 21,
+        "title": "Fetch Decode Execute Cycle",
+        "description": "How does the CPU tick?",
+        "date": "2025-03-22",
+        "content": " Introduction A computer is a machine which takes an input, processes the data, and produces an output. To process the data, the computers follow a set of instructions, known as a program. The program is stored in the memory, the CPU executes it. Fetch The Program Counter (PC) is checked - it holds the memory address of the next instruction that will be executed The Memory Address Register (MAR) copies the PC's output The address is sent along the address bus to the memory where it awaits a read signal by the Control Unit (CU) The CU will send along the control bus a read signal The contents of the main memory at the specified memory address can be sent along the data bus to the MDR If the CPU is fetching an instruction, the data in the MDR gets copied to the Current Instruction Register (CIR) Now it's been fetched, the PC increments to the next instruction address to be executed Decode CPU instructions are made up of two parts: the op-code and the operand The op-code is the actual instruction, such as LDA (load from memory address) or ADD The operand is the actual data, such as 0xf0 If it is an instruction that is loaded, it gets sent to the ALU's accumulator Execute Now that we have our instruction, we can actually do something with it The memory address is sent to the MAR If there is an instruction, it awaits a read signal from the control bus The data is sent along the data bus back to the CPU MDR The contents is copied to the accumulator The cycle is now complete Branching The PC normally increments by 1 every time an instruction is executed However, this is not always the case - if () {} else {} statements would cause some lines to be skipped The CIR has some instructions for branching: BRA BRZ BRP These replace the values in the PC with the contents of the operand in the CIR When each fetch-execute cycle begins, these are checked The program would \"jump\" to the memory address specified ",
+         "url": "/Computing/component-1/processors-io-storage/cpu-structure-functions/fetch-decode-execute"
+      }
+      ,
+      {
+        "id": 22,
+        "title": "Pipelining",
+        "description": "Using all of the CPU as much as possible",
+        "date": "2025-03-22",
+        "content": " Introduction A computer is a machine which takes an input, processes the data, and produces an output. To process the data, the computers follow a set of instructions, known as a program. The program is stored in the memory, the CPU executes it. Fetch The Program Counter (PC) is checked - it holds the memory address of the next instruction that will be executed The Memory Address Register (MAR) copies the PC's output The address is sent along the address bus to the memory where it awaits a read signal by the Control Unit (CU) The CU will send along the control bus a read signal The contents of the main memory at the specified memory address can be sent along the data bus to the MDR If the CPU is fetching an instruction, the data in the MDR gets copied to the Current Instruction Register (CIR) Now it's been fetched, the PC increments to the next instruction address to be executed Decode CPU instructions are made up of two parts: the op-code and the operand The op-code is the actual instruction, such as LDA (load from memory address) or ADD The operand is the actual data, such as 0xf0 If it is an instruction that is loaded, it gets sent to the ALU's accumulator Execute Now that we have our instruction, we can actually do something with it The memory address is sent to the MAR If there is an instruction, it awaits a read signal from the control bus The data is sent along the data bus back to the CPU MDR The contents is copied to the accumulator The cycle is now complete Branching The PC normally increments by 1 every time an instruction is executed However, this is not always the case - if () {} else {} statements would cause some lines to be skipped The CIR has some instructions for branching: BRA BRZ BRP These replace the values in the PC with the contents of the operand in the CIR When each fetch-execute cycle begins, these are checked The program would \"jump\" to the memory address specified ",
+         "url": "/Computing/component-1/processors-io-storage/cpu-structure-functions/pipelining"
+      }
+      ,
+      {
+        "id": 23,
+        "title": "Processor Architecture",
+        "description": "CISC vs RISC and modern processors",
+        "date": "2025-03-22",
+        "content": " There are two main types of processor used. They are CISC, and RISC. RISC RISC stands for Reduced Instruction Set Computer It has only a few essential built in instuctions Each instruction can be completed in a single clock cycle More lightweight power efficient devices might use these, such as mobile phones Benefits Lower power consumption Pipelining is possible, as one instruction is exactly one clock tick Simple set of commands Faster output due to the simplicity of instructions Drawbacks More RAM usage due to more instuctions overall Harder and more work to compile to, as less instructions make it harder for complex tasks An example of a RISC instruction to multiply 2 number together would be: LDA R1, X LDA R2, Y MUL R1, R2 STO R1, X CISC CISC stands for Complex Instruction Set Computer. These have a huge amount of instructions in comparison to RISC, which brings some benefits, though also a few drawbacks. Benefits Fewer Assembly Language instructions needed as built in instructions can do more Most built in instructions are simple Less RAM is required, as code is shorter Compiler has to do less work Drawbacks More expensive to produce Many specialised instructions exist, though unused by many programs Uses much more power than RISC to run An example of a CISC instruction to multiply 2 numbers together is: MUL A, B ",
+         "url": "/Computing/component-1/processors-io-storage/cpu-types/risc-cisc"
+      }
+      ,
+      {
+        "id": 24,
+        "title": "Coprocessors: GPUs",
+        "description": "How do components dedicated to a task, such as graphics cards work",
+        "date": "2025-03-22",
+        "content": "GPUs, also known as Graphics Cards are used for... processing triangles for your screen! But that's not everything they do GPUs A GPU (Graphics Processing Unit) is designed to process the graphical output for your screen They are specially designed for working simple instructions onto large amounts of data. This is known as SIMD (Single instruction, multiple data) This is in contrast to standard CPUs which can do one instuction on one piece of data. This allows them to be particularly efficient for rendering graphics, which in the example of a 1080p60 display, 2073600 pixels need to have their colour calculated in less than 17ms  ",
+         "url": "/Computing/component-1/processors-io-storage/cpu-types/gpu"
+      }
+
+  ]
+  
