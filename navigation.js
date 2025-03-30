@@ -16,7 +16,7 @@ function injectLinks(){
 function injectFooter(){
     const foot = document.getElementById("footer-foot");
     foot.innerHTML = `
-          &copy; 2025 Alexander Cowgill<br>This site is under construction. Your page probably isn't there. Sorry!
+          &copy; 2025 Alexander Cowgill <a style="color:#fff" href="https://alexco.dev/privacy">Privacy</a><br>This site is under construction. Your page probably isn't there. Sorry!
     `
 }
 injectLinks();

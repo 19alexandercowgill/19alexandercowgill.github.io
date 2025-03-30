@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Video Frame Extractor & Generator</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.12.0/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        canvas { border: 1px solid black; }
+    </style>
+</head>
+<body>
+    <h1>Video Frame Extractor & Generator</h1>
+    <input type="file" id="videoInput" accept="video/*">
+    <button onclick="extractFrames()">Extract Frames</button>
+    <button onclick="trainModel()">Train Model</button>
+    <button onclick="generateClip()">Generate 5s Clip</button>
+    <button onclick="saveModel()">Save Model</button>
+    <button onclick="loadModel()">Load Model</button>
+    <p id="progress">Idle</p>
+    <canvas id="canvas" width="256" height="256"></canvas>
+    <canvas id="lossChart" width="400" height="200"></canvas>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const videoInput = document.getElementById('videoInput');
+        const IMAGE_SIZE = 16;
+        const NOISE_DIM = 100;
+        const EPOCHS = 300;
+        const FRAME_INTERVAL = 100;
+        let model;
+        let trainingData = [];
+        let lossHistory = [];
+        let lossChart;
+
+        async function createModel() {
+            model = tf.sequential();
+            model.add(tf.layers.dense({ inputShape: [NOISE_DIM], units: 512, activation: 'relu' }));
+            model.add(tf.layers.dense({ units: 1024, activation: 'relu' }));
+            model.add(tf.layers.dense({ units: IMAGE_SIZE * IMAGE_SIZE * 3, activation: 'sigmoid' }));
+            model.compile({ optimizer: tf.train.adam(0.0005), loss: 'meanSquaredError' });
+        }
+
+        function updateChart() {
+            if (!lossChart) {
+                const ctxChart = document.getElementById('lossChart').getContext('2d');
+                lossChart = new Chart(ctxChart, {
+                    type: 'line',
+                    data: {
+                        labels: [],
+                        datasets: [{
+                            label: 'Loss',
+                            data: [],
+                            borderColor: 'red',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: { x: { title: { display: true, text: 'Epoch' } }, y: { title: { display: true, text: 'Loss' } } }
+                    }
+                });
+            }
+            lossChart.data.labels.push(lossHistory.length);
+            lossChart.data.datasets[0].data.push(lossHistory[lossHistory.length - 1]);
+            lossChart.update();
+        }
+
+        async function extractFrames() {
+            if (!videoInput.files.length) return;
+
+            trainingData = [];
+            const video = document.createElement('video');
+            video.src = URL.createObjectURL(videoInput.files[0]);
+            video.muted = true;
+
+            await new Promise(resolve => {
+                video.onloadedmetadata = () => {
+                    video.width = video.videoWidth;
+                    video.height = video.videoHeight;
+                    resolve();
+                };
+            });
+
+            const tempCanvas = document.createElement('canvas');
+            tempCanvas.width = IMAGE_SIZE;
+            tempCanvas.height = IMAGE_SIZE;
+            const tempCtx = tempCanvas.getContext('2d');
+
+            for (let t = 0; t < video.duration * 1000; t += FRAME_INTERVAL) {
+                video.currentTime = t / 1000;
+                await new Promise(r => video.onseeked = r);
+
+                tempCtx.drawImage(video, 0, 0, IMAGE_SIZE, IMAGE_SIZE);
+                const imageData = tempCtx.getImageData(0, 0, IMAGE_SIZE, IMAGE_SIZE);
+                const pixels = Array.from(imageData.data).filter((_, i) => i % 4 !== 3).map(v => v / 255);
+                trainingData.push(pixels);
+            }
+            document.getElementById('progress').innerText = 'Frames extracted: ' + trainingData.length;
+        }
+
+        async function trainModel() {
+            if (!model) await createModel();
+            if (trainingData.length === 0) {
+                alert("No frames loaded.");
+                return;
+            }
+
+            disableButtons();
+            const noise = tf.randomNormal([trainingData.length, NOISE_DIM]);
+            const targets = tf.tensor2d(trainingData);
+
+            await model.fit(noise, targets, {
+                epochs: EPOCHS,
+                callbacks: {
+                    onEpochEnd: (epoch, logs) => {
+                        lossHistory.push(logs.loss);
+                        updateChart();
+                        document.getElementById('progress').innerText = `Epoch ${epoch + 1}: Loss = ${logs.loss.toFixed(4)}`;
+                    }
+                }
+            });
+
+            enableButtons();
+        }
+
+        function disableButtons() {
+            document.querySelectorAll('button').forEach(button => button.disabled = true);
+        }
+
+        function enableButtons() {
+            document.querySelectorAll('button').forEach(button => button.disabled = false);
+            document.getElementById('progress').innerText = 'Training complete.';
+        }
+
+        async function generateClip() {
+            if (!model) await createModel();
+            const fps = 10;
+            const totalFrames = 5 * fps;
+
+            const stream = canvas.captureStream(fps);
+            const recorder = new MediaRecorder(stream);
+            const chunks = [];
+
+            recorder.ondataavailable = e => chunks.push(e.data);
+            recorder.onstop = () => {
+                const blob = new Blob(chunks, { type: 'video/webm' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'generated_clip.webm';
+                a.click();
+            };
+
+            recorder.start();
+
+            for (let i = 0; i < totalFrames; i++) {
+                const noise = tf.randomNormal([1, NOISE_DIM]);
+                const output = model.predict(noise);
+                renderImage(output);
+                await new Promise(r => setTimeout(r, 1000 / fps));
+            }
+            recorder.stop();
+        }
+
+        function renderImage(tensor) {
+            const pixelData = tensor.reshape([IMAGE_SIZE, IMAGE_SIZE, 3]).dataSync();
+            const smallCanvas = document.createElement('canvas');
+            smallCanvas.width = IMAGE_SIZE;
+            smallCanvas.height = IMAGE_SIZE;
+            const smallCtx = smallCanvas.getContext('2d');
+
+            const imageData = smallCtx.createImageData(IMAGE_SIZE, IMAGE_SIZE);
+            for (let i = 0; i < IMAGE_SIZE * IMAGE_SIZE; i++) {
+                imageData.data[i * 4] = pixelData[i * 3] * 255;
+                imageData.data[i * 4 + 1] = pixelData[i * 3 + 1] * 255;
+                imageData.data[i * 4 + 2] = pixelData[i * 3 + 2] * 255;
+                imageData.data[i * 4 + 3] = 255;
+            }
+            smallCtx.putImageData(imageData, 0, 0);
+
+            ctx.imageSmoothingEnabled = false;
+            ctx.clearRect(0, 0, 256, 256);
+            ctx.drawImage(smallCanvas, 0, 0, 256, 256);
+        }
+
+        async function saveModel() {
+            if (model) {
+                await model.save('localstorage://my-model');
+                alert("Model saved.");
+            }
+        }
+
+        async function loadModel() {
+            try {
+                model = await tf.loadLayersModel('localstorage://my-model');
+                alert("Model loaded.");
+            } catch (error) {
+                alert("Failed to load model.");
+            }
+        }
+
+    </script>
+</body>
+</html>

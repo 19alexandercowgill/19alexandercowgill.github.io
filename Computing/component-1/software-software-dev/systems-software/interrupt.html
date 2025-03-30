@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V8M189ZSBQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-V8M189ZSBQ');
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interrupts | Computing</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>C:/Computing/Interrupts</h1>
+        <nav id="nav-head">
+           
+        </nav>
+    </header>
+
+    <div class="container">
+        <aside>
+            <h2>Navigation</h2>
+            <ul>
+                <li><a href="#overview">Introduction</a></li>
+             </ul>
+        </aside>
+
+        <main>
+            <article>
+                <h2>Introduction</h2>
+                <p>An interrupt is a signal generated in one of three places:</p>
+                <ul>
+                <li>Hardware</li>
+                <li>Software</li>
+                <li>I/O</li>
+                </ul>
+                <p>Picture the standard FDE Cycle:</p>
+                <p>Fetch -&gt; Decode -&gt; Execute -&gt; Fetch ...</p>
+                <p>An interrupt would be checked for before Fetch, such as :</p>
+                <p>Interrupt -&gt; Fetch -&gt; Decode -&gt; Execute. </p>
+                <p>An interrupt is its own FDE cycle, and can be anything, from a mouse/keyboard event, or a printer completing a task. 
+                An alternative would be <em><strong>polling</strong></em> which is a more inefficient approach, as it would check <em>every</em> component <em>every</em> tick of the CPU clock. </p>
+                <p>So how does an interrupt work then?</p>
+                <h2>ISR (Interrupt Service Register)</h2>
+                <p> At the start of each <strong>Fetch-Decode-Execute</strong> cycle, the processor checks the <strong>interrupt register</strong> for any pending interrupts.</p>
+                <p>If an interrupt exists and has a <strong>higher priority</strong> than the current process:</p>
+                <ul>
+                <li>The current contents of the <strong>special-purpose registers</strong> in the CPU are temporarily stored in a <strong>stack</strong>.</li>
+                <li>The processor loads the appropriate <strong>Interrupt Service Routine (ISR)</strong> into RAM.</li>
+                <li>A <strong>flag</strong> is set to indicate that the ISR has started.</li>
+                </ul>
+                <p>Once the interrupt has been serviced:</p>
+                <ul>
+                <li>The <strong>flag is reset</strong>.</li>
+                <li>The <strong>interrupt queue</strong> is checked again for any other higher-priority interrupts.</li>
+                </ul>
+                <p>If additional higher-priority interrupts exist:</p>
+                <ul>
+                <li>The process repeats until <strong>all priority interrupts</strong> have been handled.</li>
+                </ul>
+                <p>If no more high-priority interrupts exist:</p>
+                <ul>
+                <li>The contents of the <strong>stack</strong> are transferred back into the CPU registers.</li>
+                <li>The <strong>Fetch-Decode-Execute cycle resumes</strong> as before.</li>
+                </ul>
+            </article>
+        </main>
+    </div>
+
+    <footer id="footer-foot">
+        &copy; 2025 Alexander Cowgill
+    </footer>
+    <script src="/navigation.js"></script>
+</body>
+
+</html>

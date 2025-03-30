@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Image Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.18.0/dist/tf.min.js"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Image Generator</h1>
+            <p>Train a model on your images and generate new ones</p>
+        </header>
+
+        <div class="main-content">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Output Canvas</h2>
+                </div>
+                <div class="card-body canvas-container">
+                    <canvas id="canvas" width="256" height="256"></canvas>
+                    <div id="progress" class="progress-indicator">Load or train a model to get started</div>
+                </div>
+                <div class="card-footer">
+                    <button id="generateBtn" class="btn primary">Generate Image</button>
+                    <button id="downloadBtn" class="btn secondary">Download Image</button>
+                </div>
+            </div>
+
+            <div class="controls-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Training</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="input-group">
+                            <label for="fileInput">Upload Training Images:</label>
+                            <input type="file" id="fileInput" multiple accept="image/*" />
+                        </div>
+                        <div class="button-group">
+                            <button id="trainBtn" class="btn primary">Train Model</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2>Model Management</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="button-group">
+                            <button id="saveBtn" class="btn secondary">Save Model</button>
+                            <button id="loadBtn" class="btn secondary">Load Model</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="analytics-section">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Training Loss</h2>
+                </div>
+                <div class="card-body chart-container">
+                    <canvas id="lossChart"></canvas>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h2>Generation Certainty</h2>
+                </div>
+                <div class="card-body chart-container">
+                    <canvas id="certaintyChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Advanced AI Image Generator | TensorFlow.js</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

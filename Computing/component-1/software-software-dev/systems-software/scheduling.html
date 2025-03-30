@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V8M189ZSBQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-V8M189ZSBQ');
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scheduling Algorithms</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Scheduling Algorithms</h1>
+        <nav id="nav-head">
+           
+        </nav>
+    </header>
+
+    <div class="container">
+        <aside>
+            <h2>Navigation</h2>
+            <ul>
+                <li><a href="#overview">Introduction</a></li>
+             
+             
+
+            </ul>
+        </aside>
+
+        <main>
+            <article>
+                <h2>Introduction</h2>
+                <p>Operating Systems require a way to manage what order they should execute each process in, in a somewhat fair manner. 
+                People expect computers to run quickly, even when there are many background processes. </p>
+                <h2>Types of Scheduling</h2>
+                <p>Pre-emptive - The OS actively manages the tasks, such as MFQs, SRT, and RR. 
+                Non pre-emptive - Once a job is started, there is no control until it is done, such as FCFS or SJF </p>
+                <h2>Scheduling Algorithms</h2>
+                <h3>Round Robin (RR)</h3>
+                <ul>
+                <li>Round robin is the most basic of scheduler.</li>
+                <li>In this system each time a job comes in to be completed it is added to the end of a queue.</li>
+                <li>Each job is given an amount of CPU time to be completed in.</li>
+                <li>There is no risk of a backlog of tasks being created, if a task doesn&#39;t finish in the time block, it will be executed after.</li>
+                <li>If the job completes within this time, then the next job is loaded.</li>
+                <li>If the job is not completed, then it is pushed to the bottom of the queue and waits for its next slot of CPU time.<ul>
+                <li>This is fine if all the jobs are similar in size and similar in priority.</li>
+                </ul>
+                </li>
+                <li>This system ignores any priority of a job and ignores that each job will take different amounts of time so can be very inefficient.</li>
+                </ul>
+                <h3>First Come First Served (FCFS)</h3>
+                <p>Jobs are processed in chronological order by which they entered the queue.
+                Although this is easy to implement, FCFS again does not allocate processor time based on priority.
+                There is no risk of <strong><em>processor starvation</em></strong> - where a process does not get the chance to execute, just like RR. </p>
+                <h3>Multilevel Feedback Queue (MFQ)</h3>
+                <p>This makes use of multiple queues, each which is ordered based on a different priority.
+                This can be difficult to implement due to deciding which job to prioritise based on a combination of priorities.
+                The CPU will switch between queues to get jobs to complete
+                if a job is waiting too long in one queue it will be moved to a higher priority location in another queue to get the job completed quicker.
+                Each separate queue has its own scheduler to maintain that queue.
+                This system offers the best results, but is very CPU intensive.</p>
+                <p>Microsoft Windows uses MFQ</p>
+                <h3>Shortest Job First (SJF)</h3>
+                <p>SJF selects the shortest job in the queue to complete first.
+                As it is always looking for the shortest job first, larger processes can face “starvation” and not get completed.
+                Shortest job first is not very feasible for implementation as the operating system rarely knows the amount of time to complete each new job.
+                The OS has to use estimation based on a record of all previous jobs.</p>
+                <h3>Shortest Remaining Time (SRT)</h3>
+                <p>SJF is a pre-emptive version of shortest job first.
+                As a job arrives, it is compared to the currently running job (which is currently the shortest job) if it is longer than the current job then it is added to a queue.
+                If the new job is shorter than the current job, then the current job is pushed to the queue and the new job is worked on.
+                This scheduler requires very little CPU usage as it only makes a comparison as a job arrives or as it completes a job
+                Short jobs are always completed quickly, but bigger jobs will face starvation.</p>
+            </article>
+        </main>
+    </div>
+
+    <footer id="footer-foot">
+        
+    </footer>
+    <script src="/navigation.js"></script>
+</body>
+
+</html>

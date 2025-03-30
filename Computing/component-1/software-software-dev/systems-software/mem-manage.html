@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V8M189ZSBQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-V8M189ZSBQ');
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Management | Computing</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>C:/Computing/Memory Management</h1>
+        <nav id="nav-head">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Computer Science</a></li>
+                <li><a href="#">Politics</a></li>
+                <li><a href="#">English Language</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Misc</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <aside>
+            <h2>Navigation</h2>
+            <ul>
+                <li><a href="#overview">Introduction</a></li>
+             
+             
+
+            </ul>
+        </aside>
+
+        <main>
+            <article>
+                <h2>Introduction</h2>
+<p>The OS provides memory management functionality, which allows multiple processes to run simultaneously. </p>
+<p>It must be shared fairly, which presents some challenge especially if the physically available is not large enough </p>
+<p>Even though it may appear that multiple programs are running simultaneously, in reality only one runs at once, which means the processor must switch between them quickly in order to give the illusion of multitasking. </p>
+<p>There are two main types of memory management:</p>
+<h2>Paging</h2>
+<p>In modern operating systems, paging splits memory into fixed size physical divisions, usually 4KB in size . They are all equally sized. </p>
+<p>Microsoft Windows&#39; pagefile is stored at <code>C:/pagefile.sys</code></p>
+<p>When programs run, they are allocated pages to work in, and they do not have to be contiguous. </p>
+<h3>Performance</h3>
+<p>Performance is not affected by having non-contiguous (not next to each other) pages for your program.
+Any pages being used that are not active can be sent to virtual memory to free pages up for other tasks.
+Performance may be affected if some programs are split (for example when parts of a looping function are split across pages)
+Writing to virtual memory is much slower though, and can cause the system to lag</p>
+<h2>Segmentation</h2>
+<p>Older OSs use segmentation, which uses <em>logical</em> divisions, which mean that there is no minimum size
+When a program loads, it is given enough memory for the parts it is currently trying to load.
+The rest of the program is kept in storage until needed, but the logical section given to the program will need to be made bigger.
+Programs that are split across logical splits (non-contiguous) suffer greatly for not being together.
+Segmentation can also use virtual memory to store unused parts of programs in virtual memory to free space for something else.</p>
+<h2>Virtual Memory</h2>
+<p>Virtual memory is used when the computer has no more available random access memory (RAM).
+VM uses a section of the HDD/SSD  to act as RAM when the main space is not sufficient. </p>
+<p>This is slow though, and an overreliance can cause &quot;disk thrashing&quot; which will wear out the SSD or make it appear to &quot;freeze&quot;, as more time is waiting for the IO operation to complete than the program running .</p>
+            </article>
+        </main>
+    </div>
+
+    <footer id="footer-foot">
+        &copy; 2025 Alexander Cowgill
+    </footer>
+    <script src="/navigation.js"></script>
+</body>
+
+</html>

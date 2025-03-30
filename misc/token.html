@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini Word Generator AI</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+      padding: 20px;
+    }
+    h2 {
+      color: #333;
+    }
+    textarea, input {
+      width: 100%;
+      max-width: 600px;
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 4px;
+      background-color: #4caf50;
+      color: white;
+      cursor: pointer;
+    }
+    button:disabled {
+      background-color: #999;
+      cursor: not-allowed;
+    }
+    #progress {
+      width: 100%;
+      max-width: 600px;
+      height: 20px;
+      background: #ddd;
+      border-radius: 10px;
+      margin-top: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+    #bar {
+      height: 100%;
+      width: 0%;
+      background: #4caf50;
+      transition: width 0.3s ease;
+    }
+    #status {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    #spinner {
+      display: none;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Mini GPT-ish Text Generator</h2>
+  <textarea id="dataset" rows="6" placeholder="Paste your training data here..."></textarea>
+  <button id="trainBtn" onclick="train()">Train Model</button>
+  <div id="progress"><div id="bar"></div></div>
+  <div id="status"></div>
+
+  <input type="text" id="input" placeholder="Seed text (min 3 words)">
+  <button id="generateBtn" onclick="generate()">Generate Text</button>
+  <div id="spinner">⏳ Generating...</div>
+  <p><strong>Output:</strong></p>
+  <p id="output">None</p>
+
+  <script>
+    let model, wordSet = [], wordToIndex = {}, indexToWord = {};
+    const CONTEXT_SIZE = 3;
+    const EPOCHS = 30;
+
+    function prepareData(text) {
+      const words = text.trim().split(/\s+/);
+      wordSet = Array.from(new Set(words));
+      wordSet.forEach((w, i) => {
+        wordToIndex[w] = i;
+        indexToWord[i] = w;
+      });
+      const xs = [], ys = [];
+      for (let i = 0; i < words.length - CONTEXT_SIZE; i++) {
+        const context = words.slice(i, i + CONTEXT_SIZE).map(w => wordToIndex[w]);
+        xs.push(context);
+        ys.push(wordToIndex[words[i + CONTEXT_SIZE]]);
+      }
+      return {
+        xs: tf.tensor2d(xs, [xs.length, CONTEXT_SIZE], 'int32'),
+        ys: tf.oneHot(tf.tensor1d(ys, 'int32'), wordSet.length)
+      };
+    }
+
+    async function train() {
+      const data = document.getElementById('dataset').value;
+      if (!data.trim()) {
+        alert('Please enter some training data.');
+        return;
+      }
+      document.getElementById('trainBtn').disabled = true;
+      document.getElementById('generateBtn').disabled = true;
+      document.getElementById('status').innerText = 'Training...';
+      document.getElementById('bar').style.width = '0%';
+
+      const { xs, ys } = prepareData(data);
+
+      model = tf.sequential();
+      model.add(tf.layers.embedding({ inputDim: wordSet.length, outputDim: 16, inputLength: CONTEXT_SIZE }));
+      model.add(tf.layers.flatten());
+      model.add(tf.layers.dense({ units: 64, activation: 'relu' }));
+      model.add(tf.layers.dense({ units: wordSet.length, activation: 'softmax' }));
+
+      model.compile({ optimizer: 'adam', loss: 'categoricalCrossentropy' });
+
+      await model.fit(xs, ys, {
+        epochs: EPOCHS,
+        batchSize: 16,
+        callbacks: {
+          onEpochEnd: (epoch, logs) => {
+            const progress = ((epoch + 1) / EPOCHS * 100).toFixed(0);
+            document.getElementById('bar').style.width = progress + '%';
+          },
+          onTrainEnd: () => {
+            document.getElementById('progress').style.display = 'none';
+            document.getElementById('status').innerText = '✅ Training Complete!';
+            document.getElementById('trainBtn').disabled = false;
+            document.getElementById('generateBtn').disabled = false;
+          }
+        }
+      });
+
+      xs.dispose();
+      ys.dispose();
+    }
+
+    async function generate() {
+      if (!model) {
+        alert('Train the model first.');
+        return;
+      }
+      const input = document.getElementById('input').value.trim();
+      let words = input.split(/\s+/);
+      if (words.length < CONTEXT_SIZE) {
+        alert(`Please enter at least ${CONTEXT_SIZE} words.`);
+        return;
+      }
+      words = words.slice(-CONTEXT_SIZE);
+
+      let generated = words.join(' ');
+      document.getElementById('spinner').style.display = 'block';
+      document.getElementById('output').innerText = '';
+
+      for (let i = 0; i < 20; i++) {
+        const contextIdx = words.map(w => wordToIndex[w] ?? 0);
+        const x = tf.tensor2d([contextIdx], [1, CONTEXT_SIZE], 'int32');
+        const prediction = model.predict(x);
+        const probs = prediction.dataSync();
+
+        // Slight randomness for more GPT vibes
+        const temperature = 0.8;
+        const adjusted = probs.map(p => Math.pow(p, 1 / temperature));
+        const sum = adjusted.reduce((a, b) => a + b, 0);
+        const norm = adjusted.map(p => p / sum);
+
+        let r = Math.random();
+        let index = 0;
+        while (r > 0) {
+          r -= norm[index];
+          index++;
+        }
+        index--;
+
+        const nextWord = indexToWord[index];
+        generated += ' ' + nextWord;
+        words.push(nextWord);
+        words.shift();
+
+        x.dispose();
+        prediction.dispose();
+      }
+
+      document.getElementById('spinner').style.display = 'none';
+      document.getElementById('output').innerText = generated;
+    }
+  </script>
+</body>
+</html>
