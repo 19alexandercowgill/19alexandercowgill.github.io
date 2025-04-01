@@ -1,3 +1,30 @@
+let themeStylesheet;
+
+        function initTheme() {
+            // Find the first <link> that includes "styles.css"
+            themeStylesheet = document.querySelector('link[rel="stylesheet"][href*="styles.css"]');
+
+            // If a theme was saved, apply it
+            let savedTheme = localStorage.getItem("theme");
+            if (savedTheme && themeStylesheet) {
+                themeStylesheet.setAttribute("href", savedTheme);
+            }
+        }
+
+        function toggleTheme() {
+            if (!themeStylesheet) return; // Safety check
+
+            let currentTheme = themeStylesheet.getAttribute("href");
+            let newTheme = currentTheme.includes("/styles.css") ? "/darkstyles.css" : "/styles.css";
+            themeStylesheet.setAttribute("href", newTheme);
+            let button = document.getElementById("themeToggle");
+    button.innerHTML = button.innerHTML === "🌞" ? "🌙" : "🌞";
+            // Save the preference
+            localStorage.setItem("theme", newTheme);
+        }
+
+        // Initialize on page load
+        window.onload = initTheme;
 function injectLinks(){
     const nav = document.getElementById("nav-head")
    
@@ -10,9 +37,13 @@ function injectLinks(){
                 <li><a href="/about/">About</a></li>
                 <li><a href="/misc/">Misc</a></li>
                 <li><a href="/search">Search</a></li>
+                 <li><button id="themeToggle" onclick="toggleTheme()">Toggle Theme</button></li>
             </ul>
     `
+    let button = document.getElementById("themeToggle");
+    button.innerHTML = button.innerHTML === "🌞" ? "🌙" : "🌞";
 }
+
 function injectFooter(){
     const foot = document.getElementById("footer-foot");
     foot.innerHTML = `
