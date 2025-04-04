@@ -27,8 +27,8 @@
             .attr("height", height);
         
         let projection = d3.geoMercator()
-            .scale(200)
-            .translate([width / 2, height / 1.8]);
+            .scale(250)
+            .translate([width/2, (height/4)*3.5]);
         
         let path = d3.geoPath().projection(projection);
 
@@ -80,7 +80,8 @@
             height = window.innerHeight;
 
             svg.attr("width", width).attr("height", height);
-            projection.translate([width / 2, height / 1.8]);
+            projection.translate([width/2, (height/4)*3]);
+
             path = d3.geoPath().projection(projection);
 
             svg.selectAll(".country").attr("d", path);
