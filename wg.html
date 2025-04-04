@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Map</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/topojson@latest/dist/topojson.min.js"></script>
+
+    <style>
+        html, body { margin: 0; padding: 0; overflow: hidden; }
+        svg { width: 100vw; height: 100vh; display: block; }
+        .country { fill: #ccc; stroke: #333; cursor: pointer; }
+        .country:hover { fill: #007bff; }
+        .country-name { font-size: 14px; font-weight: bold; text-anchor: middle; pointer-events: none; }
+    </style>
+</head>
+<body>
+    <svg id="map"></svg>
+
+    <script>
+        let width = window.innerWidth;
+        let height = window.innerHeight;
+        
+        const svg = d3.select("#map")
+            .attr("width", width)
+            .attr("height", height);
+        
+        let projection = d3.geoMercator()
+            .scale(200)
+            .translate([width / 2, height / 1.8]);
+        
+        let path = d3.geoPath().projection(projection);
+
+        const teachers = {}; // Stores one teacher per country
+        let countries; // Stores country data
+
+        d3.json("https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json").then(worldData => {
+            countries = topojson.feature(worldData, worldData.objects.countries);
+            
+            svg.selectAll(".country")
+                .data(countries.features)
+                .enter().append("path")
+                .attr("class", "country")
+                .attr("d", path)
+                .on("click", (event, d) => {
+                    const countryName = d.properties.name;
+                    let teacherName = prompt(`Enter teacher's name for ${countryName}:`);
+                    
+                    if (teacherName) {
+                        teachers[countryName] = teacherName.trim();
+                        updateTeacherLabels();
+                    }
+                });
+
+            updateTeacherLabels(); // Ensure labels are placed initially
+        });
+
+        function updateTeacherLabels() {
+            // Remove old labels
+            svg.selectAll(".country-name").remove();
+
+            // Re-render labels based on the stored teacher data
+            Object.entries(teachers).forEach(([countryName, teacherName]) => {
+                const country = countries.features.find(d => d.properties.name === countryName);
+                if (!country) return;
+
+                const centroid = path.centroid(country);
+                svg.append("text")
+                    .attr("class", "country-name")
+                    .attr("x", centroid[0])
+                    .attr("y", centroid[1])
+                    .text(teacherName);
+            });
+        }
+
+        // Resize and re-render on window resize
+        window.addEventListener("resize", () => {
+            width = window.innerWidth;
+            height = window.innerHeight;
+
+            svg.attr("width", width).attr("height", height);
+            projection.translate([width / 2, height / 1.8]);
+            path = d3.geoPath().projection(projection);
+
+            svg.selectAll(".country").attr("d", path);
+            updateTeacherLabels(); // Re-render teacher labels in correct positions
+        });
+    </script>
+</body>
+</html>

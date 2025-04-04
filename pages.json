@@ -214,6 +214,15 @@
         "content": "GPUs, also known as Graphics Cards are used for... processing triangles for your screen! But that's not everything they do GPUs A GPU (Graphics Processing Unit) is designed to process the graphical output for your screen They are specially designed for working simple instructions onto large amounts of data. This is known as SIMD (Single instruction, multiple data) This is in contrast to standard CPUs which can do one instuction on one piece of data. This allows them to be particularly efficient for rendering graphics, which in the example of a 1080p60 display, 2073600 pixels need to have their colour calculated in less than 17ms  ",
          "url": "/Computing/component-1/processors-io-storage/cpu-types/gpu"
       }
+      ,
+      {
+        "id": 25,
+        "title": "Text to one line",
+        "description": "Convert text with newlines into a single long line.",
+        "date": "2025-03-22",
+        "content": "minify, javascript, Convert long text into one line",
+         "url": "/misc/minify"
+      }
 
   ]
   

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V8M189ZSBQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-V8M189ZSBQ');
+</script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdownify | Alexander Cowgill</title>
+    <link rel="stylesheet" href="/styles.css">
+   
+</head>
+
+<body>
+    <header >
+        <h1>Markdownify</h1>
+        <nav id="nav-head">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Computer Science</a></li>
+                <li><a href="#">Politics</a></li>
+                <li><a href="#">English Language</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Misc</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <aside>
+            <h2>Navigation</h2>
+            <ul>
+                
+                <li><a href="#solution">Markdown</a></li>
+               
+            </ul>
+        </aside>
+        
+        <main>
+            <article>
+                <div style="font-family: Arial, sans-serif; text-align: center; margin-top: 50px;">
+                    <h2>Text to One Line</h2>
+                    <textarea id="inputText" rows="16" cols="50" style="width: 80%; max-width: 500px;"></textarea>
+                    <br><br>
+                    <button onclick="minifyText()" style="padding: 10px 20px; font-size: 16px; cursor: pointer;">Minify</button>
+                    <br><br>
+                    <textarea id="outputText" rows="2" cols="50" style="width: 80%; max-width: 500px;"></textarea>
+                </div>
+            </article>
+        </main>
+    </div>
+    
+    <footer id="footer-foot">
+        &copy; 2025 Alexander Cowgill
+    </footer>
+    <script>
+      function minifyText() {
+            var input = document.getElementById("inputText").value;
+            var minified = input.replace(/\n/g, ' ');
+            document.getElementById("outputText").value = minified;
+        }
+    </script>
+    <script src="/navigation.js"></script>
+</body>
+
+</html>
