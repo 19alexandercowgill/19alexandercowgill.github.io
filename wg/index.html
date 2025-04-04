@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politics EOY</title>
+    <script src="/wg/cdn/d3.min.js"></script>
+    <script src="/wg/cdn/topojson.min.js"></script>
+
+    <style>
+        html, body { margin: 0; padding: 0; overflow: hidden; }
+        svg { width: 100vw; height: 100vh; display: block; }
+        .country { fill: #ccc; stroke: #333; cursor: pointer; }
+        .country:hover { fill: #007bff; }
+        .country-name { font-size: 14px; font-weight: bold; text-anchor: middle; pointer-events: none; }
+    </style>
+</head>
+<body>
+    <svg id="map"></svg>
+    <script src="/wg/script.js">
+    </script>
+</body>
+</html>
