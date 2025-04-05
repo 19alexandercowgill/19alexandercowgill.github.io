@@ -1,0 +1,30 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #8ad8ec;
+}
+
+svg {
+    width: 100vw;
+    height: 100vh;
+    display: block;
+}
+
+.country {
+    fill: #c6cac5;
+    stroke: #323739;
+    cursor: pointer;
+}
+
+.country:hover {
+    fill: #797b79;
+}
+
+.country-name {
+    font-size: 14px;
+    font-weight: bold;
+    text-anchor: middle;
+    pointer-events: none;
+}
