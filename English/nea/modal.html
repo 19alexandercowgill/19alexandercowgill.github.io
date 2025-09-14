@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Verb Counter</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V8M189ZSBQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-V8M189ZSBQ');
+    </script>
+  <link rel="stylesheet" crossorigin href="./assets/modal-BvlWRZR8.css">
+  <link rel="stylesheet" crossorigin href="./assets/style-e690avWC.css">
+</head>
+
+<body>
+    <div class="container" style="display:flex; justify-content:space-between;">
+        <span>NEA Utils</span>
+        <div style="display:flex; gap:10px;">
+            <a href="./sentences">Sentences</a>
+            <a href="./pronouns">Pronouns</a>
+            <a href="./modal">Modal Verbs</a>
+            <a href="./politeness">Politeness</a>
+            <a href="./sentiment">Sentiment</a>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <header class="header">
+            <h1>Modal Verb Counter</h1>
+            <p class="subtitle">Count the number of epistemic and deontic modal verbs</p>
+        </header>
+
+        <div class="input-section">
+            <div class="input-wrapper">
+                <textarea id="textInput" placeholder="Paste your text here..."></textarea>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="btn-primary" onclick="countModals()">Count</button>
+            <button class="btn-secondary" onclick="clearAll()">Clear</button>
+        </div>
+
+        <div id="statsContainer">
+            <div class="stat-item">
+                <div class="panel-title">Epistemic Modals</div>
+                <div class="subtitle">Possibility, probability, certainty</div>
+                <div class="stat-value" id="epistemicCount">0</div>
+                <div class="stat-percentage">may, might, could, can, will, would, should, must (certainty)</div>
+                <div class="stat-details" id="epistemicFound"></div>
+            </div>
+
+            <div class="stat-item">
+                <div class="panel-title">Deontic Modals</div>
+                <div class="subtitle">Obligation, permission, necessity</div>
+                <div class="stat-value" id="deonticCount">0</div>
+                <div class="stat-percentage">must, should, ought to, have to, need to, can, may (permission)</div>
+                <div class="stat-details" id="deonticFound"></div>
+            </div>
+
+            <div class="stat-item">
+                <div class="panel-title">Total Modal Verbs</div>
+                <div class="stat-value" id="totalCount" style="font-size: 2rem;">0</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modals = {
+            epistemic: {
+                // Modals expressing possibility, probability, certainty
+                list: ['may', 'might', 'could', 'can', 'will', 'would', 'should', 'must'],
+                contextual: ['shall'], // less common but can be epistemic
+                found: new Map()
+            },
+            deontic: {
+                // Modals expressing obligation, permission, necessity
+                list: ['must', 'should', 'ought', 'can', 'may'],
+                phrases: ['have to', 'has to', 'had to', 'need to', 'needs to', 'needed to', 'ought to'],
+                found: new Map()
+            }
+        };
+
+        function countModals() {
+            const text = document.getElementById('textInput').value.toLowerCase();
+
+            Object.values(modals).forEach(category => category.found.clear());
+
+            if (!text.trim()) {
+                updateDisplay();
+                return;
+            }
+
+            // First check for multi-word modal phrases
+            modals.deontic.phrases.forEach(phrase => {
+                const regex = new RegExp('\\b' + phrase.replace(/\s+/g, '\\s+') + '\\b', 'gi');
+                const matches = text.match(regex);
+                if (matches) {
+                    modals.deontic.found.set(phrase, matches.length);
+                }
+            });
+
+            // Then check for single word modals
+            const words = text.match(/\b[\w']+\b/g) || [];
+
+            words.forEach(word => {
+                let wordsToCheck = [word];
+
+                // Handle contractions
+                if (word.includes("'")) {
+                    const contractions = {
+                        "can't": ['can'],
+                        "won't": ['will'],
+                        "shouldn't": ['should'],
+                        "couldn't": ['could'],
+                        "wouldn't": ['would'],
+                        "mustn't": ['must'],
+                        "mightn't": ['might'],
+                        "mayn't": ['may'],
+                        "shan't": ['shall'],
+                        "needn't": ['need'],
+                        "oughtn't": ['ought'],
+                        "i'll": ['will'],
+                        "you'll": ['will'],
+                        "he'll": ['will'],
+                        "she'll": ['will'],
+                        "it'll": ['will'],
+                        "we'll": ['will'],
+                        "they'll": ['will'],
+                        "i'd": ['would'], // could also be 'had' but often modal
+                        "you'd": ['would'],
+                        "he'd": ['would'],
+                        "she'd": ['would'],
+                        "it'd": ['would'],
+                        "we'd": ['would'],
+                        "they'd": ['would']
+                    };
+
+                    if (contractions[word]) {
+                        wordsToCheck = contractions[word];
+                    }
+                }
+
+                wordsToCheck.forEach(wordToCheck => {
+                    // Check epistemic modals
+                    if (modals.epistemic.list.includes(wordToCheck)) {
+                        modals.epistemic.found.set(wordToCheck, (modals.epistemic.found.get(wordToCheck) || 0) + 1);
+                    }
+
+                    // Check deontic modals (avoid double counting with epistemic)
+                    if (modals.deontic.list.includes(wordToCheck)) {
+                        // Context-sensitive: some modals can be both
+                        // For simplicity, we'll count shared modals in both categories
+                        modals.deontic.found.set(wordToCheck, (modals.deontic.found.get(wordToCheck) || 0) + 1);
+                    }
+
+                    // Special cases for words that appear in phrases
+                    if (['need', 'needs', 'needed'].includes(wordToCheck)) {
+                        // Only count if not part of "need to" phrase (rough approximation)
+                        modals.deontic.found.set(wordToCheck, (modals.deontic.found.get(wordToCheck) || 0) + 1);
+                    }
+                });
+            });
+
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            let total = 0;
+
+            Object.entries(modals).forEach(([category, data]) => {
+                const categoryTotal = Array.from(data.found.values()).reduce((sum, count) => sum + count, 0);
+                total += categoryTotal;
+
+                document.getElementById(category + 'Count').textContent = categoryTotal;
+
+                const foundElement = document.getElementById(category + 'Found');
+                if (data.found.size > 0) {
+                    const foundList = Array.from(data.found.entries())
+                        .map(([modal, count]) => `${modal} (${count})`)
+                        .join(', ');
+                    foundElement.textContent = foundList;
+                } else {
+                    foundElement.textContent = '';
+                }
+            });
+
+            document.getElementById('totalCount').textContent = total;
+        }
+
+        function clearAll() {
+            document.getElementById('textInput').value = '';
+            Object.values(modals).forEach(category => category.found.clear());
+            updateDisplay();
+        }
+
+        let timeout;
+        document.getElementById('textInput').addEventListener('input', function () {
+            clearTimeout(timeout);
+            timeout = setTimeout(countModals, 300);
+        });
+
+        updateDisplay();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pronoun Counter</title>
+  <link rel="stylesheet" crossorigin href="./assets/style-e690avWC.css">
+  <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V8M189ZSBQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-V8M189ZSBQ');
+    </script>
+</head>
+<body>
+     <div class="container" style="display:flex; justify-content:space-between;">
+        <span>NEA Utils</span>
+        <div style="display:flex; gap:10px;">
+            <a href="./sentences">Sentences</a>
+            <a href="./pronouns">Pronouns</a>
+            <a href="./modal">Modal Verbs</a>
+            <a href="./politeness">Politeness</a>
+            <a href="./sentiment">Sentiment</a>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <header class="header">
+            <h1>Pronoun Counter</h1>
+            <p class="subtitle">Count first, second, and third person pronouns in your text</p>
+        </header>
+
+        <div class="input-section">
+            <div class="input-wrapper">
+                <textarea id="textInput" placeholder="Paste your text here..."></textarea>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="btn-primary" onclick="countPronouns()">Count</button>
+            <button class="btn-secondary" onclick="clearAll()">Clear</button>
+        </div>
+
+        <div id="statsContainer">
+            <div class="stat-item">
+                <div class="panel-title">First Person</div>
+                <div class="subtitle">Speaker/writer references</div>
+                <div class="stat-value" id="firstPersonCount">0</div>
+                <div class="stat-percentage">I, me, my, mine, myself, we, us, our, ours, ourselves</div>
+                <div class="stat-details" id="firstPersonFound"></div>
+            </div>
+
+            <div class="stat-item">
+                <div class="panel-title">Second Person</div>
+                <div class="subtitle">Listener/reader references</div>
+                <div class="stat-value" id="secondPersonCount">0</div>
+                <div class="stat-percentage">you, your, yours, yourself, yourselves</div>
+                <div class="stat-details" id="secondPersonFound"></div>
+            </div>
+
+            <div class="stat-item">
+                <div class="panel-title">Third Person</div>
+                <div class="subtitle">External person/thing references</div>
+                <div class="stat-value" id="thirdPersonCount">0</div>
+                <div class="stat-percentage">he, him, his, himself, she, her, hers, herself, it, its, itself, they, them, their, theirs, themselves</div>
+                <div class="stat-details" id="thirdPersonFound"></div>
+            </div>
+
+            <div class="stat-item">
+                <div class="panel-title">Total Pronouns</div>
+                <div class="stat-value" id="totalCount" style="font-size: 2rem;">0</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const pronouns = {
+            first: {
+                list: ['i', 'me', 'my', 'mine', 'myself', 'we', 'us', 'our', 'ours', 'ourselves'],
+                found: new Map()
+            },
+            second: {
+                list: ['you', 'your', 'yours', 'yourself', 'yourselves'],
+                found: new Map()
+            },
+            third: {
+                list: ['he', 'him', 'his', 'himself', 'she', 'her', 'hers', 'herself', 'it', 'its', 'itself', 'they', 'them', 'their', 'theirs', 'themselves'],
+                found: new Map()
+            }
+        };
+
+        function countPronouns() {
+            const text = document.getElementById('textInput').value.toLowerCase();
+            
+            Object.values(pronouns).forEach(category => category.found.clear());
+            
+            if (!text.trim()) {
+                updateDisplay();
+                return;
+            }
+            
+            const words = text.match(/\b[\w']+\b/g) || [];
+            
+            words.forEach(word => {
+                let wordsToCheck = [word];
+                
+                if (word.includes("'")) {
+                    const contractions = {
+                        "i'm": ['i'], "i've": ['i'], "i'll": ['i'], "i'd": ['i'],
+                        "we're": ['we'], "we've": ['we'], "we'll": ['we'], "we'd": ['we'],
+                        "you're": ['you'], "you've": ['you'], "you'll": ['you'], "you'd": ['you'],
+                        "he's": ['he'], "he'll": ['he'], "he'd": ['he'],
+                        "she's": ['she'], "she'll": ['she'], "she'd": ['she'],
+                        "it's": ['it'], "it'll": ['it'], "it'd": ['it'],
+                        "they're": ['they'], "they've": ['they'], "they'll": ['they'], "they'd": ['they']
+                    };
+                    
+                    if (contractions[word]) {
+                        wordsToCheck = contractions[word];
+                    }
+                }
+                
+                wordsToCheck.forEach(wordToCheck => {
+                    Object.entries(pronouns).forEach(([category, data]) => {
+                        if (data.list.includes(wordToCheck)) {
+                            data.found.set(wordToCheck, (data.found.get(wordToCheck) || 0) + 1);
+                        }
+                    });
+                });
+            });
+            
+            updateDisplay();
+        }
+        
+        function updateDisplay() {
+            let total = 0;
+            
+            Object.entries(pronouns).forEach(([category, data]) => {
+                const categoryTotal = Array.from(data.found.values()).reduce((sum, count) => sum + count, 0);
+                total += categoryTotal;
+                
+                document.getElementById(category + 'PersonCount').textContent = categoryTotal;
+                
+                const foundElement = document.getElementById(category + 'PersonFound');
+                if (data.found.size > 0) {
+                    const foundList = Array.from(data.found.entries())
+                        .map(([pronoun, count]) => `${pronoun} (${count})`)
+                        .join(', ');
+                    foundElement.textContent = foundList;
+                } else {
+                    foundElement.textContent = '';
+                }
+            });
+            
+            document.getElementById('totalCount').textContent = total;
+        }
+        
+        function clearAll() {
+            document.getElementById('textInput').value = '';
+            Object.values(pronouns).forEach(category => category.found.clear());
+            updateDisplay();
+        }
+        
+        let timeout;
+        document.getElementById('textInput').addEventListener('input', function() {
+            clearTimeout(timeout);
+            timeout = setTimeout(countPronouns, 300);
+        });
+        
+        updateDisplay();
+    </script>
+</body>
+</html>

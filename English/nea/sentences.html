@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentence Counter</title>
+
+  <link rel="stylesheet" crossorigin href="./assets/style-e690avWC.css">
+  <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V8M189ZSBQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-V8M189ZSBQ');
+    </script>
+</head>
+<body>
+     <div class="container" style="display:flex; justify-content:space-between;">
+        <span>NEA Utils</span>
+        <div style="display:flex; gap:10px;">
+            <a href="./sentences">Sentences</a>
+            <a href="./pronouns">Pronouns</a>
+            <a href="./modal">Modal Verbs</a>
+            <a href="./politeness">Politeness</a>
+            <a href="./sentiment">Sentiment</a>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <header class="header">
+            <h1>Sentence Counter</h1>
+            <p class="subtitle">Count sentences, words, and calculate average words per sentence</p>
+        </header>
+
+        <div class="input-section">
+            <div class="input-wrapper">
+                <textarea id="textInput" placeholder="Paste your text here..."></textarea>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="btn-primary" onclick="countText()">Count</button>
+            <button class="btn-secondary" onclick="clearAll()">Clear</button>
+        </div>
+
+        <div id="statsContainer">
+            <div class="stat-item">
+                <div class="panel-title">Sentences</div>
+                <div class="subtitle">Total number of sentences</div>
+                <div class="stat-value" id="sentenceCount">0</div>
+                <div class="stat-percentage">Sentences ending with . ! ? or implied endings</div>
+                <div class="stat-details" id="sentenceDetails"></div>
+            </div>
+
+            <div class="stat-item">
+                <div class="panel-title">Words</div>
+                <div class="subtitle">Total number of words</div>
+                <div class="stat-value" id="wordCount">0</div>
+                <div class="stat-percentage">All words including contractions and hyphenated words</div>
+                <div class="stat-details" id="wordDetails"></div>
+            </div>
+
+            <div class="stat-item">
+                <div class="panel-title">Characters</div>
+                <div class="subtitle">Character count with and without spaces</div>
+                <div class="stat-value" id="charCount">0</div>
+                <div class="stat-percentage">Total characters (excluding spaces): <span id="charNoSpaces">0</span></div>
+                <div class="stat-details" id="charDetails"></div>
+            </div>
+
+            <div class="stat-item">
+                <div class="panel-title">Average Words per Sentence</div>
+                <div class="stat-value" id="avgWordsPerSentence" style="font-size: 2rem;">0.0</div>
+                <div class="stat-details" id="avgDetails"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function countText() {
+            const text = document.getElementById('textInput').value;
+            
+            if (!text.trim()) {
+                updateDisplay(0, 0, 0, 0, 0.0);
+                return;
+            }
+            
+            // Count sentences
+            const sentences = countSentences(text);
+            
+            // Count words
+            const words = countWords(text);
+            
+            // Count characters
+            const totalChars = text.length;
+            const charsNoSpaces = text.replace(/\s/g, '').length;
+            
+            // Calculate average words per sentence
+            const avgWordsPerSentence = sentences > 0 ? (words / sentences) : 0;
+            
+            updateDisplay(sentences, words, totalChars, charsNoSpaces, avgWordsPerSentence);
+        }
+        
+        function countSentences(text) {
+            if (!text.trim()) return 0;
+            
+            // Split by sentence-ending punctuation
+            let sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+            
+            // Handle cases where text doesn't end with punctuation
+            const lastChar = text.trim().slice(-1);
+            if (!['.', '!', '?'].includes(lastChar) && text.trim().length > 0) {
+                // If the last split resulted in an empty string, we already counted it
+                // Otherwise, we need to ensure we count the final sentence
+                const splitResult = text.split(/[.!?]+/);
+                if (splitResult[splitResult.length - 1].trim().length > 0) {
+                    // The last part has content and wasn't counted
+                }
+            }
+            
+            return Math.max(1, sentences.length);
+        }
+        
+        function countWords(text) {
+            if (!text.trim()) return 0;
+            
+            // Match words including contractions and hyphenated words
+            const words = text.match(/\b[\w''-]+\b/g);
+            return words ? words.length : 0;
+        }
+        
+        function updateDisplay(sentences, words, totalChars, charsNoSpaces, avgWordsPerSentence) {
+            document.getElementById('sentenceCount').textContent = sentences;
+            document.getElementById('wordCount').textContent = words;
+            document.getElementById('charCount').textContent = totalChars;
+            document.getElementById('charNoSpaces').textContent = charsNoSpaces;
+            document.getElementById('avgWordsPerSentence').textContent = avgWordsPerSentence.toFixed(1);
+            
+            // Update details
+            if (sentences > 0) {
+                document.getElementById('sentenceDetails').textContent = 
+                    `${sentences} sentence${sentences !== 1 ? 's' : ''} detected`;
+            } else {
+                document.getElementById('sentenceDetails').textContent = '';
+            }
+            
+            if (words > 0) {
+                document.getElementById('wordDetails').textContent = 
+                    `${words} word${words !== 1 ? 's' : ''} counted`;
+            } else {
+                document.getElementById('wordDetails').textContent = '';
+            }
+            
+            if (totalChars > 0) {
+                const spaceCount = totalChars - charsNoSpaces;
+                document.getElementById('charDetails').textContent = 
+                    `${spaceCount} space${spaceCount !== 1 ? 's' : ''} and whitespace characters`;
+            } else {
+                document.getElementById('charDetails').textContent = '';
+            }
+            
+            if (sentences > 0 && words > 0) {
+                let complexity = '';
+                if (avgWordsPerSentence < 10) {
+                    complexity = 'Short sentences (simple)';
+                } else if (avgWordsPerSentence < 20) {
+                    complexity = 'Medium sentences (standard)';
+                } else if (avgWordsPerSentence < 30) {
+                    complexity = 'Long sentences (complex)';
+                } else {
+                    complexity = 'Very long sentences (highly complex)';
+                }
+                document.getElementById('avgDetails').textContent = complexity;
+            } else {
+                document.getElementById('avgDetails').textContent = '';
+            }
+        }
+        
+        function clearAll() {
+            document.getElementById('textInput').value = '';
+            updateDisplay(0, 0, 0, 0, 0.0);
+        }
+        
+        let timeout;
+        document.getElementById('textInput').addEventListener('input', function() {
+            clearTimeout(timeout);
+            timeout = setTimeout(countText, 300);
+        });
+        
+        // Initialize display
+        updateDisplay(0, 0, 0, 0, 0.0);
+    </script>
+</body>
+</html>
