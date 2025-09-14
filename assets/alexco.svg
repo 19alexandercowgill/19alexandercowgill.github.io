@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 412.98 197.25">
+  <!-- Generator: Adobe Illustrator 29.4.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 152)  -->
+  <defs>
+    <style>
+      .st0 {
+        font-family: ArialMT, Arial;
+        font-size: 51.62px;
+      }
+
+      .st0, .st1, .st2 {
+        isolation: isolate;
+      }
+
+      .st0, .st2 {
+        fill: #3a4f6b;
+      }
+
+      .st3 {
+        fill: #9bd4cc;
+      }
+
+      .st4 {
+        fill: #395077;
+      }
+
+      .st2 {
+        font-family: Arial-BoldMT, Arial;
+        font-size: 61.95px;
+        font-weight: 700;
+      }
+    </style>
+  </defs>
+  <g>
+    <g class="st1">
+      <text class="st2" transform="translate(141.11 69.95)"><tspan x="0" y="0">AlexCo.</tspan></text>
+    </g>
+    <g class="st1">
+      <text class="st2" transform="translate(136.59 122.41)"><tspan x="0" y="0">DEV</tspan></text>
+    </g>
+    <g class="st1">
+      <text class="st0" transform="translate(136.5 168.77)"><tspan x="0" y="0">Studios</tspan></text>
+    </g>
+  </g>
+  <path class="st4" d="M64.73,33.69l-36,36c-3.31,3.31-3.31,8.69,0,12l36,36c3.31,3.31,3.31,8.69,0,12h0c-3.31,3.31-8.69,3.31-12,0L4.73,81.69c-3.31-3.31-3.31-8.69,0-12L52.73,21.69c3.31-3.31,8.69-3.31,12,0h0c3.31,3.31,3.31,8.69,0,12Z"/>
+  <path class="st3" d="M83.41,21.44l49.23,49.23c2.97,2.97,2.97,7.8,0,10.77l-49.23,49.23c-2.97,2.97-7.8,2.97-10.77,0l-1.23-1.23c-2.97-2.97-2.97-7.8,0-10.77l37.23-37.23c2.97-2.97,2.97-7.8,0-10.77h0c-5.63-5.63-27.09-27.09-37.23-37.23-2.97-2.97-2.97-7.79,0-10.77l1.23-1.23c2.97-2.97,7.8-2.97,10.77,0Z"/>
+</svg>

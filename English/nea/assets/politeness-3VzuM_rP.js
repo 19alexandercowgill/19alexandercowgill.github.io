@@ -1,7 +1,6 @@
 import{_ as c}from"./transformers.web-C-McvHSc.js";/* empty css              */class h{classifier=null;isAnalyzing=!1;textInput;analyzeBtn;clearBtn;resultDiv;highlightDiv;loadingIndicator;statsContainer;charCounter;modelLoadingContainer;progressBar;progressPercentage;modelLoadingTitle;colorMap={polite:{color:"#10b981",bg:"rgba(16, 185, 129, 0.15)"},"somewhat polite":{color:"#f59e0b",bg:"rgba(245, 158, 11, 0.15)"},neutral:{color:"#6b7280",bg:"rgba(107, 114, 128, 0.15)"},impolite:{color:"#ef4444",bg:"rgba(239, 68, 68, 0.15)"},"not polite":{color:"#ef4444",bg:"rgba(239, 68, 68, 0.15)"}};constructor(){this.initializeDOM(),this.setupEventListeners(),this.initializeModel()}initializeDOM(){const t=document.getElementById("app");t.innerHTML=`
    <div class="container" style="display:flex; justify-content:space-between;">
-  <span>NEA Utils</span>
-  <div style="display:flex; gap:10px;">
+ <a href="./">NEA Utils</a>  <div style="display:flex; gap:10px;">
     <a href="./sentences">Sentences</a>
             <a href="./pronouns">Pronouns</a>
             <a href="./modal">Modal Verbs</a>
